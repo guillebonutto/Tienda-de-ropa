@@ -1,4 +1,4 @@
 package com.mindhub.tiendaderopa.modelos;
 
-public class Articulos {
+public class Articulo {
 }
