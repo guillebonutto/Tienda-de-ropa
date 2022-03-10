@@ -6,23 +6,24 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Articulo {
+public class Carrito {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long id;
 
+
     private String nombrePrenda;
-    private int precio;
+    private int balance;
     private int stock;
 
-    public Articulo() {
+    public Carrito() {
     }
 
-    public Articulo(String nombrePrenda, int precio, int stock) {
+    public Carrito(String nombrePrenda, int balance, int stock) {
         this.nombrePrenda = nombrePrenda;
-        this.precio = precio;
+        this.balance = balance;
         this.stock = stock;
     }
 
@@ -38,12 +39,12 @@ public class Articulo {
         this.nombrePrenda = nombrePrenda;
     }
 
-    public int getPrecio() {
-        return precio;
+    public int getBalance() {
+        return balance;
     }
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     public int getStock() {
