@@ -3,9 +3,14 @@ package com.mindhub.tiendaderopa.controllers;
 
 import com.mindhub.tiendaderopa.dtos.ArticuloDTO;
 import com.mindhub.tiendaderopa.dtos.ClienteDTO;
+import com.mindhub.tiendaderopa.modelos.Cliente;
 import com.mindhub.tiendaderopa.repositorios.ClienteRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,5 +27,21 @@ public class ClienteControlador {
     public List<ClienteDTO> getArticulos(){
         return clienteRepositorio.findAll().stream().map(cliente -> new ClienteDTO(cliente)).collect(Collectors.toList());
     }
+
+    @PostMapping("/clientes")
+    public ResponseEntity<Object> registrarCliente(
+            @RequestParam String nombre, @RequestParam String apellido,
+            @RequestParam String email , @RequestParam String password){
+
+        if(nombre.isEmpty() || apellido.isEmpty() || email.isEmpty() || password.isEmpty()){
+            return new ResponseEntity<>("datos invalidos", HttpStatus.FORBIDDEN);
+        }
+
+        Cliente cliente = new Cliente(nombre,apellido,email,password);
+        clienteRepositorio.save(cliente);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+
+    }
+
 
 }
