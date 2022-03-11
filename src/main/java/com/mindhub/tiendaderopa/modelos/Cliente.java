@@ -2,10 +2,9 @@ package com.mindhub.tiendaderopa.modelos;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Cliente {
@@ -13,18 +12,20 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private Long Id;
+    private long Id;
 
     private String nombre;
     private String apellido;
     private String correoElectrónico;
     private String password;
 
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    private Set<ClienteArticulo> clienteArticulos = new HashSet<>();
+
     public Cliente() {
     }
 
-    public Cliente(long id, String nombre, String apellido, String correoElectrónico, String password) {
-        Id = id;
+    public Cliente(String nombre, String apellido, String correoElectrónico, String password) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correoElectrónico = correoElectrónico;
@@ -65,5 +66,13 @@ public class Cliente {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<ClienteArticulo> getClienteArticulos() {
+        return clienteArticulos;
+    }
+
+    public void setClienteArticulos(Set<ClienteArticulo> clienteArticulos) {
+        this.clienteArticulos = clienteArticulos;
     }
 }

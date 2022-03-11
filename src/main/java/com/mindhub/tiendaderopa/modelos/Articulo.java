@@ -2,10 +2,11 @@ package com.mindhub.tiendaderopa.modelos;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Articulo {
@@ -13,26 +14,29 @@ public class Articulo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private Long id;
+    private long id;
 
     private String nombrePrenda;
     private int precio;
     private int stock;
-    private Talles talle;
+    private List<String> talles = new ArrayList<>();
     private TipoArticulo tipoArticulo;
+
+    @OneToMany(mappedBy = "articulo", fetch = FetchType.EAGER)
+    private Set<ClienteArticulo> clienteArticulos = new HashSet<>();
 
     public Articulo() {
     }
 
-    public Articulo(String nombrePrenda, int precio, int stock, Talles talle, TipoArticulo tipoArticulo){
+    public Articulo(String nombrePrenda, int precio, int stock, List<String> talles, TipoArticulo tipoArticulo) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.stock = stock;
-        this.talle = talle;
+        this.talles = talles;
         this.tipoArticulo = tipoArticulo;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -60,13 +64,27 @@ public class Articulo {
         this.stock = stock;
     }
 
-    public Talles getTalle() { return talle;}
+    public List<String> getTalles() {
+        return talles;
+    }
 
-    public void setTalle(Talles talle) { this.talle = talle; }
+    public void setTalles(List<String> talles) {
+        this.talles = talles;
+    }
 
-    public TipoArticulo getTipoArticulo() { return tipoArticulo; }
+    public TipoArticulo getTipoArticulo() {
+        return tipoArticulo;
+    }
 
-    public void setTipoArticulo(TipoArticulo tipoArticulo) { this.tipoArticulo = tipoArticulo; }
+    public void setTipoArticulo(TipoArticulo tipoArticulo) {
+        this.tipoArticulo = tipoArticulo;
+    }
 
+    public Set<ClienteArticulo> getClienteArticulos() {
+        return clienteArticulos;
+    }
 
+    public void setClienteArticulos(Set<ClienteArticulo> clienteArticulos) {
+        this.clienteArticulos = clienteArticulos;
+    }
 }

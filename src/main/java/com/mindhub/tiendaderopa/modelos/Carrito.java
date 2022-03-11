@@ -13,7 +13,7 @@ public class Carrito {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private Long id;
+    private long id;
 
 
     private String nombrePrenda;
@@ -29,7 +29,7 @@ public class Carrito {
         this.stock = stock;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

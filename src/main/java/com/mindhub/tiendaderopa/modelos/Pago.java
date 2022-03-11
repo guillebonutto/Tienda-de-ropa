@@ -14,7 +14,7 @@ public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private Long id;
+    private long id;
 
     private TipoPago tipo;
     private LocalDateTime fechayHora;
@@ -31,7 +31,7 @@ public class Pago {
         this.descripcion = descripcion;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
