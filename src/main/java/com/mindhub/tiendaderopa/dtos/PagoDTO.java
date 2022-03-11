@@ -1,38 +1,22 @@
-package com.mindhub.tiendaderopa.modelos;
+package com.mindhub.tiendaderopa.dtos;
 
-import org.hibernate.annotations.GenericGenerator;
+import com.mindhub.tiendaderopa.modelos.Pago;
+import com.mindhub.tiendaderopa.modelos.TipoPago;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-@Entity
-public class Pago {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
-    private Long id;
+public class PagoDTO {
 
     private TipoPago tipo;
     private LocalDateTime fechayHora;
     private double monto;
     private String descripcion;
 
-    public Pago() {
-    }
-
-    public Pago(TipoPago tipo, LocalDateTime fechayHora, double monto, String descripcion) {
-        this.tipo = tipo;
-        this.fechayHora = fechayHora;
-        this.monto = monto;
-        this.descripcion = descripcion;
-    }
-
-    public Long getId() {
-        return id;
+    public PagoDTO(Pago pago) {
+        this.tipo = pago.getTipo();
+        this.fechayHora = pago.getFechayHora();
+        this.monto = pago.getMonto();
+        this.descripcion = pago.getDescripcion();
     }
 
     public TipoPago getTipo() {

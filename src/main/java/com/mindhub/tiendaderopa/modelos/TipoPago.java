@@ -1,6 +1,6 @@
 package com.mindhub.tiendaderopa.modelos;
 
-public enum TipodePago {
+public enum TipoPago {
     MERCADOPAGO,
     TRANSFERENCIA,
     TARJETA
