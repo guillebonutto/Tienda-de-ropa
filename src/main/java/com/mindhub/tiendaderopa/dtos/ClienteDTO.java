@@ -9,14 +9,14 @@ public class ClienteDTO {
 
     private String nombre;
     private String apellido;
-    private String correoElectrónico;
+    private String email;
     private String password;
     private Set<ClienteArticulo> clienteArticulos;
 
     public ClienteDTO(Cliente cliente) {
         this.nombre = cliente.getNombre();
         this.apellido = cliente.getApellido();
-        this.correoElectrónico = cliente.getCorreoElectrónico();
+        this.email = cliente.getEmail();
         this.password = cliente.getPassword();
         this.clienteArticulos = cliente.getClienteArticulos();
     }
@@ -37,12 +37,12 @@ public class ClienteDTO {
         this.apellido = apellido;
     }
 
-    public String getCorreoElectrónico() {
-        return correoElectrónico;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreoElectrónico(String correoElectrónico) {
-        this.correoElectrónico = correoElectrónico;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -51,5 +51,13 @@ public class ClienteDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<ClienteArticulo> getClienteArticulos() {
+        return clienteArticulos;
+    }
+
+    public void setClienteArticulos(Set<ClienteArticulo> clienteArticulos) {
+        this.clienteArticulos = clienteArticulos;
     }
 }

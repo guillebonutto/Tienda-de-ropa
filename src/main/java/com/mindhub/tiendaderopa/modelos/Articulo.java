@@ -1,5 +1,6 @@
 package com.mindhub.tiendaderopa.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -68,6 +69,7 @@ public class Articulo {
         this.stock = stock;
     }
 
+    @JsonIgnore
     public Set<ClienteArticulo> getClienteArticulos() {
         return clienteArticulos;
     }
