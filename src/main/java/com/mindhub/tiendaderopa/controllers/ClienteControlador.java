@@ -18,7 +18,7 @@ public class ClienteControlador {
     @Autowired
     ClienteRepositorio clienteRepositorio;
 
-    @RequestMapping("/cliente")
+    @RequestMapping("/clientes")
     public List<ClienteDTO> getArticulos(){
         return clienteRepositorio.findAll().stream().map(cliente -> new ClienteDTO(cliente)).collect(Collectors.toList());
     }

@@ -19,7 +19,11 @@ public class Articulo {
     private String nombrePrenda;
     private int precio;
     private int stock;
+
+    @ElementCollection
+    @Column(name = "talles")
     private List<String> talles = new ArrayList<>();
+
     private TipoArticulo tipoArticulo;
 
     @OneToMany(mappedBy = "articulo", fetch = FetchType.EAGER)
@@ -28,12 +32,12 @@ public class Articulo {
     public Articulo() {
     }
 
-    public Articulo(String nombrePrenda, int precio, int stock, List<String> talles, TipoArticulo tipoArticulo) {
+    public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.stock = stock;
-        this.talles = talles;
         this.tipoArticulo = tipoArticulo;
+        this.talles = talles;
     }
 
     public long getId() {
@@ -64,6 +68,14 @@ public class Articulo {
         this.stock = stock;
     }
 
+    public Set<ClienteArticulo> getClienteArticulos() {
+        return clienteArticulos;
+    }
+
+    public void setClienteArticulos(Set<ClienteArticulo> clienteArticulos) {
+        this.clienteArticulos = clienteArticulos;
+    }
+
     public List<String> getTalles() {
         return talles;
     }
@@ -78,13 +90,5 @@ public class Articulo {
 
     public void setTipoArticulo(TipoArticulo tipoArticulo) {
         this.tipoArticulo = tipoArticulo;
-    }
-
-    public Set<ClienteArticulo> getClienteArticulos() {
-        return clienteArticulos;
-    }
-
-    public void setClienteArticulos(Set<ClienteArticulo> clienteArticulos) {
-        this.clienteArticulos = clienteArticulos;
     }
 }
