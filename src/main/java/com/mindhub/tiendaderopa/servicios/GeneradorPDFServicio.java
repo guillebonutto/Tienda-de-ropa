@@ -2,7 +2,6 @@ package com.mindhub.tiendaderopa.servicios;
 
 import com.lowagie.text.*;
 import com.lowagie.text.Font;
-import com.lowagie.text.Image;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
@@ -15,12 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
-import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
-public class GeneradorPDFServicios {
-    public void export(HttpServletResponse response, Pago pago, Carrito carrito, String amount) throws DocumentException, IOException {
+public class GeneradorPDFServicio {
+    public void export(HttpServletResponse response, Cliente cliente, Pago pago, Carrito carrito, String amount) throws DocumentException, IOException {
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, response.getOutputStream());
 
@@ -44,7 +42,7 @@ public class GeneradorPDFServicios {
         tabla.setSpacingBefore(10);
 
         escribirCabeceraTabla(tabla);
-        escribirDatosTabla(tabla, pago, carrito, amount);
+        escribirDatosTabla(tabla, cliente, pago, carrito, amount);
 
         Paragraph parrafo = new Paragraph("Resumen de compra");
         parrafo.setAlignment(Paragraph.ALIGN_CENTER);
@@ -83,7 +81,7 @@ public class GeneradorPDFServicios {
         cell.setPhrase(new Phrase("Monto", font));
     }
 
-    private void escribirDatosTabla(PdfPTable tabla, Pago pago, Carrito carrito, String amount) {
+    private void escribirDatosTabla(PdfPTable tabla, Cliente cliente, Pago pago, Carrito carrito, String amount) {
         PdfPCell newCell = new PdfPCell();
         newCell.setBackgroundColor(Color.WHITE);
         newCell.setPadding(5);

@@ -1,6 +1,5 @@
 package com.mindhub.tiendaderopa.modelos;
 
-
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
@@ -14,7 +13,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private long Id;
+    private Long Id;
 
     private String nombre;
     private String apellido;
