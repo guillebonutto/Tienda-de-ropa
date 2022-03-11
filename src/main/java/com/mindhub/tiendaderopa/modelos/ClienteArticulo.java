@@ -12,7 +12,7 @@ public class ClienteArticulo {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    private String tipo;
+    private TipoArticulo tipo;
     private String nombre;
     private double precio;
     private int cant;
@@ -28,7 +28,7 @@ public class ClienteArticulo {
     public ClienteArticulo() {
     }
 
-    public ClienteArticulo(String tipo, String nombre, double precio, int cant, Cliente cliente, Articulo articulo) {
+    public ClienteArticulo(TipoArticulo tipo, String nombre, double precio, int cant, Cliente cliente, Articulo articulo) {
         this.tipo = tipo;
         this.nombre = nombre;
         this.precio = precio;
@@ -41,11 +41,11 @@ public class ClienteArticulo {
         return id;
     }
 
-    public String getTipo() {
+    public TipoArticulo getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoArticulo tipo) {
         this.tipo = tipo;
     }
 
