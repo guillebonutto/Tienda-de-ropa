@@ -18,14 +18,18 @@ public class Articulo {
     private String nombrePrenda;
     private int precio;
     private int stock;
+    private Talles talle;
+    private TipoArticulo tipoArticulo;
 
     public Articulo() {
     }
 
-    public Articulo(String nombrePrenda, int precio, int stock) {
+    public Articulo(String nombrePrenda, int precio, int stock, Talles talle, TipoArticulo tipoArticulo){
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.stock = stock;
+        this.talle = talle;
+        this.tipoArticulo = tipoArticulo;
     }
 
     public Long getId() {
@@ -55,4 +59,14 @@ public class Articulo {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
+    public Talles getTalle() { return talle;}
+
+    public void setTalle(Talles talle) { this.talle = talle; }
+
+    public TipoArticulo getTipoArticulo() { return tipoArticulo; }
+
+    public void setTipoArticulo(TipoArticulo tipoArticulo) { this.tipoArticulo = tipoArticulo; }
+
+
 }
