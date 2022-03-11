@@ -1,5 +1,6 @@
 package com.mindhub.tiendaderopa.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -16,7 +17,7 @@ public class Cliente {
 
     private String nombre;
     private String apellido;
-    private String correoElectrónico;
+    private String correoElectronico;
     private String password;
 
     @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
@@ -25,10 +26,10 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellido, String correoElectrónico, String password) {
+    public Cliente(String nombre, String apellido, String correoElectronico, String password) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.correoElectrónico = correoElectrónico;
+        this.correoElectronico = correoElectronico;
         this.password = password;
     }
 
@@ -52,12 +53,12 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public String getCorreoElectrónico() {
-        return correoElectrónico;
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
-    public void setCorreoElectrónico(String correoElectrónico) {
-        this.correoElectrónico = correoElectrónico;
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 
     public String getPassword() {
@@ -67,7 +68,7 @@ public class Cliente {
     public void setPassword(String password) {
         this.password = password;
     }
-
+    @JsonIgnore
     public Set<ClienteArticulo> getClienteArticulos() {
         return clienteArticulos;
     }

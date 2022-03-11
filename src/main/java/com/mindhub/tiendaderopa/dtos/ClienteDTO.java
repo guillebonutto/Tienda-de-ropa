@@ -1,24 +1,38 @@
 package com.mindhub.tiendaderopa.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mindhub.tiendaderopa.modelos.Cliente;
 import com.mindhub.tiendaderopa.modelos.ClienteArticulo;
 
 import java.util.Set;
 
 public class ClienteDTO {
-
+    private long id;
     private String nombre;
     private String apellido;
-    private String correoElectrónico;
+    private String correoElectronico;
     private String password;
     private Set<ClienteArticulo> clienteArticulos;
 
     public ClienteDTO(Cliente cliente) {
+        this.id = cliente.getId();
         this.nombre = cliente.getNombre();
         this.apellido = cliente.getApellido();
-        this.correoElectrónico = cliente.getCorreoElectrónico();
+        this.correoElectronico = cliente.getCorreoElectronico();
         this.password = cliente.getPassword();
         this.clienteArticulos = cliente.getClienteArticulos();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public Set<ClienteArticulo> getClienteArticulos() {
+        return clienteArticulos;
+    }
+
+    public void setClienteArticulos(Set<ClienteArticulo> clienteArticulos) {
+        this.clienteArticulos = clienteArticulos;
     }
 
     public String getNombre() {
@@ -37,12 +51,12 @@ public class ClienteDTO {
         this.apellido = apellido;
     }
 
-    public String getCorreoElectrónico() {
-        return correoElectrónico;
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
-    public void setCorreoElectrónico(String correoElectrónico) {
-        this.correoElectrónico = correoElectrónico;
+    public void setCorreoElectronico(String correoElectrónico) {
+        this.correoElectronico = correoElectrónico;
     }
 
     public String getPassword() {
