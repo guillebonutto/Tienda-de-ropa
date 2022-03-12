@@ -8,28 +8,34 @@ import com.mindhub.tiendaderopa.repositorios.ClienteRepositorio;
 import com.mindhub.tiendaderopa.repositorios.PagoRepositorio;
 import com.mindhub.tiendaderopa.servicios.GeneradorPDFServicio;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.core.Authentication;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/*@RestController
-@RequestMapping("/api")*/
+@RestController
+@RequestMapping("/api")
 public class PDFExportarControlador {
-/*
+
     @Autowired
     GeneradorPDFServicio generadorPDFServicio;
 
     @Autowired
     ClienteRepositorio clienteRepositorio;
 
+    @Autowired
+    CarritoRepositorio carritoRepositorio;
+
+    @Autowired
+    PagoRepositorio pagoRepositorio;
+
     @GetMapping("/pdf/generate/{id}")
     public void generatePDF(HttpServletResponse response, Authentication authentication, @PathVariable long id, @RequestParam Pago pago, @RequestParam Carrito carrito, @RequestParam String amount ) throws IOException {
 
-        //Cliente currentClient = clienteRepositorio.findByEmail(authentication.getName());
-        *//*Pago pago = pagoRepositorio.findById(id).orElse(null);
-        Carrito carrito1 = carritoRepositorio.findById(currentClient.getId()).orElse(null);*//*
+        Cliente currentClient = clienteRepositorio.findByEmail(authentication.getName());
+        Pago pago1 = pagoRepositorio.findById(id).orElse(null);
+        Carrito carrito1 = carritoRepositorio.findById(currentClient.getId()).orElse(null);
 
         response.setContentType("application/pdf");
 
@@ -38,5 +44,5 @@ public class PDFExportarControlador {
         response.setHeader(headerKey, headerValue);
 
         generadorPDFServicio.export(response,currentClient, pago, carrito, amount);
-    }*/
+    }
 }

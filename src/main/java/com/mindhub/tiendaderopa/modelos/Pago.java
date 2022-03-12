@@ -20,12 +20,16 @@ public class Pago {
     private double monto;
     private String descripcion;
 
-    @OneToOne
+/*    @OneToOne
     @JoinColumn(name = "pagos_id", updatable = false)
+    private Cliente cliente;*/
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id")
     private Cliente cliente;
 
-/*    @OneToMany(mappedBy = "pagos", fetch = FetchType.EAGER)
-    private Set<Articulo> articulos = new HashSet<>();*/
+    @OneToMany(mappedBy = "pago", fetch = FetchType.EAGER)
+    private Set<Articulo> articulos = new HashSet<>();
 
     public Pago() {
     }

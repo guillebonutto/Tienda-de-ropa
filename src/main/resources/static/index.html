@@ -17,6 +17,7 @@
   </head>
   <body>
     <header>
+      <div id="app">
       <div class="logo">
         <a href="./index.html">ROSIER</a>
         </div>
@@ -32,8 +33,11 @@
         </ul>
 
         <div class="nav-btns">
-          <a href="#" class="btn-nav-i"><i class="fas fa-cart-plus"></i></a>
-          <a href="#" class="btn-nav-i"><i class="fas fa-search"></i></a>
+          <div class="buscador">
+            <input :class="collap">
+          </div>
+          <i @click="expandir" class="fas fa-search"></i>
+          <i class="fas fa-cart-plus"></i>
         </div>
       </nav>
       <div class="main">
@@ -58,6 +62,7 @@
           <img src="https://www.dior.com/couture/var/dior/storage/images/pushs-editos/folder-women-summer-22/224v13am706x5832/30732227-1-eng-GB/224v13am706x5832_1440_1200.jpg" />
         </div>
       </div>
+    </div>
     </header>
 	<main>
     <div class="videos">
@@ -68,7 +73,8 @@
   </div>
 	</main>
 
-	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./lib/main.js"></script>
 </body>
   </body>
 </html> 
