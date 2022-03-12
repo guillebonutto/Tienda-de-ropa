@@ -13,7 +13,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private long Id;
+    private long id;
 
     private String nombre;
     private String apellido;
@@ -34,7 +34,7 @@ public class Cliente {
     }
 
     public long getId() {
-        return Id;
+        return id;
     }
 
     public String getNombre() {
