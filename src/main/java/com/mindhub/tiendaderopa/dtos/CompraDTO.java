@@ -5,14 +5,14 @@ import com.mindhub.tiendaderopa.modelos.TipoCompra;
 
 import java.time.LocalDateTime;
 
-public class PagoDTO {
+public class CompraDTO {
 
     private TipoCompra tipo;
     private LocalDateTime fechayHora;
     private double monto;
 
 
-    public PagoDTO(Compra pago) {
+    public CompraDTO(Compra pago) {
         this.tipo = pago.getTipo();
         this.fechayHora = pago.getFechayHora();
         this.monto = pago.getMonto();
