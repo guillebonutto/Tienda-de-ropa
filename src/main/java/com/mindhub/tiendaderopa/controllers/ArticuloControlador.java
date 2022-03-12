@@ -32,7 +32,7 @@ public class ArticuloControlador {
     public ResponseEntity<Object> generarArticulo(
             @RequestParam String articulo, @RequestParam TipoArticulo tipo,
             @RequestParam List<String> talles, @RequestParam int precio,
-            @RequestParam int stock, @RequestParam byte[] imagen) {
+            @RequestParam int stock, @RequestParam String imagen) {
 
         if(articulo.isEmpty() || talles.size() == 0 || precio == 0 || stock == 0 ){
             return new ResponseEntity<>("datos invalidos",HttpStatus.FORBIDDEN);

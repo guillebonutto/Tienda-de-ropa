@@ -1,13 +1,10 @@
 package com.mindhub.tiendaderopa.modelos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Articulo {
@@ -29,8 +26,7 @@ public class Articulo {
 
 
 
-    @Lob
-    private byte[] imagen;
+    private String imagen;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "compra_id")
@@ -40,13 +36,12 @@ public class Articulo {
     public Articulo() {
     }
 
-    public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, byte[] imagen) {
+    public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, String imagen) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.stock = stock;
         this.tipoArticulo = tipoArticulo;
         this.talles = talles;
-        this.imagen = imagen;
     }
 
     public long getId() {
@@ -77,7 +72,6 @@ public class Articulo {
         this.stock = stock;
     }
 
-    @JsonIgnore
     public Compra getCompras() {
         return compras;
     }
@@ -102,10 +96,10 @@ public class Articulo {
         this.tipoArticulo = tipoArticulo;
     }
 
-    public byte[] getImagen() {
+    public String getImagen() {
      return imagen;  }
 
-    public void setImagen(byte[] imagen){
+    public void setImagen(String imagen){
     this.imagen = imagen; }
 
 }

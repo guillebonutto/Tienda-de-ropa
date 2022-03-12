@@ -1,5 +1,6 @@
 package com.mindhub.tiendaderopa.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -31,11 +32,11 @@ public class Compra {
     public Compra() {
     }
 
-    public Compra(TipoCompra tipo, LocalDateTime fechayHora, double monto) {
+    public Compra(TipoCompra tipo, LocalDateTime fechayHora, double monto, Cliente cliente) {
         this.tipo = tipo;
         this.fechayHora = fechayHora;
         this.monto = monto;
-
+        this.cliente = cliente;
     }
 
     public long getId() {
@@ -66,5 +67,20 @@ public class Compra {
         this.monto = monto;
     }
 
+    @JsonIgnore
+    public Cliente getCliente() {
+        return cliente;
+    }
 
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Set<Articulo> getArticulos() {
+        return articulos;
+    }
+
+    public void setArticulos(Set<Articulo> articulos) {
+        this.articulos = articulos;
+    }
 }
