@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Compra {
@@ -26,7 +28,7 @@ public class Compra {
     @JoinColumn(name = "client_id")
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "pago", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "compra", fetch = FetchType.EAGER)
     private Set<Articulo> articulos = new HashSet<>();
 
     public Compra() {
