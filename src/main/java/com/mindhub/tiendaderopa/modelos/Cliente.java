@@ -17,9 +17,16 @@ public class Cliente {
     private String email;
     private String password;
 
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    private Set<Pago> pagos = new HashSet<>();
 //    @JoinColumn(name = "pagos_id", referencedColumnName = "id")
+<<<<<<< HEAD
     @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
     private Compra pagos;
+=======
+/*    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private Pago pagos;*/
+>>>>>>> b72d4db413a9e9cfef09c3def2f588cd8fb4b58b
 
     public Cliente() {
     }
