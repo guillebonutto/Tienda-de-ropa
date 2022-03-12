@@ -29,15 +29,8 @@ public class Articulo {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-<<<<<<< HEAD
     @JoinColumn(name = "pagos_id")
-    private Set<Compra> pagos = new HashSet<>();
-*/
-=======
-    @JoinColumn(name = "articulos_id")
-    private Pago pago;
-
->>>>>>> b72d4db413a9e9cfef09c3def2f588cd8fb4b58b
+    private Set<Compra> compra = new HashSet<>();
 
     public Articulo() {
     }
@@ -89,25 +82,14 @@ public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArt
         this.stock = stock;
     }
 
-<<<<<<< HEAD
-/*    @JsonIgnore
-    public Set<Compra> getPagos() {
-        return pagos;
-    }
-
-    public void setPagos(Set<Compra> pagos) {
-        this.pagos = pagos;
-    }*/
-=======
     @JsonIgnore
-    public Pago getPagos() {
-        return pago;
+    public Set<Compra> getCompras() {
+        return compra;
     }
 
-    public void setPagos(Pago pago) {
-        this.pago = pago;
+    public void setCompras(Set<Compra> compra) {
+        this.compra = compra;
     }
->>>>>>> b72d4db413a9e9cfef09c3def2f588cd8fb4b58b
 
     public List<String> getTalles() {
         return talles;
