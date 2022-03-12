@@ -2,11 +2,10 @@ package com.mindhub.tiendaderopa.modelos;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Pago {
@@ -16,10 +15,21 @@ public class Pago {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    private TipoPago tipo;
     private LocalDateTime fechayHora;
+    private TipoPago tipo;
     private double monto;
     private String descripcion;
+
+/*    @OneToOne
+    @JoinColumn(name = "pagos_id", updatable = false)
+    private Cliente cliente;*/
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id")
+    private Cliente cliente;
+
+    @OneToMany(mappedBy = "pago", fetch = FetchType.EAGER)
+    private Set<Articulo> articulos = new HashSet<>();
 
     public Pago() {
     }

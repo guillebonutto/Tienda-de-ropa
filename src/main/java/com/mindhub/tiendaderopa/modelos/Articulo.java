@@ -1,5 +1,6 @@
 package com.mindhub.tiendaderopa.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -26,23 +27,33 @@ public class Articulo {
 
     private TipoArticulo tipoArticulo;
 
-    @Lob
-    private byte[] imagen;
 
-    @OneToMany(mappedBy = "articulo", fetch = FetchType.EAGER)
-    private Set<ClienteArticulo> clienteArticulos = new HashSet<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "articulos_id")
+    private Pago pago;
+
 
     public Articulo() {
     }
 
-    public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, byte[] imagen) {
+    public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.stock = stock;
         this.tipoArticulo = tipoArticulo;
         this.talles = talles;
-        this.imagen = imagen;
     }
+
+/*
+public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, Set<Pago> pagos) {
+    this.nombrePrenda = nombrePrenda;
+    this.precio = precio;
+    this.stock = stock;
+    this.tipoArticulo = tipoArticulo;
+    this.talles = talles;
+    this.pagos = pagos;
+}
+*/
 
     public long getId() {
         return id;
@@ -72,12 +83,13 @@ public class Articulo {
         this.stock = stock;
     }
 
-    public Set<ClienteArticulo> getClienteArticulos() {
-        return clienteArticulos;
+    @JsonIgnore
+    public Pago getPagos() {
+        return pago;
     }
 
-    public void setClienteArticulos(Set<ClienteArticulo> clienteArticulos) {
-        this.clienteArticulos = clienteArticulos;
+    public void setPagos(Pago pago) {
+        this.pago = pago;
     }
 
     public List<String> getTalles() {
@@ -96,9 +108,5 @@ public class Articulo {
         this.tipoArticulo = tipoArticulo;
     }
 
-    public byte[] getImagen() {
-     return imagen;  }
 
-    public void setImagen(byte[] imagen){
-    this.imagen = imagen; }
 }
