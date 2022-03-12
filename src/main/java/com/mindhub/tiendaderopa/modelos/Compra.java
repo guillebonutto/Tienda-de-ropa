@@ -19,24 +19,13 @@ public class Compra {
     private TipoCompra tipo;
     private double monto;
 
-
-/*    @OneToOne
-    @JoinColumn(name = "pagos_id", updatable = false)
-    private Cliente cliente;*/
-
-/*    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private Cliente cliente;
 
 
-    /*@OneToMany(mappedBy = "compra", fetch = FetchType.EAGER)*/
-    //*private Set<Articulo> articulos = new HashSet<>();
-
-    /*@OneToMany(mappedBy = "compra", fetch = FetchType.EAGER)
-
-    @OneToMany(mappedBy = "compra", fetch = FetchType.EAGER)
-
-    private Set<Articulo> articulos = new HashSet<>();*/
+    @OneToMany(mappedBy = "compras", fetch = FetchType.EAGER)
+    private Set<Articulo> articulos = new HashSet<>();
 
 
     public Compra() {

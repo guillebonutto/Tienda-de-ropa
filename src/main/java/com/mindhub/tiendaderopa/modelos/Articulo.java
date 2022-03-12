@@ -32,16 +32,10 @@ public class Articulo {
     @Lob
     private byte[] imagen;
 
-/*    @OneToMany(mappedBy = "articulo", fetch = FetchType.EAGER)
-    private Set<ClienteArticulo> clienteArticulos = new HashSet<>();*/
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "compra_id")
+    private Compra compras;
 
-    /*@ManyToOne(fetch = FetchType.EAGER)
-
-/*    @ManyToOne(fetch = FetchType.EAGER)
-
-
-    @JoinColumn(name = "pagos_id")
-    private Set<Compra> compra = new HashSet<>();*/
 
     public Articulo() {
     }
@@ -54,17 +48,6 @@ public class Articulo {
         this.talles = talles;
         this.imagen = imagen;
     }
-
-/*
-public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, Set<Compra> pagos) {
-    this.nombrePrenda = nombrePrenda;
-    this.precio = precio;
-    this.stock = stock;
-    this.tipoArticulo = tipoArticulo;
-    this.talles = talles;
-    this.pagos = pagos;
-}
-*/
 
     public long getId() {
         return id;
@@ -94,21 +77,14 @@ public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArt
         this.stock = stock;
     }
 
-
-     /*@JsonIgnore
-   public Set<Compra> getCompras() {
-
-    /*@JsonIgnore
-/*    @JsonIgnore
-
-    public Set<Compra> getCompras() {
-
-        return compra;
+    @JsonIgnore
+    public Compra getCompras() {
+        return compras;
     }
 
-    public void setCompras(Set<Compra> compra) {
-        this.compra = compra;
-    }*/
+    public void setCompras(Compra compras) {
+        this.compras = compras;
+    }
 
     public List<String> getTalles() {
         return talles;

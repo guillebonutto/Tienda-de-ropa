@@ -19,11 +19,9 @@ public class Cliente {
     private String email;
     private String password;
 
-/*    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
-    private Set<Compra> pagos = new HashSet<>();
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    private Set<Compra> compras = new HashSet<>();
 
-    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
-    private Compra compra;*/
 
     public Cliente() {
     }
@@ -71,11 +69,11 @@ public class Cliente {
         this.password = password;
     }
 
-/*    public Set<Compra> getPagos() {
-        return pagos;
+    public Set<Compra> getCompras() {
+        return compras;
     }
 
-    public void setPagos(Set<Compra> pagos) {
-        this.pagos = pagos;
-    }*/
+    public void setCompras(Set<Compra> compras) {
+        this.compras = compras;
+    }
 }
