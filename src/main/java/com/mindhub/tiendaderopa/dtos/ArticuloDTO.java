@@ -15,6 +15,7 @@ public class ArticuloDTO {
     private List<String> talles;
 
 
+
     public ArticuloDTO(Articulo articulo) {
         this.nombrePrenda = articulo.getNombrePrenda();
         this.precio = articulo.getPrecio();

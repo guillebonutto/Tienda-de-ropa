@@ -27,6 +27,8 @@ public class Articulo {
 
     private TipoArticulo tipoArticulo;
 
+
+
     @Lob
     private byte[] imagen;
 
@@ -34,7 +36,9 @@ public class Articulo {
     private Set<ClienteArticulo> clienteArticulos = new HashSet<>();*/
 
     /*@ManyToOne(fetch = FetchType.EAGER)
+
 /*    @ManyToOne(fetch = FetchType.EAGER)
+
 
     @JoinColumn(name = "pagos_id")
     private Set<Compra> compra = new HashSet<>();*/
@@ -90,10 +94,15 @@ public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArt
         this.stock = stock;
     }
 
+
+     /*@JsonIgnore
+   public Set<Compra> getCompras() {
+
     /*@JsonIgnore
 /*    @JsonIgnore
 
     public Set<Compra> getCompras() {
+
         return compra;
     }
 
@@ -122,4 +131,5 @@ public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArt
 
     public void setImagen(byte[] imagen){
     this.imagen = imagen; }
+
 }
