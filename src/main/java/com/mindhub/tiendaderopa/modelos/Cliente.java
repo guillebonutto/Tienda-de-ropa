@@ -12,15 +12,16 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private long Id;
+    private long id;
 
     private String nombre;
     private String apellido;
     private String email;
     private String password;
 
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
-    private Set<ClienteArticulo> clienteArticulos = new HashSet<>();
+//    @JoinColumn(name = "pagos_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private Pago pagos;
 
     public Cliente() {
     }
@@ -33,7 +34,7 @@ public class Cliente {
     }
 
     public long getId() {
-        return Id;
+        return id;
     }
 
     public String getNombre() {
@@ -68,11 +69,11 @@ public class Cliente {
         this.password = password;
     }
 
-    public Set<ClienteArticulo> getClienteArticulos() {
-        return clienteArticulos;
+/*    public Set<Pago> getPagos() {
+        return pagos;
     }
 
-    public void setClienteArticulos(Set<ClienteArticulo> clienteArticulos) {
-        this.clienteArticulos = clienteArticulos;
-    }
+    public void setPagos(Set<Pago> pagos) {
+        this.pagos = pagos;
+    }*/
 }
