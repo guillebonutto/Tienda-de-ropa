@@ -12,28 +12,31 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private long Id;
+    private long id;
 
     private String nombre;
     private String apellido;
-    private String correoElectrónico;
+    private String email;
     private String password;
 
     @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
-    private Set<ClienteArticulo> clienteArticulos = new HashSet<>();
+    private Set<Pago> pagos = new HashSet<>();
+//    @JoinColumn(name = "pagos_id", referencedColumnName = "id")
+/*    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private Pago pagos;*/
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellido, String correoElectrónico, String password) {
+    public Cliente(String nombre, String apellido, String email, String password) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.correoElectrónico = correoElectrónico;
+        this.email = email;
         this.password = password;
     }
 
     public long getId() {
-        return Id;
+        return id;
     }
 
     public String getNombre() {
@@ -52,12 +55,12 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public String getCorreoElectrónico() {
-        return correoElectrónico;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreoElectrónico(String correoElectrónico) {
-        this.correoElectrónico = correoElectrónico;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -68,11 +71,11 @@ public class Cliente {
         this.password = password;
     }
 
-    public Set<ClienteArticulo> getClienteArticulos() {
-        return clienteArticulos;
+/*    public Set<Pago> getPagos() {
+        return pagos;
     }
 
-    public void setClienteArticulos(Set<ClienteArticulo> clienteArticulos) {
-        this.clienteArticulos = clienteArticulos;
-    }
+    public void setPagos(Set<Pago> pagos) {
+        this.pagos = pagos;
+    }*/
 }

@@ -1,7 +1,6 @@
 package com.mindhub.tiendaderopa.controllers;
 
 
-import com.mindhub.tiendaderopa.dtos.ArticuloDTO;
 import com.mindhub.tiendaderopa.dtos.ClienteDTO;
 import com.mindhub.tiendaderopa.modelos.Cliente;
 import com.mindhub.tiendaderopa.repositorios.ClienteRepositorio;
