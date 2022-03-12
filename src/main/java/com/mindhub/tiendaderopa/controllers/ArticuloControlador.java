@@ -17,11 +17,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RestController
-@RequestMapping("/api")
+@RestController //le indicamos que hacemos un controlador rest
+@RequestMapping("/api") //relacionar el controlador con la ruta /api
 public class ArticuloControlador {
 
-    @Autowired
+    @Autowired //Inyección de dependencia
     ArticuloRepositorio articuloRepositorio;
 
     @RequestMapping("/articulos")

@@ -20,13 +20,14 @@ public class AutorizacionWeb extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("h2-console").hasAuthority("ADMIN")
                 .antMatchers("/index.html", "/lib/**", "/styles/**", "/images/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/clientes").permitAll()
                 .antMatchers("/**").permitAll();
 
         http.formLogin()
-                .usernameParameter("correoElectrónico")
-                .passwordParameter("contraseña")
+                .usernameParameter("email")
+                .passwordParameter("password")
                 .loginPage("/api/login");
 
         http.logout().logoutUrl("/api/logout");

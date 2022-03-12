@@ -3,6 +3,8 @@ package com.mindhub.tiendaderopa.modelos;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Cliente {
@@ -17,9 +19,11 @@ public class Cliente {
     private String email;
     private String password;
 
-//    @JoinColumn(name = "pagos_id", referencedColumnName = "id")
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    private Set<Compra> pagos = new HashSet<>();
+
     @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
-    private Compra pagos;
+    private Compra compra;
 
     public Cliente() {
     }
