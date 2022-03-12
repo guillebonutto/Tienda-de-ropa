@@ -27,8 +27,11 @@ public class Articulo {
 
     private TipoArticulo tipoArticulo;
 
-    @OneToMany(mappedBy = "articulo", fetch = FetchType.EAGER)
-    private Set<ClienteArticulo> clienteArticulos = new HashSet<>();
+/*
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "pagos_id")
+    private Set<Pago> pagos = new HashSet<>();
+*/
 
     public Articulo() {
     }
@@ -40,6 +43,17 @@ public class Articulo {
         this.tipoArticulo = tipoArticulo;
         this.talles = talles;
     }
+
+/*
+public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, Set<Pago> pagos) {
+    this.nombrePrenda = nombrePrenda;
+    this.precio = precio;
+    this.stock = stock;
+    this.tipoArticulo = tipoArticulo;
+    this.talles = talles;
+    this.pagos = pagos;
+}
+*/
 
     public long getId() {
         return id;
@@ -69,13 +83,14 @@ public class Articulo {
         this.stock = stock;
     }
 
-    public Set<ClienteArticulo> getClienteArticulos() {
-        return clienteArticulos;
+/*    @JsonIgnore
+    public Set<Pago> getPagos() {
+        return pagos;
     }
 
-    public void setClienteArticulos(Set<ClienteArticulo> clienteArticulos) {
-        this.clienteArticulos = clienteArticulos;
-    }
+    public void setPagos(Set<Pago> pagos) {
+        this.pagos = pagos;
+    }*/
 
     public List<String> getTalles() {
         return talles;
@@ -92,4 +107,6 @@ public class Articulo {
     public void setTipoArticulo(TipoArticulo tipoArticulo) {
         this.tipoArticulo = tipoArticulo;
     }
+
+
 }

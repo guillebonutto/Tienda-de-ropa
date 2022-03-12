@@ -1,6 +1,5 @@
 package com.mindhub.tiendaderopa.modelos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -17,19 +16,20 @@ public class Cliente {
 
     private String nombre;
     private String apellido;
-    private String correoElectronico;
+    private String email;
     private String password;
 
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
-    private Set<ClienteArticulo> clienteArticulos = new HashSet<>();
+//    @JoinColumn(name = "pagos_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private Pago pagos;
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellido, String correoElectronico, String password) {
+    public Cliente(String nombre, String apellido, String email, String password) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.correoElectronico = correoElectronico;
+        this.email = email;
         this.password = password;
     }
 
@@ -53,12 +53,12 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public String getCorreoElectronico() {
-        return correoElectronico;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -68,12 +68,12 @@ public class Cliente {
     public void setPassword(String password) {
         this.password = password;
     }
-    @JsonIgnore
-    public Set<ClienteArticulo> getClienteArticulos() {
-        return clienteArticulos;
+
+/*    public Set<Pago> getPagos() {
+        return pagos;
     }
 
-    public void setClienteArticulos(Set<ClienteArticulo> clienteArticulos) {
-        this.clienteArticulos = clienteArticulos;
-    }
+    public void setPagos(Set<Pago> pagos) {
+        this.pagos = pagos;
+    }*/
 }

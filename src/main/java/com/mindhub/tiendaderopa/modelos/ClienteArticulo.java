@@ -17,25 +17,25 @@ public class ClienteArticulo {
     private String nombre;
     private double precio;
     private int cant;
-
+/*
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "articulo_id")
-    private Articulo articulo;
+    private Articulo articulo;*/
 
     public ClienteArticulo() {
     }
 
-    public ClienteArticulo(TipoArticulo tipo, String nombre, double precio, int cant, Cliente cliente, Articulo articulo) {
+    public ClienteArticulo(TipoArticulo tipo, String nombre, double precio, int cant) {
         this.tipo = tipo;
         this.nombre = nombre;
         this.precio = precio;
         this.cant = cant;
-        this.cliente = cliente;
-        this.articulo = articulo;
+/*        this.cliente = cliente;
+        this.articulo = articulo;*/
     }
 
     public long getId() {
@@ -74,7 +74,7 @@ public class ClienteArticulo {
         this.cant = cant;
     }
 
-    public Cliente getCliente() {
+/*    public Cliente getCliente() {
         return cliente;
     }
 
@@ -88,5 +88,5 @@ public class ClienteArticulo {
 
     public void setArticulo(Articulo articulo) {
         this.articulo = articulo;
-    }
+    }*/
 }

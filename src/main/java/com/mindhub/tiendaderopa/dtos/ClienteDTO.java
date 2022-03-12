@@ -1,38 +1,25 @@
 package com.mindhub.tiendaderopa.dtos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mindhub.tiendaderopa.modelos.Cliente;
 import com.mindhub.tiendaderopa.modelos.ClienteArticulo;
+import com.mindhub.tiendaderopa.modelos.Pago;
 
 import java.util.Set;
 
 public class ClienteDTO {
-    private long id;
+
     private String nombre;
     private String apellido;
-    private String correoElectronico;
+    private String email;
     private String password;
-    private Set<ClienteArticulo> clienteArticulos;
+//    private Set<Pago> pagos;
 
     public ClienteDTO(Cliente cliente) {
-        this.id = cliente.getId();
         this.nombre = cliente.getNombre();
         this.apellido = cliente.getApellido();
-        this.correoElectronico = cliente.getCorreoElectronico();
+        this.email = cliente.getEmail();
         this.password = cliente.getPassword();
-        this.clienteArticulos = cliente.getClienteArticulos();
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public Set<ClienteArticulo> getClienteArticulos() {
-        return clienteArticulos;
-    }
-
-    public void setClienteArticulos(Set<ClienteArticulo> clienteArticulos) {
-        this.clienteArticulos = clienteArticulos;
+//        this.pagos = cliente.getPagos();
     }
 
     public String getNombre() {
@@ -51,12 +38,12 @@ public class ClienteDTO {
         this.apellido = apellido;
     }
 
-    public String getCorreoElectronico() {
-        return correoElectronico;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreoElectronico(String correoElectrónico) {
-        this.correoElectronico = correoElectrónico;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -66,4 +53,12 @@ public class ClienteDTO {
     public void setPassword(String password) {
         this.password = password;
     }
+
+/*    public Set<Pago> getPagos() {
+        return pagos;
+    }
+
+    public void setPagos(Set<Pago> pagos) {
+        this.pagos = pagos;
+    }*/
 }
