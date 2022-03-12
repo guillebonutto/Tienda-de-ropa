@@ -19,11 +19,11 @@ public class Cliente {
     private String email;
     private String password;
 
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+/*    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
     private Set<Compra> pagos = new HashSet<>();
 
     @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
-    private Compra compra;
+    private Compra compra;*/
 
     public Cliente() {
     }
