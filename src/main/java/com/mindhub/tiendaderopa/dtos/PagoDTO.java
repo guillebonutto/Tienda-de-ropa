@@ -10,13 +10,13 @@ public class PagoDTO {
     private TipoCompra tipo;
     private LocalDateTime fechayHora;
     private double monto;
-    private String descripcion;
+
 
     public PagoDTO(Compra pago) {
         this.tipo = pago.getTipo();
         this.fechayHora = pago.getFechayHora();
         this.monto = pago.getMonto();
-        this.descripcion = pago.getDescripcion();
+
     }
 
     public TipoCompra getTipo() {
@@ -43,11 +43,5 @@ public class PagoDTO {
         this.monto = monto;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 }

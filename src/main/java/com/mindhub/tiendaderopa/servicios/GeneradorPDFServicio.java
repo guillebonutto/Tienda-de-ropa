@@ -104,9 +104,7 @@ public class GeneradorPDFServicio {
         newCell.setPhrase(new Phrase(String.valueOf(pago.getTipo()), font));
         tabla.addCell(newCell);
 
-        newCell.setPhrase(new Phrase(String.valueOf(pago.getDescripcion()), font));
-        tabla.addCell(newCell);
-        numero.getAndIncrement();
+
     }
 
     public static boolean esPar(int numero) {
