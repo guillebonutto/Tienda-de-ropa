@@ -1,29 +1,29 @@
 package com.mindhub.tiendaderopa.dtos;
 
-import com.mindhub.tiendaderopa.modelos.Pago;
-import com.mindhub.tiendaderopa.modelos.TipoPago;
+import com.mindhub.tiendaderopa.modelos.Compra;
+import com.mindhub.tiendaderopa.modelos.TipoCompra;
 
 import java.time.LocalDateTime;
 
 public class PagoDTO {
 
-    private TipoPago tipo;
+    private TipoCompra tipo;
     private LocalDateTime fechayHora;
     private double monto;
     private String descripcion;
 
-    public PagoDTO(Pago pago) {
+    public PagoDTO(Compra pago) {
         this.tipo = pago.getTipo();
         this.fechayHora = pago.getFechayHora();
         this.monto = pago.getMonto();
         this.descripcion = pago.getDescripcion();
     }
 
-    public TipoPago getTipo() {
+    public TipoCompra getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoPago tipo) {
+    public void setTipo(TipoCompra tipo) {
         this.tipo = tipo;
     }
 

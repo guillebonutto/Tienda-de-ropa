@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class TiendaDeRopaApplication {
@@ -26,7 +25,7 @@ public class TiendaDeRopaApplication {
 			Cliente cliente = new Cliente("Lara", "Soto", "lara@hotmail.com","lara");
 			clienteRepositorio.save(cliente);
 
-			Pago pago = new Pago(TipoPago.TARJETA, LocalDateTime.now(),2000,"hola");
+			Compra pago = new Compra(TipoCompra.TARJETA, LocalDateTime.now(),2000);
 			pagoRepositorio.save(pago);
 
 			Articulo articulo = new Articulo("Remera loli",200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"));

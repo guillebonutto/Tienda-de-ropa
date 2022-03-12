@@ -30,7 +30,7 @@ public class Articulo {
 /*
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "pagos_id")
-    private Set<Pago> pagos = new HashSet<>();
+    private Set<Compra> pagos = new HashSet<>();
 */
 
     public Articulo() {
@@ -45,7 +45,7 @@ public class Articulo {
     }
 
 /*
-public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, Set<Pago> pagos) {
+public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, Set<Compra> pagos) {
     this.nombrePrenda = nombrePrenda;
     this.precio = precio;
     this.stock = stock;
@@ -84,11 +84,11 @@ public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArt
     }
 
 /*    @JsonIgnore
-    public Set<Pago> getPagos() {
+    public Set<Compra> getPagos() {
         return pagos;
     }
 
-    public void setPagos(Set<Pago> pagos) {
+    public void setPagos(Set<Compra> pagos) {
         this.pagos = pagos;
     }*/
 

@@ -7,7 +7,7 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import com.mindhub.tiendaderopa.modelos.Carrito;
 import com.mindhub.tiendaderopa.modelos.Cliente;
-import com.mindhub.tiendaderopa.modelos.Pago;
+import com.mindhub.tiendaderopa.modelos.Compra;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class GeneradorPDFServicio {
-    public void export(HttpServletResponse response, Cliente cliente, Pago pago, Carrito carrito, String amount) throws DocumentException, IOException {
+    public void export(HttpServletResponse response, Cliente cliente, Compra pago, Carrito carrito, String amount) throws DocumentException, IOException {
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, response.getOutputStream());
 
@@ -81,7 +81,7 @@ public class GeneradorPDFServicio {
         cell.setPhrase(new Phrase("Monto", font));
     }
 
-    private void escribirDatosTabla(PdfPTable tabla, Cliente cliente, Pago pago, Carrito carrito, String amount) {
+    private void escribirDatosTabla(PdfPTable tabla, Cliente cliente, Compra pago, Carrito carrito, String amount) {
         PdfPCell newCell = new PdfPCell();
         newCell.setBackgroundColor(Color.WHITE);
         newCell.setPadding(5);
@@ -91,7 +91,7 @@ public class GeneradorPDFServicio {
 
         DateTimeFormatter aformatter = DateTimeFormatter.ofPattern("dd/MM/yyy - HH:mm");
 
-    //    Set<Pago> pagos = carrito.getBalance();
+    //    Set<Compra> pagos = carrito.getBalance();
 
         AtomicInteger numero = new AtomicInteger();
         numero.set(1);
