@@ -4,11 +4,9 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
-public class Pago {
+public class Compra {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -16,9 +14,9 @@ public class Pago {
     private long id;
 
     private LocalDateTime fechayHora;
-    private TipoPago tipo;
+    private TipoCompra tipo;
     private double monto;
-    private String descripcion;
+
 
 /*    @OneToOne
     @JoinColumn(name = "pagos_id", updatable = false)
@@ -31,25 +29,25 @@ public class Pago {
     @OneToMany(mappedBy = "pago", fetch = FetchType.EAGER)
     private Set<Articulo> articulos = new HashSet<>();
 
-    public Pago() {
+    public Compra() {
     }
 
-    public Pago(TipoPago tipo, LocalDateTime fechayHora, double monto, String descripcion) {
+    public Compra(TipoCompra tipo, LocalDateTime fechayHora, double monto) {
         this.tipo = tipo;
         this.fechayHora = fechayHora;
         this.monto = monto;
-        this.descripcion = descripcion;
+
     }
 
     public long getId() {
         return id;
     }
 
-    public TipoPago getTipo() {
+    public TipoCompra getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoPago tipo) {
+    public void setTipo(TipoCompra tipo) {
         this.tipo = tipo;
     }
 
@@ -69,11 +67,5 @@ public class Pago {
         this.monto = monto;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 }

@@ -7,7 +7,8 @@ import java.util.Set;
 
 public class ClienteArticuloDTO {
 
-
+    private long id;
+    private long articulo_id;
     private TipoArticulo tipo;
     private String nombre;
     private double precio;
@@ -15,11 +16,21 @@ public class ClienteArticuloDTO {
 
 
     public ClienteArticuloDTO(ClienteArticulo clienteArticulo) {
+        this.id = clienteArticulo.getId();
+        this.articulo_id = clienteArticulo.getId();
         this.tipo = clienteArticulo.getTipo();
         this.nombre = clienteArticulo.getNombre();
         this.precio = clienteArticulo.getPrecio();
         this.cant = clienteArticulo.getCant();
 
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public long getArticulo_id() {
+        return articulo_id;
     }
 
     public TipoArticulo getTipo() {
