@@ -20,10 +20,10 @@ public class Cliente {
     private String password;
 
     @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
-    private Set<Pago> pagos = new HashSet<>();
-//    @JoinColumn(name = "pagos_id", referencedColumnName = "id")
-/*    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
-    private Pago pagos;*/
+    private Set<Compra> pagos = new HashSet<>();
+
+    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private Compra compra;
 
     public Cliente() {
     }
@@ -71,11 +71,11 @@ public class Cliente {
         this.password = password;
     }
 
-/*    public Set<Pago> getPagos() {
+/*    public Set<Compra> getPagos() {
         return pagos;
     }
 
-    public void setPagos(Set<Pago> pagos) {
+    public void setPagos(Set<Compra> pagos) {
         this.pagos = pagos;
     }*/
 }

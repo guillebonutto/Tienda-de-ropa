@@ -28,24 +28,31 @@ public class Articulo {
     private TipoArticulo tipoArticulo;
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "articulos_id")
-    private Pago pago;
 
+    @Lob
+    private byte[] imagen;
+
+/*    @OneToMany(mappedBy = "articulo", fetch = FetchType.EAGER)
+    private Set<ClienteArticulo> clienteArticulos = new HashSet<>();*/
+
+    /*@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "pagos_id")
+    private Set<Compra> compra = new HashSet<>();*/
 
     public Articulo() {
     }
 
-    public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles) {
+    public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, byte[] imagen) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.stock = stock;
         this.tipoArticulo = tipoArticulo;
         this.talles = talles;
+        this.imagen = imagen;
     }
 
 /*
-public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, Set<Pago> pagos) {
+public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, Set<Compra> pagos) {
     this.nombrePrenda = nombrePrenda;
     this.precio = precio;
     this.stock = stock;
@@ -83,14 +90,14 @@ public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArt
         this.stock = stock;
     }
 
-    @JsonIgnore
-    public Pago getPagos() {
-        return pago;
+     /*@JsonIgnore
+   public Set<Compra> getCompras() {
+        return compra;
     }
 
-    public void setPagos(Pago pago) {
-        this.pago = pago;
-    }
+    public void setCompras(Set<Compra> compra) {
+        this.compra = compra;
+    }*/
 
     public List<String> getTalles() {
         return talles;
@@ -108,5 +115,10 @@ public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArt
         this.tipoArticulo = tipoArticulo;
     }
 
+    public byte[] getImagen() {
+     return imagen;  }
+
+    public void setImagen(byte[] imagen){
+    this.imagen = imagen; }
 
 }
