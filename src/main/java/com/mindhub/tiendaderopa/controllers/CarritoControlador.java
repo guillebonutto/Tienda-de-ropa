@@ -1,8 +1,6 @@
 package com.mindhub.tiendaderopa.controllers;
 
 import com.mindhub.tiendaderopa.dtos.CarritoDTO;
-import com.mindhub.tiendaderopa.dtos.ClienteDTO;
-import com.mindhub.tiendaderopa.dtos.PagoDTO;
 import com.mindhub.tiendaderopa.repositorios.CarritoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
