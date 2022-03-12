@@ -28,7 +28,10 @@ public class Compra {
     @JoinColumn(name = "client_id")
     private Cliente cliente;
 
+    /*@OneToMany(mappedBy = "compra", fetch = FetchType.EAGER)
+
     @OneToMany(mappedBy = "compra", fetch = FetchType.EAGER)
+
     private Set<Articulo> articulos = new HashSet<>();*/
 
     public Compra() {
