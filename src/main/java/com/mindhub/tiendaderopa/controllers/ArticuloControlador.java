@@ -33,13 +33,13 @@ public class ArticuloControlador {
     public ResponseEntity<Object> generarArticulo(
             @RequestParam String articulo, @RequestParam TipoArticulo tipo,
             @RequestParam List<String> talles, @RequestParam int precio,
-            @RequestParam int stock) {
+            @RequestParam int stock, @RequestParam byte[] imagen) {
 
         if(articulo.isEmpty() || talles.size() == 0 || precio == 0 || stock == 0 ){
             return new ResponseEntity<>("datos invalidos",HttpStatus.FORBIDDEN);
         }
 
-        Articulo articulo1 = new Articulo(articulo,precio,stock,tipo,talles);
+        Articulo articulo1 = new Articulo(articulo,precio,stock,tipo,talles,imagen);
         articuloRepositorio.save(articulo1);
 
             return new ResponseEntity<>(HttpStatus.CREATED);

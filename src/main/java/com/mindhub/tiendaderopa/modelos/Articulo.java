@@ -27,21 +27,26 @@ public class Articulo {
 
     private TipoArticulo tipoArticulo;
 
+    @Lob
+    private byte[] imagen;
+
+/*    @OneToMany(mappedBy = "articulo", fetch = FetchType.EAGER)
+    private Set<ClienteArticulo> clienteArticulos = new HashSet<>();*/
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "articulos_id")
     private Pago pago;
 
-
     public Articulo() {
     }
 
-    public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles) {
+    public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, byte[] imagen) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.stock = stock;
         this.tipoArticulo = tipoArticulo;
         this.talles = talles;
+        this.imagen = imagen;
     }
 
 /*
@@ -108,5 +113,9 @@ public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArt
         this.tipoArticulo = tipoArticulo;
     }
 
+    public byte[] getImagen() {
+     return imagen;  }
 
+    public void setImagen(byte[] imagen){
+    this.imagen = imagen; }
 }
