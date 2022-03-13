@@ -4,7 +4,9 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Articulo {
@@ -28,9 +30,8 @@ public class Articulo {
 
     private String imagen;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "compra_id")
-    private Compra compras;
+    @OneToMany(mappedBy="articulo", fetch=FetchType.EAGER)
+    Set<CompraArticulos> compraArticulos =  new HashSet<>();
 
 
     public Articulo() {
@@ -70,14 +71,6 @@ public class Articulo {
 
     public void setStock(int stock) {
         this.stock = stock;
-    }
-
-    public Compra getCompras() {
-        return compras;
-    }
-
-    public void setCompras(Compra compras) {
-        this.compras = compras;
     }
 
     public List<String> getTalles() {

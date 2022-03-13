@@ -22,7 +22,6 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
     private Set<Compra> compras = new HashSet<>();
 
-
     public Cliente() {
     }
 
@@ -76,4 +75,6 @@ public class Cliente {
     public void setCompras(Set<Compra> compras) {
         this.compras = compras;
     }
+
+
 }
