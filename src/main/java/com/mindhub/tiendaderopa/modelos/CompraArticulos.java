@@ -2,12 +2,10 @@ package com.mindhub.tiendaderopa.modelos;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-public class ClienteArticulo {
-
+@Entity
+public class CompraArticulos {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -17,12 +15,20 @@ public class ClienteArticulo {
     private int precio;
     private int cant;
 
-    private Cliente cliente;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="compra_id")
+    private Compra compra;
 
-    public ClienteArticulo(String nombrePrenda, int precio, int cant) {
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="articulo_id")
+    private Articulo articulo;
+
+    public CompraArticulos(String nombrePrenda, int precio, int cant,Articulo articulo, Compra compra) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.cant = cant;
+        this.articulo = articulo;
+        this.compra = compra;
     }
 
     public String getNombrePrenda() {
@@ -49,11 +55,19 @@ public class ClienteArticulo {
         this.cant = cant;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Articulo getArticulo() {
+        return articulo;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setArticulo(Articulo articulo) {
+        this.articulo = articulo;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
     }
 }

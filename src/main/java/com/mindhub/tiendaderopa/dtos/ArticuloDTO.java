@@ -13,6 +13,7 @@ public class ArticuloDTO {
     private int stock;
     private TipoArticulo tipoArticulo;
     private List<String> talles;
+    private byte[] imagen;
 
 
 
@@ -22,6 +23,7 @@ public class ArticuloDTO {
         this.stock = articulo.getStock();
         this.tipoArticulo = articulo.getTipoArticulo();
         this.talles = articulo.getTalles();
+        //this.imagen = articulo.getImagen();
     }
 
     public String getNombrePrenda() {
@@ -62,5 +64,13 @@ public class ArticuloDTO {
 
     public void setTalles(List<String> talles) {
         this.talles = talles;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
 }
