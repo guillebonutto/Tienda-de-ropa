@@ -1,18 +1,19 @@
 package com.mindhub.tiendaderopa.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
 @Entity
-public class CompraArticulos {
+public class CompraArticulo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
     private String nombrePrenda;
-    private int precio;
+    private double precio;
     private int cant;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -23,7 +24,10 @@ public class CompraArticulos {
     @JoinColumn(name="articulo_id")
     private Articulo articulo;
 
-    public CompraArticulos(String nombrePrenda, int precio, int cant,Articulo articulo, Compra compra) {
+    public CompraArticulo() {
+    }
+
+    public CompraArticulo(String nombrePrenda, double precio, int cant, Articulo articulo, Compra compra) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.cant = cant;
@@ -39,11 +43,11 @@ public class CompraArticulos {
         this.nombrePrenda = nombrePrenda;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
@@ -55,6 +59,7 @@ public class CompraArticulos {
         this.cant = cant;
     }
 
+    @JsonIgnore
     public Articulo getArticulo() {
         return articulo;
     }
@@ -63,6 +68,7 @@ public class CompraArticulos {
         this.articulo = articulo;
     }
 
+    @JsonIgnore
     public Compra getCompra() {
         return compra;
     }

@@ -1,20 +1,20 @@
 package com.mindhub.tiendaderopa.dtos;
 
 import com.mindhub.tiendaderopa.modelos.Articulo;
-import com.mindhub.tiendaderopa.modelos.Talles;
 import com.mindhub.tiendaderopa.modelos.TipoArticulo;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ArticuloDTO {
 
     private String nombrePrenda;
-    private int precio;
+    private double precio;
     private int stock;
     private TipoArticulo tipoArticulo;
     private List<String> talles;
     private byte[] imagen;
-
 
 
     public ArticuloDTO(Articulo articulo) {
@@ -34,11 +34,11 @@ public class ArticuloDTO {
         this.nombrePrenda = nombrePrenda;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 

@@ -17,7 +17,7 @@ public class Articulo {
     private long id;
 
     private String nombrePrenda;
-    private int precio;
+    private double precio;
     private int stock;
 
     @ElementCollection
@@ -26,18 +26,16 @@ public class Articulo {
 
     private TipoArticulo tipoArticulo;
 
-
-
     private String imagen;
 
     @OneToMany(mappedBy="articulo", fetch=FetchType.EAGER)
-    Set<CompraArticulos> compraArticulos =  new HashSet<>();
+    Set<CompraArticulo> compraArticulos =  new HashSet<>();
 
 
     public Articulo() {
     }
 
-    public Articulo(String nombrePrenda, int precio, int stock, TipoArticulo tipoArticulo, List<String> talles, String imagen) {
+    public Articulo(String nombrePrenda, double precio, int stock, TipoArticulo tipoArticulo, List<String> talles, String imagen) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.stock = stock;
@@ -57,11 +55,11 @@ public class Articulo {
         this.nombrePrenda = nombrePrenda;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
@@ -87,6 +85,14 @@ public class Articulo {
 
     public void setTipoArticulo(TipoArticulo tipoArticulo) {
         this.tipoArticulo = tipoArticulo;
+    }
+
+    public Set<CompraArticulo> getCompraArticulos() {
+        return compraArticulos;
+    }
+
+    public void setCompraArticulos(Set<CompraArticulo> compraArticulos) {
+        this.compraArticulos = compraArticulos;
     }
 
     public String getImagen() {

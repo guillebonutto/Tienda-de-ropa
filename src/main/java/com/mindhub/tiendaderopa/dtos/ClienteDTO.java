@@ -1,6 +1,5 @@
 package com.mindhub.tiendaderopa.dtos;
 
-import com.mindhub.tiendaderopa.modelos.Articulo;
 import com.mindhub.tiendaderopa.modelos.Cliente;
 import com.mindhub.tiendaderopa.modelos.Compra;
 
