@@ -1,10 +1,9 @@
 package com.mindhub.tiendaderopa.controllers;
 
-import com.mindhub.tiendaderopa.dtos.ArticuloDTO;
-import com.mindhub.tiendaderopa.modelos.Articulo;
-import com.mindhub.tiendaderopa.modelos.Talles;
+import com.mindhub.tiendaderopa.dtos.InventarioDTO;
+import com.mindhub.tiendaderopa.modelos.Inventario;
 import com.mindhub.tiendaderopa.modelos.TipoArticulo;
-import com.mindhub.tiendaderopa.repositorios.ArticuloRepositorio;
+import com.mindhub.tiendaderopa.repositorios.InventarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,17 +17,17 @@ import java.util.stream.Collectors;
 
 @RestController //le indicamos que hacemos un controlador rest
 @RequestMapping("/api") //relacionar el controlador con la ruta /api
-public class ArticuloControlador {
+public class InventarioControlador {
 
     @Autowired //Inyección de dependencia
-    ArticuloRepositorio articuloRepositorio;
+    InventarioRepositorio inventarioRepositorio;
 
-    @RequestMapping("/articulos")
-    public List<ArticuloDTO> getArticulos(){
-        return articuloRepositorio.findAll().stream().map(art -> new ArticuloDTO(art)).collect(Collectors.toList());
+    @RequestMapping("/inventario")
+    public List<InventarioDTO> getArticulos(){
+        return inventarioRepositorio.findAll().stream().map(inv -> new InventarioDTO(inv)).collect(Collectors.toList());
     }
 
-    @PostMapping("/articulos")
+    @PostMapping("/inventario")
     public ResponseEntity<Object> generarArticulo(
             @RequestParam String articulo, @RequestParam TipoArticulo tipo,
             @RequestParam List<String> talles, @RequestParam int precio,
@@ -38,8 +37,8 @@ public class ArticuloControlador {
             return new ResponseEntity<>("datos invalidos",HttpStatus.FORBIDDEN);
         }
 
-        Articulo articulo1 = new Articulo(articulo,precio,stock,tipo,talles,imagen);
-        articuloRepositorio.save(articulo1);
+        Inventario articulo1 = new Inventario(articulo,precio,stock,tipo,talles,imagen);
+        inventarioRepositorio.save(articulo1);
 
             return new ResponseEntity<>(HttpStatus.CREATED);
     }

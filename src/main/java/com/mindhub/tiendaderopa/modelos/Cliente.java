@@ -21,7 +21,10 @@ public class Cliente {
     private String password;
 
     @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
-    private Set<Compra> compras = new HashSet<>();
+    Set<Compra> compras = new HashSet<>();
+
+    @OneToMany(mappedBy = "clientes", fetch = FetchType.EAGER)
+    Set<Inventario> inventarios = new HashSet<>();
 
     public Cliente() {
     }
@@ -77,5 +80,11 @@ public class Cliente {
         this.compras = compras;
     }
 
+    public Set<Inventario> getInventarios() {
+        return inventarios;
+    }
 
+    public void setInventarios(Set<Inventario> inventarios) {
+        this.inventarios = inventarios;
+    }
 }

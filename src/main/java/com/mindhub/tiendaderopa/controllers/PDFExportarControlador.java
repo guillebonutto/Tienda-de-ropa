@@ -15,12 +15,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 
 @RestController
 @RequestMapping("/api")
 public class PDFExportarControlador {
-/*
+
     @Autowired
     GeneradorPDFServicio generadorPDFServicio;
 
@@ -47,5 +48,5 @@ public class PDFExportarControlador {
         response.setHeader(headerKey, headerValue);
 
         generadorPDFServicio.export(response,currentClient, pago, carrito, amount);
-    }*/
+    }
 }

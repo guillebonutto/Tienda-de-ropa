@@ -1,16 +1,12 @@
 package com.mindhub.tiendaderopa.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Articulo {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -18,33 +14,25 @@ public class Articulo {
 
     private String nombrePrenda;
     private double precio;
-    private int stock;
+    private int cant;
 
-    @ElementCollection
-    @Column(name = "talles")
-    private List<String> talles = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="compra_id")
+    Compra compra;
 
-    private TipoArticulo tipoArticulo;
-
-    private String imagen;
-
-    @OneToMany(mappedBy="articulo", fetch=FetchType.EAGER)
-    Set<CompraArticulo> compraArticulos =  new HashSet<>();
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="articulo_id")
+    Inventario inventario;
 
     public Articulo() {
     }
 
-    public Articulo(String nombrePrenda, double precio, int stock, TipoArticulo tipoArticulo, List<String> talles, String imagen) {
+    public Articulo(String nombrePrenda, double precio, int cant, Inventario inventario, Compra compra) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
-        this.stock = stock;
-        this.tipoArticulo = tipoArticulo;
-        this.talles = talles;
-    }
-
-    public long getId() {
-        return id;
+        this.cant = cant;
+        this.inventario = inventario;
+        this.compra = compra;
     }
 
     public String getNombrePrenda() {
@@ -63,42 +51,29 @@ public class Articulo {
         this.precio = precio;
     }
 
-    public int getStock() {
-        return stock;
+    public int getCant() {
+        return cant;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setCant(int cant) {
+        this.cant = cant;
     }
 
-    public List<String> getTalles() {
-        return talles;
+    @JsonIgnore
+    public Inventario getInventario() {
+        return inventario;
     }
 
-    public void setTalles(List<String> talles) {
-        this.talles = talles;
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
     }
 
-    public TipoArticulo getTipoArticulo() {
-        return tipoArticulo;
+    @JsonIgnore
+    public Compra getCompra() {
+        return compra;
     }
 
-    public void setTipoArticulo(TipoArticulo tipoArticulo) {
-        this.tipoArticulo = tipoArticulo;
+    public void setCompra(Compra compra) {
+        this.compra = compra;
     }
-
-    public Set<CompraArticulo> getCompraArticulos() {
-        return compraArticulos;
-    }
-
-    public void setCompraArticulos(Set<CompraArticulo> compraArticulos) {
-        this.compraArticulos = compraArticulos;
-    }
-
-    public String getImagen() {
-     return imagen;  }
-
-    public void setImagen(String imagen){
-    this.imagen = imagen; }
-
 }
