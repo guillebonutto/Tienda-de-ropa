@@ -29,15 +29,13 @@ public class PrendaControlador {
 
     @PostMapping("/prenda")
     public ResponseEntity<Object> crearArticulo(
-            @RequestParam String articulo, @RequestParam TipoArticulo tipo,
-            @RequestParam List<String> talles, @RequestParam int precio,
-            @RequestParam int stock, @RequestParam String imagen) {
+            @RequestParam String nombrePrenda, @RequestParam int precio, @RequestParam int stock, @RequestParam TipoArticulo tipo, @RequestParam List<String> talles, @RequestParam String imagen) {
 
-        if(articulo.isEmpty() || talles.size() == 0 || precio == 0 || stock == 0 ){
+        if(nombrePrenda.isEmpty() || talles.size() == 0 || precio == 0 || stock == 0 ){
             return new ResponseEntity<>("datos invalidos",HttpStatus.FORBIDDEN);
         }
 
-        Prenda articulo1 = new Prenda(articulo,precio,stock,tipo,talles,imagen);
+        Prenda articulo1 = new Prenda(nombrePrenda,precio,stock,tipo,talles,imagen);
         prendaRepositorio.save(articulo1);
 
             return new ResponseEntity<>(HttpStatus.CREATED);
