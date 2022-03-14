@@ -3,7 +3,7 @@ package com.mindhub.tiendaderopa.controllers;
 import com.mindhub.tiendaderopa.dtos.PrendaDTO;
 import com.mindhub.tiendaderopa.modelos.Prenda;
 import com.mindhub.tiendaderopa.modelos.TipoArticulo;
-import com.mindhub.tiendaderopa.repositorios.InventarioRepositorio;
+import com.mindhub.tiendaderopa.repositorios.PrendaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,11 +20,11 @@ import java.util.stream.Collectors;
 public class PrendaControlador {
 
     @Autowired //Inyección de dependencia
-    InventarioRepositorio inventarioRepositorio;
+    PrendaRepositorio prendaRepositorio;
 
     @RequestMapping("/prenda")
-    public List<PrendaDTO> getArticulos(){
-        return inventarioRepositorio.findAll().stream().map(inv -> new PrendaDTO(inv)).collect(Collectors.toList());
+    public List<PrendaDTO> getPrendas(){
+        return prendaRepositorio.findAll().stream().map(inv -> new PrendaDTO(inv)).collect(Collectors.toList());
     }
 
     @PostMapping("/prenda")
@@ -38,7 +38,7 @@ public class PrendaControlador {
         }
 
         Prenda articulo1 = new Prenda(articulo,precio,stock,tipo,talles,imagen);
-        inventarioRepositorio.save(articulo1);
+        prendaRepositorio.save(articulo1);
 
             return new ResponseEntity<>(HttpStatus.CREATED);
     }

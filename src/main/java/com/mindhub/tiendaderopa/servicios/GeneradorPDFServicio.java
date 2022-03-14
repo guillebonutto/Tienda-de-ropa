@@ -6,6 +6,7 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import com.mindhub.tiendaderopa.modelos.Cliente;
+import com.mindhub.tiendaderopa.modelos.Compra;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class GeneradorPDFServicio {
-    public void export(HttpServletResponse response, Cliente cliente, Carrito carrito, String amount) throws DocumentException, IOException {
+    public void export(HttpServletResponse response, Cliente cliente, Compra compra, String amount) throws DocumentException, IOException {
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, response.getOutputStream());
 
@@ -41,12 +42,12 @@ public class GeneradorPDFServicio {
         tabla.setSpacingBefore(10);
 
         escribirCabeceraTabla(tabla);
-        escribirDatosTabla(tabla, cliente, carrito, amount);
+        escribirDatosTabla(tabla, cliente, compra, amount);
 
         Paragraph parrafo = new Paragraph("Resumen de compra");
         parrafo.setAlignment(Paragraph.ALIGN_CENTER);
 
-        Paragraph balance = new Paragraph("Importe total: $" + carrito.getBalance() + " - N° Ticket: ");
+        Paragraph balance = new Paragraph("Importe total: $" + compra.getMonto() + " - N° Ticket: ");
         balance.setAlignment(Paragraph.ALIGN_LEFT);
 
 //        Image logo = Image.getInstance("./src/main/resources/static/images/logo_pdf.png");
@@ -80,7 +81,7 @@ public class GeneradorPDFServicio {
         cell.setPhrase(new Phrase("Monto", font));
     }
 
-    private void escribirDatosTabla(PdfPTable tabla, Cliente client, Carrito carrito, String amount) {
+    private void escribirDatosTabla(PdfPTable tabla, Cliente client, Compra compra, String amount) {
         PdfPCell newCell = new PdfPCell();
         newCell.setBackgroundColor(Color.WHITE);
         newCell.setPadding(5);

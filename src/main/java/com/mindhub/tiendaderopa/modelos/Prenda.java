@@ -15,7 +15,6 @@ public class Prenda {
     private long id;
 
     private String nombrePrenda;
-    private List<String> talle;
     private String color;
     private int stock;
     private double precio;

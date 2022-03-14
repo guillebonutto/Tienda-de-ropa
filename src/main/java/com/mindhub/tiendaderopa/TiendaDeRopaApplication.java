@@ -19,7 +19,7 @@ public class TiendaDeRopaApplication {
     }
 
     @Bean
-    public CommandLineRunner initData(ClienteRepositorio clienteRepositorio, InventarioRepositorio inventarioRepositorio, CompraRepositorio compraRepositorio, ArticuloRepositorio articuloRepositorio) {
+    public CommandLineRunner initData(ClienteRepositorio clienteRepositorio, PrendaRepositorio prendaRepositorio, CompraRepositorio compraRepositorio, ArticuloRepositorio articuloRepositorio) {
         return (args) -> {
             Cliente cliente = new Cliente("Lara", "Soto", "lara@hotmail.com", "lara");
             clienteRepositorio.save(cliente);
@@ -28,7 +28,7 @@ public class TiendaDeRopaApplication {
             compraRepositorio.save(compra);
 
             Prenda prenda = new Prenda("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "../images.jpg");
-            inventarioRepositorio.save(prenda);
+            prendaRepositorio.save(prenda);
 /*
             PrendaCliente prendaCliente = new PrendaCliente(prenda.getNombrePrenda(), prenda.getPrecio(), 2, compra);
             articuloRepositorio.save(prendaCliente);*/

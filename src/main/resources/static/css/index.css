@@ -23,9 +23,13 @@ nav {
 }
 
 .logo {
-	width: 20%;
-	padding-left: 50px;
+	padding: 3.125rem;
 	color: white;
+}
+
+.logo a {
+	font-size: 1.25rem;
+	font-weight: bold;
 }
 
 .list-items {
@@ -206,7 +210,6 @@ a:focus {
 	color: #f6eabe;
 	position: absolute;
 	text-align: right;
-	
 }
 
 .buscador {
@@ -218,7 +221,7 @@ input {
 	position: relative;
 	height: 30px;
 	top: -5;
-	transition: all 0,6 ease;
+	transition: all 0, 6 ease;
 }
 
 .collapsed {
@@ -236,12 +239,12 @@ input {
 	left: -5;
 	width: 150px;
 }
-.cargando{
+.cargando {
 	width: 100%;
 	height: 100vh;
-	background: rgba(1,1,1,.5);
+	background: rgba(1, 1, 1, 0.5);
 	display: flex;
-	justify-content:center;
+	justify-content: center;
 	position: fixed;
 	align-items: center;
 	left: 0;
@@ -249,9 +252,8 @@ input {
 	z-index: 3;
 }
 
-.spiner{
-	
-	border: 6px solid rgba(255,255,255,0.5);
+.spiner {
+	border: 6px solid rgba(255, 255, 255, 0.5);
 	width: 56px;
 	height: 56px;
 	border-radius: 50%;
@@ -269,4 +271,3 @@ input {
 	border-bottom-color: transparent;
 	animation: spin 1s linear infinite; */
 }
-
