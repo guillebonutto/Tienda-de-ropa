@@ -14,17 +14,15 @@ public class PrendaCliente {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    private long idCliente;
-    private long idPrenda;
     private int cant;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="compra_id")
-    Compra compra;
+    private Compra compra;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="cliente_id")
-    Cliente cliente;
+    private Cliente cliente;
 
     @OneToMany(mappedBy = "prendaCliente", fetch = FetchType.EAGER)
     Set<Prenda> prendas = new HashSet<>();
@@ -34,27 +32,26 @@ public class PrendaCliente {
     public PrendaCliente() {
     }
 
-    public PrendaCliente(long idCliente, long idPrenda, int cant, Compra compra) {
-        this.idCliente = idCliente;
-        this.idPrenda = idPrenda;
+    public PrendaCliente(int cant, Compra compra, Cliente cliente) {
         this.cant = cant;
         this.compra = compra;
+        this.cliente = cliente;
     }
 
-    public long getIdCliente() {
-        return idCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public long getIdPrenda() {
-        return idPrenda;
+    public Set<Prenda> getPrendas() {
+        return prendas;
     }
 
-    public void setIdPrenda(long idPrenda) {
-        this.idPrenda = idPrenda;
+    public void setPrendas(Set<Prenda> prendas) {
+        this.prendas = prendas;
     }
 
     public int getCant() {
