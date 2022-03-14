@@ -4,12 +4,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
-public class Articulo {
+public class Prenda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -17,8 +15,10 @@ public class Articulo {
     private long id;
 
     private String nombrePrenda;
-    private double precio;
+    private List<String> talle;
+    private String color;
     private int stock;
+    private double precio;
 
     @ElementCollection
     @Column(name = "talles")
@@ -28,14 +28,14 @@ public class Articulo {
 
     private String imagen;
 
-    @OneToMany(mappedBy="articulo", fetch=FetchType.EAGER)
-    Set<CompraArticulo> compraArticulos =  new HashSet<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="compra_id")
+    Cliente clientes;
 
-
-    public Articulo() {
+    public Prenda() {
     }
 
-    public Articulo(String nombrePrenda, double precio, int stock, TipoArticulo tipoArticulo, List<String> talles, String imagen) {
+    public Prenda(String nombrePrenda, double precio, int stock, TipoArticulo tipoArticulo, List<String> talles, String imagen) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.stock = stock;
@@ -86,19 +86,4 @@ public class Articulo {
     public void setTipoArticulo(TipoArticulo tipoArticulo) {
         this.tipoArticulo = tipoArticulo;
     }
-
-    public Set<CompraArticulo> getCompraArticulos() {
-        return compraArticulos;
-    }
-
-    public void setCompraArticulos(Set<CompraArticulo> compraArticulos) {
-        this.compraArticulos = compraArticulos;
-    }
-
-    public String getImagen() {
-     return imagen;  }
-
-    public void setImagen(String imagen){
-    this.imagen = imagen; }
-
 }

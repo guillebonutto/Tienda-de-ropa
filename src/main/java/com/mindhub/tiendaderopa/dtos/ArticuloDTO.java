@@ -1,29 +1,29 @@
 package com.mindhub.tiendaderopa.dtos;
 
-import com.mindhub.tiendaderopa.modelos.Articulo;
-import com.mindhub.tiendaderopa.modelos.TipoArticulo;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import com.mindhub.tiendaderopa.modelos.PrendaCliente;
 
 public class ArticuloDTO {
 
+    private long id;
+    private long articuloId;
+
     private String nombrePrenda;
     private double precio;
-    private int stock;
-    private TipoArticulo tipoArticulo;
-    private List<String> talles;
-    private byte[] imagen;
+    private int cant;
 
-
-    public ArticuloDTO(Articulo articulo) {
-        this.nombrePrenda = articulo.getNombrePrenda();
+    public ArticuloDTO(PrendaCliente articulo) {
+/*        this.articuloId = articulo.getInventario().getId();
+        this.nombrePrenda = articulo.getInventario().getNombrePrenda();*/
         this.precio = articulo.getPrecio();
-        this.stock = articulo.getStock();
-        this.tipoArticulo = articulo.getTipoArticulo();
-        this.talles = articulo.getTalles();
-        //this.imagen = articulo.getImagen();
+        this.cant = articulo.getCant();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public long getArticuloId() {
+        return articuloId;
     }
 
     public String getNombrePrenda() {
@@ -42,35 +42,11 @@ public class ArticuloDTO {
         this.precio = precio;
     }
 
-    public int getStock() {
-        return stock;
+    public int getCant() {
+        return cant;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public TipoArticulo getTipoArticulo() {
-        return tipoArticulo;
-    }
-
-    public void setTipoArticulo(TipoArticulo tipoArticulo) {
-        this.tipoArticulo = tipoArticulo;
-    }
-
-    public List<String> getTalles() {
-        return talles;
-    }
-
-    public void setTalles(List<String> talles) {
-        this.talles = talles;
-    }
-
-    public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
+    public void setCant(int cant) {
+        this.cant = cant;
     }
 }

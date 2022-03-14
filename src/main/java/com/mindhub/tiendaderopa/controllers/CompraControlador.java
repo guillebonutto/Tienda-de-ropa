@@ -18,7 +18,7 @@ public class CompraControlador {
     CompraRepositorio pagoRepositorio;
 
     @RequestMapping("/compras")
-    public List<CompraDTO> getCarrito(){
+    public List<CompraDTO> getCompras(){
         return pagoRepositorio.findAll().stream().map(pago -> new CompraDTO(pago)).collect(Collectors.toList());
     }
 

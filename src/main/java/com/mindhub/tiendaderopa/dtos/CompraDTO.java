@@ -1,11 +1,9 @@
 package com.mindhub.tiendaderopa.dtos;
 
 import com.mindhub.tiendaderopa.modelos.Compra;
-import com.mindhub.tiendaderopa.modelos.CompraArticulo;
 import com.mindhub.tiendaderopa.modelos.TipoCompra;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -15,14 +13,14 @@ public class CompraDTO {
     private LocalDateTime fechayHora;
     private double monto;
 
-    private Set<CompraArticuloDTO> compraArticulos;
+    private Set<ArticuloDTO> articulos;
 
 
     public CompraDTO(Compra pago) {
         this.tipo = pago.getTipo();
         this.fechayHora = pago.getFechayHora();
         this.monto = pago.getMonto();
-        this.compraArticulos = pago.getCompraArticulos().stream().map(CompraArticuloDTO::new).collect(Collectors.toSet());
+        this.articulos = pago.getArticulos().stream().map(ArticuloDTO::new).collect(Collectors.toSet());
     }
 
     public TipoCompra getTipo() {
@@ -49,11 +47,11 @@ public class CompraDTO {
         this.monto = monto;
     }
 
-    public Set<CompraArticuloDTO> getCompraArticulos() {
-        return compraArticulos;
+    public Set<ArticuloDTO> getArticulos() {
+        return articulos;
     }
 
-    public void setCompraArticulos(Set<CompraArticuloDTO> compraArticulos) {
-        this.compraArticulos = compraArticulos;
+    public void setArticulos(Set<ArticuloDTO> articulos) {
+        this.articulos = articulos;
     }
 }

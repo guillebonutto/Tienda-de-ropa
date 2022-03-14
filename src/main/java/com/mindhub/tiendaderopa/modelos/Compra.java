@@ -21,11 +21,11 @@ public class Compra {
     private double monto;
 
     @OneToMany(mappedBy="compra", fetch=FetchType.EAGER)
-    Set<CompraArticulo> compraArticulos =  new HashSet<>();
+    Set<PrendaCliente> compraArticulos =  new HashSet<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
-    private Cliente cliente;
+    Cliente cliente;
 
 
     public Compra() {
@@ -75,11 +75,11 @@ public class Compra {
         this.cliente = cliente;
     }
 
-    public Set<CompraArticulo> getCompraArticulos() {
+    public Set<PrendaCliente> getArticulos() {
         return compraArticulos;
     }
 
-    public void setCompraArticulos(Set<CompraArticulo>compraArticulos) {
+    public void setArticulos(Set<PrendaCliente>Articulos) {
         this.compraArticulos = compraArticulos;
     }
 }
