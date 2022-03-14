@@ -20,8 +20,7 @@ public class ClienteDTO {
         this.apellido = cliente.getApellido();
         this.email = cliente.getEmail();
         this.password = cliente.getPassword();
-        this.compras = cliente.getCompras();
-        this.inventarios = cliente.getInventarios();
+
     }
 
     public String getNombre() {

@@ -28,8 +28,10 @@ public class Prenda {
     private String imagen;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="compra_id")
-    Cliente clientes;
+    @JoinColumn(name="prendaCliente_id")
+    PrendaCliente prendaCliente;
+
+
 
     public Prenda() {
     }
@@ -40,6 +42,7 @@ public class Prenda {
         this.stock = stock;
         this.tipoArticulo = tipoArticulo;
         this.talles = talles;
+        this.imagen = imagen;
     }
 
     public long getId() {
@@ -84,5 +87,10 @@ public class Prenda {
 
     public void setTipoArticulo(TipoArticulo tipoArticulo) {
         this.tipoArticulo = tipoArticulo;
+    }
+
+    public String getImagen() {return imagen;}
+
+    public void setImagen(String imagen) {this.imagen = imagen;
     }
 }

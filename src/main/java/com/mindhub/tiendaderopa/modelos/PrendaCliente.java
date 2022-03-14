@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class PrendaCliente {
@@ -19,6 +21,15 @@ public class PrendaCliente {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="compra_id")
     Compra compra;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="cliente_id")
+    Cliente cliente;
+
+    @OneToMany(mappedBy = "prendaCliente", fetch = FetchType.EAGER)
+    Set<Prenda> prendas = new HashSet<>();
+
+
 
     public PrendaCliente() {
     }

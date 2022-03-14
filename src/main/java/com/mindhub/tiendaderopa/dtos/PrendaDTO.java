@@ -12,6 +12,7 @@ public class PrendaDTO {
     private int stock;
     private TipoArticulo tipoArticulo;
     private List<String> talles;
+    private String imagen;
 
 
     public PrendaDTO(Prenda inventario) {
@@ -20,7 +21,7 @@ public class PrendaDTO {
         this.stock = inventario.getStock();
         this.tipoArticulo = inventario.getTipoArticulo();
         this.talles = inventario.getTalles();
-        //this.imagen = inventario.getImagen();
+        this.imagen = inventario.getImagen();
     }
 
     public String getNombrePrenda() {
@@ -62,4 +63,8 @@ public class PrendaDTO {
     public void setTalles(List<String> talles) {
         this.talles = talles;
     }
+
+    public String getImagen() {return imagen;}
+
+    public void setImagen(String imagen) {this.imagen = imagen;}
 }

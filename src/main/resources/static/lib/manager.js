@@ -7,10 +7,13 @@ var app = new Vue({
         apellido: "",
         email: "",
         nombrePrenda: "",
-        talle: "",
-        color: "",
+        tipo: "",
+        talles: [],
+        precio: 0,
         stock: 0,
-        json:"",
+        imagen: "estamos",
+        json: "",
+        
 
 
     },
@@ -23,11 +26,11 @@ var app = new Vue({
     methods: {
         cargarDatos() {
             axios
-                .get("/api/clientes")
+                .get("/rest/clientes")
                 .then((response) => {
 
-                    this.clientes = response.data
-                    this.json= response.data
+                    this.clientes = response.data._embedded.clientes
+                    this.json = response.data
 
                 })
                 .catch((error) => {
@@ -36,19 +39,39 @@ var app = new Vue({
                 })
 
         },
-        cargarPrendas(){
+        cargarPrendas() {
             axios
-            .get('/api/articulos')
-            .then((response) => {
-                this.prendas = response.data
+                .get('/api/prenda')
+                .then((response) => {
+                    this.prendas = response.data
 
-                
-            })
-            .catch((error) => {
 
+                })
+                .catch((error) => {
+
+                    console.log(error)
+                })
+        },
+        crearPrendas() {
+            axios
+
+                .post('/api/prenda', `nombrePrenda=${this.nombrePrenda}&precio=${this.precio}&stock=${this.stock}&tipo=${this.tipo}&talles=${this.talles}&imagen=${this.imagen}`)
+                .then((response) =>{
+                    window.location.reload()
+                })
+                .catch((error) => {
                 console.log(error)
-            })
-        }
+                })
+        },
+
+        formulario(){
+            return false
+        },
+
+        // cargarTalles(){
+        //     this.talles= 
+        // },
+
 
 
     },
