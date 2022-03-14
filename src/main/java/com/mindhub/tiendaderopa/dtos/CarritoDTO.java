@@ -5,13 +5,15 @@ import com.mindhub.tiendaderopa.modelos.Carrito;
 public class CarritoDTO {
 
     private String nombrePrenda;
-    private int balance;
-    private int stock;
+    private String descripcion;
+    private int cant;
+    private double balance;
 
     public CarritoDTO(Carrito carrito) {
         this.nombrePrenda = carrito.getNombrePrenda();
+        this.descripcion = carrito.getDescripcion();
+        this.cant = carrito.getCant();
         this.balance = carrito.getBalance();
-        this.stock = carrito.getStock();
     }
 
     public String getNombrePrenda() {
@@ -22,19 +24,27 @@ public class CarritoDTO {
         this.nombrePrenda = nombrePrenda;
     }
 
-    public int getBalance() {
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getCant() {
+        return cant;
+    }
+
+    public void setCant(int cant) {
+        this.cant = cant;
+    }
+
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
     }
 }

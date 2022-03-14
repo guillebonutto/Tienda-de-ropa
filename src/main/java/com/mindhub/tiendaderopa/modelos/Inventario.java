@@ -1,5 +1,6 @@
 package com.mindhub.tiendaderopa.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -28,8 +29,8 @@ public class Inventario {
 
     private String imagen;
 
-    @OneToMany(mappedBy="inventario", fetch=FetchType.EAGER)
-    Set<Articulo> articulos =  new HashSet<>();
+/*    @OneToMany(mappedBy="inventario", fetch=FetchType.EAGER)
+    Set<Articulo> articulos =  new HashSet<>();*/
 
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -91,26 +92,12 @@ public class Inventario {
         this.tipoArticulo = tipoArticulo;
     }
 
+/*    @JsonIgnore
     public Set<Articulo> getArticulos() {
         return articulos;
     }
 
     public void setArticulos(Set<Articulo> articulos) {
         this.articulos = articulos;
-    }
-
-    public Cliente getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(Cliente clientes) {
-        this.clientes = clientes;
-    }
-
-    public String getImagen() {
-     return imagen;  }
-
-    public void setImagen(String imagen){
-    this.imagen = imagen; }
-
+    }*/
 }

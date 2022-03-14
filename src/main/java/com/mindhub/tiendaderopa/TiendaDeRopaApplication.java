@@ -30,7 +30,7 @@ public class TiendaDeRopaApplication {
             Inventario inventario = new Inventario("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "../images.jpg");
             inventarioRepositorio.save(inventario);
 
-            Articulo articulo = new Articulo(inventario.getNombrePrenda(), inventario.getPrecio(), 2, inventario, compra);
+            Articulo articulo = new Articulo(inventario.getNombrePrenda(), inventario.getPrecio(), 2, compra);
             articuloRepositorio.save(articulo);
         };
     }

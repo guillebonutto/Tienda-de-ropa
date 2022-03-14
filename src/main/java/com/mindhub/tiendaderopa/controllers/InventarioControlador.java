@@ -28,7 +28,7 @@ public class InventarioControlador {
     }
 
     @PostMapping("/inventario")
-    public ResponseEntity<Object> generarArticulo(
+    public ResponseEntity<Object> crearArticulo(
             @RequestParam String articulo, @RequestParam TipoArticulo tipo,
             @RequestParam List<String> talles, @RequestParam int precio,
             @RequestParam int stock, @RequestParam String imagen) {

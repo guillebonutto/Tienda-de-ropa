@@ -19,19 +19,19 @@ public class Articulo {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="compra_id")
     Compra compra;
-
+/*
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="articulo_id")
-    Inventario inventario;
+    Inventario inventario;*/
 
     public Articulo() {
     }
 
-    public Articulo(String nombrePrenda, double precio, int cant, Inventario inventario, Compra compra) {
+    public Articulo(String nombrePrenda, double precio, int cant, Compra compra) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.cant = cant;
-        this.inventario = inventario;
+//        this.inventario = inventario;
         this.compra = compra;
     }
 
@@ -59,14 +59,13 @@ public class Articulo {
         this.cant = cant;
     }
 
-    @JsonIgnore
-    public Inventario getInventario() {
+/*    public Inventario getInventario() {
         return inventario;
     }
 
     public void setInventario(Inventario inventario) {
         this.inventario = inventario;
-    }
+    }*/
 
     @JsonIgnore
     public Compra getCompra() {

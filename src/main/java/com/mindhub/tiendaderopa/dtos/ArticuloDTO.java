@@ -12,8 +12,8 @@ public class ArticuloDTO {
     private int cant;
 
     public ArticuloDTO(Articulo articulo) {
-        this.articuloId = articulo.getInventario().getId();
-        this.nombrePrenda = articulo.getInventario().getNombrePrenda();
+/*        this.articuloId = articulo.getInventario().getId();
+        this.nombrePrenda = articulo.getInventario().getNombrePrenda();*/
         this.precio = articulo.getPrecio();
         this.cant = articulo.getCant();
     }

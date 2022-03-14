@@ -17,16 +17,18 @@ public class Carrito {
 
 
     private String nombrePrenda;
-    private int balance;
-    private int stock;
+    private String descripcion;
+    private int cant;
+    private double balance;
 
     public Carrito() {
     }
 
-    public Carrito(String nombrePrenda, int balance, int stock) {
+    public Carrito(String nombrePrenda, String descripcion, int cant, double balance) {
         this.nombrePrenda = nombrePrenda;
+        this.descripcion = descripcion;
+        this.cant = cant;
         this.balance = balance;
-        this.stock = stock;
     }
 
     public long getId() {
@@ -41,19 +43,27 @@ public class Carrito {
         this.nombrePrenda = nombrePrenda;
     }
 
-    public int getBalance() {
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getCant() {
+        return cant;
+    }
+
+    public void setCant(int cant) {
+        this.cant = cant;
+    }
+
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
     }
 }
