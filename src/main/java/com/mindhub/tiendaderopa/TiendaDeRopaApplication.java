@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
@@ -27,10 +28,13 @@ public class TiendaDeRopaApplication {
             Compra compra = new Compra(TipoCompra.TARJETA, LocalDateTime.now(), 1500, cliente);
             compraRepositorio.save(compra);
 
-            Inventario inventario = new Inventario("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "../images.jpg");
+
+            Inventario inventario = new Inventario("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fwp-content%2Fuploads%2FCapture-248.png&imgrefurl=https%3A%2F%2Fes.acervolima.com%2Fmetodo-de-archivo-getpath-en-java-con-ejemplos%2F&tbnid=ywmkQ1fiJ0Ye7M&vet=12ahUKEwi7_8b15MP2AhU7N7kGHcDQDl8QMygBegUIARC7AQ..i&docid=L4K2n2bcn09hjM&w=625&h=76&q=que%20es%20getpath%20en%20java&ved=2ahUKEwi7_8b15MP2AhU7N7kGHcDQDl8QMygBegUIARC7AQ");
             inventarioRepositorio.save(inventario);
 
-            Articulo articulo = new Articulo(inventario.getNombrePrenda(), inventario.getPrecio(), 2, inventario, compra);
+
+
+            Articulo articulo = new Articulo(inventario.getNombrePrenda(), inventario.getPrecio(), 2, inventario, compra,"https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fwp-content%2Fuploads%2FCapture-248.png&imgrefurl=https%3A%2F%2Fes.acervolima.com%2Fmetodo-de-archivo-getpath-en-java-con-ejemplos%2F&tbnid=ywmkQ1fiJ0Ye7M&vet=12ahUKEwi7_8b15MP2AhU7N7kGHcDQDl8QMygBegUIARC7AQ..i&docid=L4K2n2bcn09hjM&w=625&h=76&q=que%20es%20getpath%20en%20java&ved=2ahUKEwi7_8b15MP2AhU7N7kGHcDQDl8QMygBegUIARC7AQ");
             articuloRepositorio.save(articulo);
         };
     }

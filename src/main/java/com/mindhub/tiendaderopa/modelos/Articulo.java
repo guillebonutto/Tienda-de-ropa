@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.awt.*;
 
 @Entity
 public class Articulo {
@@ -15,24 +16,27 @@ public class Articulo {
     private String nombrePrenda;
     private double precio;
     private int cant;
+    private String imagen;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="compra_id")
+    @JoinColumn(name = "compra_id")
     Compra compra;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="articulo_id")
+    @JoinColumn(name = "articulo_id")
     Inventario inventario;
 
     public Articulo() {
     }
 
-    public Articulo(String nombrePrenda, double precio, int cant, Inventario inventario, Compra compra) {
+    public Articulo(String nombrePrenda, double precio, int cant, Inventario inventario, Compra compra, String imagen) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.cant = cant;
         this.inventario = inventario;
         this.compra = compra;
+        this.imagen = imagen;
+
     }
 
     public String getNombrePrenda() {
@@ -75,5 +79,13 @@ public class Articulo {
 
     public void setCompra(Compra compra) {
         this.compra = compra;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }

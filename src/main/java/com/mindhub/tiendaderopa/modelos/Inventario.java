@@ -45,7 +45,9 @@ public class Inventario {
         this.stock = stock;
         this.tipoArticulo = tipoArticulo;
         this.talles = talles;
+        this.imagen = imagen;
     }
+
 
     public long getId() {
         return id;
@@ -108,9 +110,10 @@ public class Inventario {
     }
 
     public String getImagen() {
-     return imagen;  }
+        return imagen;
+    }
 
-    public void setImagen(String imagen){
-    this.imagen = imagen; }
-
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 }

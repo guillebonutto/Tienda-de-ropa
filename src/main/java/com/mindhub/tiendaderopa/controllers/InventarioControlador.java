@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,11 +38,12 @@ public class InventarioControlador {
             return new ResponseEntity<>("datos invalidos",HttpStatus.FORBIDDEN);
         }
 
-        Inventario articulo1 = new Inventario(articulo,precio,stock,tipo,talles,imagen);
+        File archivoFoto = new File(imagen);
+
+        Inventario articulo1 = new Inventario(articulo,precio,stock,tipo,talles,archivoFoto.getPath());
         inventarioRepositorio.save(articulo1);
 
             return new ResponseEntity<>(HttpStatus.CREATED);
     }
-
 
 }

@@ -10,12 +10,14 @@ public class ArticuloDTO {
     private String nombrePrenda;
     private double precio;
     private int cant;
+    private String imagen;
 
     public ArticuloDTO(Articulo articulo) {
         this.articuloId = articulo.getInventario().getId();
         this.nombrePrenda = articulo.getInventario().getNombrePrenda();
         this.precio = articulo.getPrecio();
         this.cant = articulo.getCant();
+        this.imagen = articulo.getImagen();
     }
 
     public long getId() {
@@ -48,5 +50,13 @@ public class ArticuloDTO {
 
     public void setCant(int cant) {
         this.cant = cant;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }
