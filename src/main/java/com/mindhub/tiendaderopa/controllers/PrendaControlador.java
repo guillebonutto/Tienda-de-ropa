@@ -1,7 +1,7 @@
 package com.mindhub.tiendaderopa.controllers;
 
-import com.mindhub.tiendaderopa.dtos.InventarioDTO;
-import com.mindhub.tiendaderopa.modelos.Inventario;
+import com.mindhub.tiendaderopa.dtos.PrendaDTO;
+import com.mindhub.tiendaderopa.modelos.Prenda;
 import com.mindhub.tiendaderopa.modelos.TipoArticulo;
 import com.mindhub.tiendaderopa.repositorios.InventarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +17,17 @@ import java.util.stream.Collectors;
 
 @RestController //le indicamos que hacemos un controlador rest
 @RequestMapping("/api") //relacionar el controlador con la ruta /api
-public class InventarioControlador {
+public class PrendaControlador {
 
     @Autowired //Inyección de dependencia
     InventarioRepositorio inventarioRepositorio;
 
-    @RequestMapping("/inventario")
-    public List<InventarioDTO> getArticulos(){
-        return inventarioRepositorio.findAll().stream().map(inv -> new InventarioDTO(inv)).collect(Collectors.toList());
+    @RequestMapping("/prenda")
+    public List<PrendaDTO> getArticulos(){
+        return inventarioRepositorio.findAll().stream().map(inv -> new PrendaDTO(inv)).collect(Collectors.toList());
     }
 
-    @PostMapping("/inventario")
+    @PostMapping("/prenda")
     public ResponseEntity<Object> crearArticulo(
             @RequestParam String articulo, @RequestParam TipoArticulo tipo,
             @RequestParam List<String> talles, @RequestParam int precio,
@@ -37,7 +37,7 @@ public class InventarioControlador {
             return new ResponseEntity<>("datos invalidos",HttpStatus.FORBIDDEN);
         }
 
-        Inventario articulo1 = new Inventario(articulo,precio,stock,tipo,talles,imagen);
+        Prenda articulo1 = new Prenda(articulo,precio,stock,tipo,talles,imagen);
         inventarioRepositorio.save(articulo1);
 
             return new ResponseEntity<>(HttpStatus.CREATED);

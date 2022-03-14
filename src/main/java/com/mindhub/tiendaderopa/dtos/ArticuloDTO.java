@@ -1,6 +1,6 @@
 package com.mindhub.tiendaderopa.dtos;
 
-import com.mindhub.tiendaderopa.modelos.Articulo;
+import com.mindhub.tiendaderopa.modelos.PrendaCliente;
 
 public class ArticuloDTO {
 
@@ -11,7 +11,7 @@ public class ArticuloDTO {
     private double precio;
     private int cant;
 
-    public ArticuloDTO(Articulo articulo) {
+    public ArticuloDTO(PrendaCliente articulo) {
 /*        this.articuloId = articulo.getInventario().getId();
         this.nombrePrenda = articulo.getInventario().getNombrePrenda();*/
         this.precio = articulo.getPrecio();

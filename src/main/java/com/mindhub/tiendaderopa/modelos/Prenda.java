@@ -1,16 +1,13 @@
 package com.mindhub.tiendaderopa.modelos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
-public class Inventario {
+public class Prenda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -18,8 +15,10 @@ public class Inventario {
     private long id;
 
     private String nombrePrenda;
-    private double precio;
+    private List<String> talle;
+    private String color;
     private int stock;
+    private double precio;
 
     @ElementCollection
     @Column(name = "talles")
@@ -29,18 +28,14 @@ public class Inventario {
 
     private String imagen;
 
-/*    @OneToMany(mappedBy="inventario", fetch=FetchType.EAGER)
-    Set<Articulo> articulos =  new HashSet<>();*/
-
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="compra_id")
     Cliente clientes;
 
-    public Inventario() {
+    public Prenda() {
     }
 
-    public Inventario(String nombrePrenda, double precio, int stock, TipoArticulo tipoArticulo, List<String> talles, String imagen) {
+    public Prenda(String nombrePrenda, double precio, int stock, TipoArticulo tipoArticulo, List<String> talles, String imagen) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.stock = stock;
@@ -91,13 +86,4 @@ public class Inventario {
     public void setTipoArticulo(TipoArticulo tipoArticulo) {
         this.tipoArticulo = tipoArticulo;
     }
-
-/*    @JsonIgnore
-    public Set<Articulo> getArticulos() {
-        return articulos;
-    }
-
-    public void setArticulos(Set<Articulo> articulos) {
-        this.articulos = articulos;
-    }*/
 }

@@ -27,11 +27,11 @@ public class TiendaDeRopaApplication {
             Compra compra = new Compra(TipoCompra.TARJETA, LocalDateTime.now(), 1500, cliente);
             compraRepositorio.save(compra);
 
-            Inventario inventario = new Inventario("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "../images.jpg");
-            inventarioRepositorio.save(inventario);
-
-            Articulo articulo = new Articulo(inventario.getNombrePrenda(), inventario.getPrecio(), 2, compra);
-            articuloRepositorio.save(articulo);
+            Prenda prenda = new Prenda("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "../images.jpg");
+            inventarioRepositorio.save(prenda);
+/*
+            PrendaCliente prendaCliente = new PrendaCliente(prenda.getNombrePrenda(), prenda.getPrecio(), 2, compra);
+            articuloRepositorio.save(prendaCliente);*/
         };
     }
 }

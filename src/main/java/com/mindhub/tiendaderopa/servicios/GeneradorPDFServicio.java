@@ -5,9 +5,7 @@ import com.lowagie.text.Font;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import com.mindhub.tiendaderopa.modelos.Carrito;
 import com.mindhub.tiendaderopa.modelos.Cliente;
-import com.mindhub.tiendaderopa.modelos.Compra;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;

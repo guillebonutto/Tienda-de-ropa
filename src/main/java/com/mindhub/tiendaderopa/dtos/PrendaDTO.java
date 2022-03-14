@@ -1,11 +1,11 @@
 package com.mindhub.tiendaderopa.dtos;
 
-import com.mindhub.tiendaderopa.modelos.Inventario;
+import com.mindhub.tiendaderopa.modelos.Prenda;
 import com.mindhub.tiendaderopa.modelos.TipoArticulo;
 
 import java.util.List;
 
-public class InventarioDTO {
+public class PrendaDTO {
 
     private String nombrePrenda;
     private double precio;
@@ -14,7 +14,7 @@ public class InventarioDTO {
     private List<String> talles;
 
 
-    public InventarioDTO(Inventario inventario) {
+    public PrendaDTO(Prenda inventario) {
         this.nombrePrenda = inventario.getNombrePrenda();
         this.precio = inventario.getPrecio();
         this.stock = inventario.getStock();
