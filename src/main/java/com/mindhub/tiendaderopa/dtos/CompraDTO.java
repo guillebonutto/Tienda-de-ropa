@@ -20,7 +20,8 @@ public class CompraDTO {
         this.tipo = compra.getTipo();
         this.fechayHora = compra.getFechayHora();
         this.monto = compra.getMonto();
-        this.articulos = compra.getArticulos().stream().map(PrendaClienteDTO::new).collect(Collectors.toSet());
+
+
     }
 
     public TipoCompra getTipo() {

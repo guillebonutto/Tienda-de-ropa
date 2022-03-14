@@ -21,33 +21,22 @@ public class Compra {
     private double monto;
 
     @OneToMany(mappedBy="compra", fetch=FetchType.EAGER)
-    Set<PrendaCliente> compraArticulos =  new HashSet<>();
+    Set<PrendaCliente> prendaCliente =  new HashSet<>();
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "client_id")
-    Cliente cliente;
 
 
     public Compra() {
     }
 
-    public Compra(TipoCompra tipo, LocalDateTime fechayHora, double monto, Cliente cliente) {
+    public Compra(TipoCompra tipo, LocalDateTime fechayHora, double monto) {
         this.tipo = tipo;
         this.fechayHora = fechayHora;
         this.monto = monto;
-        this.cliente = cliente;
+
     }
 
     public long getId() {
         return id;
-    }
-
-    public TipoCompra getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(TipoCompra tipo) {
-        this.tipo = tipo;
     }
 
     public LocalDateTime getFechayHora() {
@@ -58,6 +47,14 @@ public class Compra {
         this.fechayHora = fechayHora;
     }
 
+    public TipoCompra getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoCompra tipo) {
+        this.tipo = tipo;
+    }
+
     public double getMonto() {
         return monto;
     }
@@ -66,20 +63,12 @@ public class Compra {
         this.monto = monto;
     }
 
-    @JsonIgnore
-    public Cliente getCliente() {
-        return cliente;
+    public Set<PrendaCliente> getPrendaCliente() {
+        return prendaCliente;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setPrendaCliente(Set<PrendaCliente> prendaCliente) {
+        this.prendaCliente = prendaCliente;
     }
 
-    public Set<PrendaCliente> getArticulos() {
-        return compraArticulos;
-    }
-
-    public void setArticulos(Set<PrendaCliente>Articulos) {
-        this.compraArticulos = compraArticulos;
-    }
 }

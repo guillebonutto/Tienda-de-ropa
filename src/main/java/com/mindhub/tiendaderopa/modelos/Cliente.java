@@ -20,10 +20,7 @@ public class Cliente {
     private String password;
 
     @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
-    Set<Compra> compras = new HashSet<>();
-
-    @OneToMany(mappedBy = "clientes", fetch = FetchType.EAGER)
-    Set<Prenda> inventarios = new HashSet<>();
+    Set<PrendaCliente> prendaClientes = new HashSet<>();
 
     public Cliente() {
     }
@@ -71,19 +68,12 @@ public class Cliente {
         this.password = password;
     }
 
-    public Set<Compra> getCompras() {
-        return compras;
+
+    public Set<PrendaCliente> getPrendaClientes() {
+        return prendaClientes;
     }
 
-    public void setCompras(Set<Compra> compras) {
-        this.compras = compras;
-    }
-
-    public Set<Prenda> getInventarios() {
-        return inventarios;
-    }
-
-    public void setInventarios(Set<Prenda> inventarios) {
-        this.inventarios = inventarios;
+    public void setPrendaClientes(Set<PrendaCliente> prendaClientes) {
+        this.prendaClientes = prendaClientes;
     }
 }
