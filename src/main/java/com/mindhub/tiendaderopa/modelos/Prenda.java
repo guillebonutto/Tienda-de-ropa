@@ -1,10 +1,13 @@
 package com.mindhub.tiendaderopa.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Prenda {
@@ -27,9 +30,10 @@ public class Prenda {
 
     private String imagen;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="compra_id")
-    Cliente clientes;
+    @OneToMany(mappedBy = "prenda",fetch = FetchType.EAGER)
+    private Set <PrendaCliente> prendaClientes = new HashSet<>();
+
+
 
     public Prenda() {
     }
@@ -87,6 +91,7 @@ public class Prenda {
     public void setTipoArticulo(TipoArticulo tipoArticulo) {
         this.tipoArticulo = tipoArticulo;
     }
+<<<<<<< HEAD
 <<<<<<< HEAD:src/main/java/com/mindhub/tiendaderopa/modelos/Inventario.java
 
     public Set<Articulo> getArticulos() {
@@ -114,4 +119,24 @@ public class Prenda {
     }
 =======
 >>>>>>> 72bb799f0547899bb2570f98a7cc069e1d47956e:src/main/java/com/mindhub/tiendaderopa/modelos/Prenda.java
+=======
+
+    public String getImagen() {return imagen;}
+
+    public void setImagen(String imagen) {this.imagen = imagen;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+@JsonIgnore
+    public Set<PrendaCliente> getPrendaCliente() {return prendaClientes;}
+
+    public void setPrendaCliente(Set<PrendaCliente> prendaCliente) {this.prendaClientes = prendaCliente;}
+>>>>>>> aa6a9de4c4b58166c50860bdcb425b53ef0fcf43
 }

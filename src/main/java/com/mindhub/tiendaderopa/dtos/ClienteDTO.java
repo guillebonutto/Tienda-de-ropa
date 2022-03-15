@@ -3,8 +3,10 @@ package com.mindhub.tiendaderopa.dtos;
 import com.mindhub.tiendaderopa.modelos.Prenda;
 import com.mindhub.tiendaderopa.modelos.Cliente;
 import com.mindhub.tiendaderopa.modelos.Compra;
+import com.mindhub.tiendaderopa.modelos.PrendaCliente;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ClienteDTO {
 
@@ -12,16 +14,14 @@ public class ClienteDTO {
     private String apellido;
     private String email;
     private String password;
-    private Set<Compra> compras;
-    private Set<Prenda> inventarios;
+    private Set<PrendaClienteDTO> prendaClienteDTOS;
 
     public ClienteDTO(Cliente cliente) {
         this.nombre = cliente.getNombre();
         this.apellido = cliente.getApellido();
         this.email = cliente.getEmail();
         this.password = cliente.getPassword();
-        this.compras = cliente.getCompras();
-        this.inventarios = cliente.getInventarios();
+        this.prendaClienteDTOS = cliente.getPrendaClientes().stream().map(PrendaClienteDTO::new).collect(Collectors.toSet());
     }
 
     public String getNombre() {
@@ -56,19 +56,11 @@ public class ClienteDTO {
         this.password = password;
     }
 
-    public Set<Compra> getCompras() {
-        return compras;
+    public Set<PrendaClienteDTO> getPrendaClienteDTOS() {
+        return prendaClienteDTOS;
     }
 
-    public void setCompras(Set<Compra> compras) {
-        this.compras = compras;
-    }
-
-    public Set<Prenda> getInventario() {
-        return inventarios;
-    }
-
-    public void setInventario(Set<Prenda> inventarios) {
-        this.inventarios = inventarios;
+    public void setPrendaClienteDTOS(Set<PrendaClienteDTO> prendaClienteDTOS) {
+        this.prendaClienteDTOS = prendaClienteDTOS;
     }
 }
