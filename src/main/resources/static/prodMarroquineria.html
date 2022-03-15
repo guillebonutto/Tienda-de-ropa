@@ -45,11 +45,11 @@
 									<a href="#">+840123456789</a>
 								</li>
 								<li>
-									<a href="rosier@gmail.com">rosier@gmail.com</a>
+									<a href="mailto:rosier@gmail.com">rosier@gmail.com</a>
 								</li>
 							</ul>
 							<ul class="devided">
-								<li class="dropdown">
+								<!-- <li class="dropdown">
 									<a href="">USD</a>
 									<i class="bx bxs-chevron-down"></i>
 									<ul class="dropdown-content">
@@ -57,17 +57,17 @@
 										<li><a href="#">JPY</a></li>
 										<li><a href="#">EUR</a></li>
 									</ul>
-								</li>
+								</li> -->
 								<li class="dropdown">
-									<a href="">ENGLISH</a>
+									<a href="">ESPAÑOL</a>
 									<i class="bx bxs-chevron-down"></i>
-									<ul class="dropdown-content">
+									<!-- <ul class="dropdown-content">
 										<li><a href="#">INGLES</a></li>
 										<li><a href="#">FRANCES</a></li>
 										<li><a href="#">ESPAÑOL</a></li>
-									</ul>
+									</ul> -->
 								</li>
-								<li><a href="#">NOVEDADES</a></li>
+								<li><a href="./web/novedades.html">NOVEDADES</a></li>
 							</ul>
 						</div>
 					</div>
@@ -117,7 +117,7 @@
 									</div>
 								</li>
 								<!-- end  menu -->
-								<li><a href="#">contacto</a></li>
+								<li><a href="./web/contacto.html">contacto</a></li>
 							</ul>
 						</div>
 					</div>
@@ -324,10 +324,15 @@
 													{{prenda.nombrePrenda.substring(0, prenda.nombrePrenda.indexOf(' '))}}
 												</h5>
 												<p class="card-text">Precio: ${{prenda.precio}}</p>
-												<p class="card-text">
-													Color: {{prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf(' ') +
-													1)}}
-												</p>
+												<div class="d-flex">
+													<p class="card-text">
+														Color: {{prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf(' ')
+														+ 1)}}
+													</p>
+													<div
+														:class="'ms-3 ' + prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf(' ') + 1)"
+													></div>
+												</div>
 												<a href="#" class="btn btn-primary">Agregar al Carrito</a>
 											</div>
 										</div>
