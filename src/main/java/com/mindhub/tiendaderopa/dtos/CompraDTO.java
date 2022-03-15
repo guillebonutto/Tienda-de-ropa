@@ -13,14 +13,14 @@ public class CompraDTO {
     private LocalDateTime fechayHora;
     private double monto;
 
-    private Set<ArticuloDTO> articulos;
+    private Set<PrendaClienteDTO> articulos;
 
 
-    public CompraDTO(Compra pago) {
-        this.tipo = pago.getTipo();
-        this.fechayHora = pago.getFechayHora();
-        this.monto = pago.getMonto();
-        this.articulos = pago.getArticulos().stream().map(ArticuloDTO::new).collect(Collectors.toSet());
+    public CompraDTO(Compra compra) {
+        this.tipo = compra.getTipo();
+        this.fechayHora = compra.getFechayHora();
+        this.monto = compra.getMonto();
+        this.articulos = compra.getArticulos().stream().map(PrendaClienteDTO::new).collect(Collectors.toSet());
     }
 
     public TipoCompra getTipo() {
@@ -47,11 +47,11 @@ public class CompraDTO {
         this.monto = monto;
     }
 
-    public Set<ArticuloDTO> getArticulos() {
+    public Set<PrendaClienteDTO> getArticulos() {
         return articulos;
     }
 
-    public void setArticulos(Set<ArticuloDTO> articulos) {
+    public void setArticulos(Set<PrendaClienteDTO> articulos) {
         this.articulos = articulos;
     }
 }

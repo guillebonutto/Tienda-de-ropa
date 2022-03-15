@@ -5,7 +5,6 @@ import com.lowagie.text.Font;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import com.mindhub.tiendaderopa.modelos.Carrito;
 import com.mindhub.tiendaderopa.modelos.Cliente;
 import com.mindhub.tiendaderopa.modelos.Compra;
 import org.springframework.stereotype.Service;
@@ -13,12 +12,13 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class GeneradorPDFServicio {
-    public void export(HttpServletResponse response, Cliente cliente, Compra pago, Carrito carrito, String amount) throws DocumentException, IOException {
+    public void export(HttpServletResponse response, Cliente cliente, Compra compra, String amount) throws DocumentException, IOException {
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, response.getOutputStream());
 
@@ -42,12 +42,12 @@ public class GeneradorPDFServicio {
         tabla.setSpacingBefore(10);
 
         escribirCabeceraTabla(tabla);
-        escribirDatosTabla(tabla, cliente, pago, carrito, amount);
+        escribirDatosTabla(tabla, cliente, compra, amount);
 
         Paragraph parrafo = new Paragraph("Resumen de compra");
         parrafo.setAlignment(Paragraph.ALIGN_CENTER);
 
-        Paragraph balance = new Paragraph("Importe total: $" + carrito.getBalance() + " - N° Ticket: ");
+        Paragraph balance = new Paragraph("Importe total: $" + compra.getMonto() + " - N° Ticket: ");
         balance.setAlignment(Paragraph.ALIGN_LEFT);
 
 //        Image logo = Image.getInstance("./src/main/resources/static/images/logo_pdf.png");
@@ -81,7 +81,7 @@ public class GeneradorPDFServicio {
         cell.setPhrase(new Phrase("Monto", font));
     }
 
-    private void escribirDatosTabla(PdfPTable tabla, Cliente cliente, Compra pago, Carrito carrito, String amount) {
+    private void escribirDatosTabla(PdfPTable tabla, Cliente client, Compra compra, String amount) {
         PdfPCell newCell = new PdfPCell();
         newCell.setBackgroundColor(Color.WHITE);
         newCell.setPadding(5);
@@ -98,13 +98,8 @@ public class GeneradorPDFServicio {
 
         changeColor(numero, newCell, font);
 
-        newCell.setPhrase(new Phrase(pago.getFechayHora().format(aformatter), font));
+        newCell.setPhrase(new Phrase(LocalDate.now().format(aformatter), font));
         tabla.addCell(newCell);
-
-        newCell.setPhrase(new Phrase(String.valueOf(pago.getTipo()), font));
-        tabla.addCell(newCell);
-
-
     }
 
     public static boolean esPar(int numero) {
