@@ -76,7 +76,7 @@
 						<div class="mid-header container">
 							<a href="#" class="logo">ROSIER</a>
 							<div class="search">
-								<input type="text" placeholder="Search" />
+								<input type="text" placeholder="Buscador" v-model="buscar" @keyup="buscador" />
 								<i class="bx bx-search-alt"></i>
 							</div>
 							<ul class="user-menu">
@@ -318,7 +318,7 @@
 											style="width: 18rem"
 											v-for="prenda in prendasMarroquinería"
 										>
-											<!-- <img src=`{{prenda.imagen}}`  class="card-img-top" alt="..."> -->
+											<img :src="prenda.imagen" class="card-img-top" alt="..." />
 											<div class="card-body">
 												<h5 class="card-title">
 													{{prenda.nombrePrenda.substring(0, prenda.nombrePrenda.indexOf(' '))}}
