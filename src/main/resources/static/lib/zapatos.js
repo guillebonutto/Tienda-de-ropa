@@ -2,7 +2,7 @@ var app = new Vue({
     el:'#app',
     data: {
         prendas: [],
-        prendasMarroquineria: [],
+        zapatos: [],
         buscador: '',
         setTimeoutBuscador: ''
 
@@ -29,7 +29,7 @@ var app = new Vue({
         },
 
         cargarPrendasMarroquinería() {
-            this.prendasMarroquineria = this.prendas.filter(element=> element.tipoArticulo == "MARROQUINERIA")}
+            this.zapatos = this.prendas.filter(element=> element.tipoArticulo == "ZAPATOS")}
 
         ,
         
@@ -38,7 +38,7 @@ var app = new Vue({
     },
     computed:{
         filtrarPrendas(){
-            return this.prendasMarroquineria.filter(prenda => prenda.nombrePrenda.toLowerCase().includes(this.buscador.toLowerCase()))
+            return this.zapatos.filter(prenda => prenda.nombrePrenda.toLowerCase().includes(this.buscador.toLowerCase()))
             
         }
     }
