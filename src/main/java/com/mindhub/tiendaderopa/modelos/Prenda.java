@@ -1,10 +1,13 @@
 package com.mindhub.tiendaderopa.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Prenda {
@@ -27,9 +30,8 @@ public class Prenda {
 
     private String imagen;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="prendaCliente_id")
-    PrendaCliente prendaCliente;
+    @OneToMany(mappedBy = "prenda",fetch = FetchType.EAGER)
+    private Set <PrendaCliente> prendaCliente = new HashSet<>();
 
 
 
@@ -102,11 +104,8 @@ public class Prenda {
         this.color = color;
     }
 
-    public PrendaCliente getPrendaCliente() {
-        return prendaCliente;
-    }
+@JsonIgnore
+    public Set<PrendaCliente> getPrendaCliente() {return prendaCliente;}
 
-    public void setPrendaCliente(PrendaCliente prendaCliente) {
-        this.prendaCliente = prendaCliente;
-    }
+    public void setPrendaCliente(Set<PrendaCliente> prendaCliente) {this.prendaCliente = prendaCliente;}
 }

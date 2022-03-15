@@ -26,16 +26,17 @@ public class PrendaCliente {
     @JoinColumn(name="cliente_id")
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "prendaCliente", fetch = FetchType.EAGER)
-    List<Prenda> prendas = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name="prenda_id")
+    private Prenda prenda;
 
 
 
     public PrendaCliente() {
     }
 
-    public PrendaCliente(List<Prenda> prendas, int cant, Compra compra, Cliente cliente) {
-        this.prendas = prendas;
+    public PrendaCliente(Prenda prenda, int cant, Compra compra, Cliente cliente) {
+        this.prenda = prenda;
         this.cant = cant;
         this.compra = compra;
         this.cliente = cliente;
@@ -66,11 +67,11 @@ public class PrendaCliente {
         this.cliente = cliente;
     }
 
-    public List<Prenda> getPrendas() {
-        return this.prendas;
+    public Prenda getPrenda() {
+        return prenda;
     }
 
-    public void setPrendas(List<Prenda> prendas) {
-        this.prendas = prendas;
+    public void setPrenda(Prenda prenda) {
+        this.prenda = prenda;
     }
 }

@@ -36,7 +36,7 @@ public class TiendaDeRopaApplication {
 
 /*            Set<Prenda> prendas = new HashSet<>();
             prendas.add(prenda);*/
-            PrendaCliente prendaCliente = new PrendaCliente(Arrays.asList(prenda), 100, compra, cliente);
+            PrendaCliente prendaCliente = new PrendaCliente(prenda,100, compra, cliente);
             prendaClienteRepositorio.save(prendaCliente);
 
             System.out.println(prenda);
