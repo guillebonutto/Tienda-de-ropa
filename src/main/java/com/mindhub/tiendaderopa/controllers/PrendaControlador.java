@@ -49,7 +49,7 @@ public class PrendaControlador {
         prendaRepositorio.deleteById(id);
 
 
-        return null;
+        return new ResponseEntity<>("La prenda ha sido eliminada",HttpStatus.CREATED);
     }
 
 
