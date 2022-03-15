@@ -29,7 +29,7 @@ public class AutenticacionWeb extends GlobalAuthenticationConfigurerAdapter {
         auth.userDetailsService(inputName -> {
             Cliente cliente = clienteRepositorio.findByEmail(inputName);
             if (cliente != null) {
-                if (cliente.getEmail().equals("guille@hotmail.com")) {
+                if (cliente.getEmail().equals("admin@admin.com")) {
                     return new User(cliente.getEmail(), cliente.getPassword(),
                             AuthorityUtils.createAuthorityList("ADMIN"));
                 }
