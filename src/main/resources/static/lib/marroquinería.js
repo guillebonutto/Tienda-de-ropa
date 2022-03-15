@@ -4,6 +4,7 @@ var app = new Vue({
 		prendas: [],
 		prendasMarroquinería: [],
 		filterPrecio: [],
+		buscar: "",
 	},
 	created() {
 		this.cargarDatos()
@@ -28,7 +29,7 @@ var app = new Vue({
 			)
 		},
 		filtroCategorias(categoria) {
-			this.prendasMarroquinería = this.prendas.filter((element) =>
+			this.prendasMarroquinería = this.prendasMarroquinería.filter((element) =>
 				element.nombrePrenda.includes(categoria)
 			)
 		},
@@ -45,9 +46,21 @@ var app = new Vue({
 			})
 		},
 		filtroColor(color) {
-			this.prendasMarroquinería = this.prendas.filter((element) =>
+			this.prendasMarroquinería = this.prendasMarroquinería.filter((element) =>
 				element.nombrePrenda.includes(color)
 			)
+		},
+		buscador() {
+			this.prendasMarroquinería.forEach((element) => {
+				if (
+					element.nombrePrenda.toLowerCase().includes(element.nombrePrenda.toLowerCase()) ||
+					this.buscar == ""
+				) {
+					this.prendasMarroquinería = this.prendasMarroquinería.filter((elemento) =>
+						elemento.nombrePrenda.toLowerCase().includes(this.buscar.toLowerCase())
+					)
+				}
+			})
 		},
 	},
 })
