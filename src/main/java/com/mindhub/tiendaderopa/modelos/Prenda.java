@@ -31,7 +31,7 @@ public class Prenda {
     private String imagen;
 
     @OneToMany(mappedBy = "prenda",fetch = FetchType.EAGER)
-    private Set <PrendaCliente> prendaCliente = new HashSet<>();
+    private Set <PrendaCliente> prendaClientes = new HashSet<>();
 
 
 
@@ -105,7 +105,7 @@ public class Prenda {
     }
 
 @JsonIgnore
-    public Set<PrendaCliente> getPrendaCliente() {return prendaCliente;}
+    public Set<PrendaCliente> getPrendaCliente() {return prendaClientes;}
 
-    public void setPrendaCliente(Set<PrendaCliente> prendaCliente) {this.prendaCliente = prendaCliente;}
+    public void setPrendaCliente(Set<PrendaCliente> prendaCliente) {this.prendaClientes = prendaCliente;}
 }
