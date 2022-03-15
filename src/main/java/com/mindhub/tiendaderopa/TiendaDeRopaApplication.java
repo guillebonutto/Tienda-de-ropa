@@ -37,16 +37,16 @@ public class TiendaDeRopaApplication {
             Prenda prenda = new Prenda("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "ver");
             prendaRepositorio.save(prenda);
 
-            Prenda carteraMarron = new Prenda("Cartera Color Marrón", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://tommyargentina.vteximg.com.br/arquivos/ids/186630-500-667/AW0AW04636_902_2.jpg?v=637708674978200000");
+            Prenda carteraMarron = new Prenda("Cartera Color Marrón", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://tommyargentina.vteximg.com.br/arquivos/ids/186627-1035-1380/AW0AW04597_903_1.jpg?v=637708674898800000");
             prendaRepositorio.save(carteraMarron);
 
-            Prenda carteraNegra = new Prenda("Cartera Color Negro", 1200, 12,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"), "ver");
+            Prenda carteraNegra = new Prenda("Cartera Color Negro", 1200, 12,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://tommyargentina.vteximg.com.br/arquivos/ids/186630-500-667/AW0AW04636_902_2.jpg?v=637708674978200000");
             prendaRepositorio.save(carteraNegra);
 
             Prenda carteraMarronclaro = new Prenda("Cartera Color Marrón Claro",5000,20,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"agregar URL");
             prendaRepositorio.save(carteraMarronclaro);
 
-            Prenda carteraBlanca = new Prenda("Cartera Color Blanco", 4000,15,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"agregar Url");
+            Prenda carteraBlanca = new Prenda("Cartera Color Blanco", 4000,15,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://i.pinimg.com/736x/44/07/ac/4407acc9613e82652500c857677d04ac.jpg");
             prendaRepositorio.save(carteraBlanca);
 
             Prenda cintoMarron = new Prenda("Cinto Color Marrón", 900, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("S","M"),"ver");
