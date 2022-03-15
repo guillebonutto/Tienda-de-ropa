@@ -3,10 +3,12 @@ package com.mindhub.tiendaderopa;
 import com.mindhub.tiendaderopa.modelos.*;
 import com.mindhub.tiendaderopa.repositorios.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -18,6 +20,9 @@ import java.util.stream.Stream;
 @SpringBootApplication
 public class TiendaDeRopaApplication {
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     public static void main(String[] args) {
         SpringApplication.run(TiendaDeRopaApplication.class, args);
     }
@@ -25,10 +30,10 @@ public class TiendaDeRopaApplication {
     @Bean
     public CommandLineRunner initData(ClienteRepositorio clienteRepositorio, PrendaRepositorio prendaRepositorio, CompraRepositorio compraRepositorio, PrendaClienteRepositorio prendaClienteRepositorio) {
         return (args) -> {
-            Cliente cliente = new Cliente("Lara", "Soto", "lara@hotmail.com", "lara");
+            Cliente cliente = new Cliente("Lara", "Soto", "lara@hotmail.com",passwordEncoder.encode("lara") );
             clienteRepositorio.save(cliente);
 
-            Cliente administrador = new Cliente("admin","admin","admin@admin.com","1234");
+            Cliente administrador = new Cliente("admin","admin","admin@admin.com", passwordEncoder.encode("1234"));
             clienteRepositorio.save(administrador);
 
             Compra compra = new Compra(TipoCompra.TARJETA, LocalDateTime.now(), 1500);
