@@ -28,7 +28,7 @@ var app = new Vue({
 			)
 		},
 		filtroCategorias(categoria) {
-			this.prendasMarroquinería = this.prendas.filter((element) =>
+			this.prendasMarroquinería = this.prendasMarroquinería.filter((element) =>
 				element.nombrePrenda.includes(categoria)
 			)
 		},
@@ -45,7 +45,7 @@ var app = new Vue({
 			})
 		},
 		filtroColor(color) {
-			this.prendasMarroquinería = this.prendas.filter((element) =>
+			this.prendasMarroquinería = this.prendasMarroquinería.filter((element) =>
 				element.nombrePrenda.includes(color)
 			)
 		},
