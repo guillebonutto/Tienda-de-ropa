@@ -49,6 +49,40 @@ public class TiendaDeRopaApplication {
             Prenda carteraBlanca = new Prenda("Cartera Blanca", 4000,15,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"agregar Url");
             prendaRepositorio.save(carteraBlanca);
 
+            Prenda cintoMarron = new Prenda("Cinto Marrón", 900, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("S","M"),"ver");
+            prendaRepositorio.save(cintoMarron);
+
+            Prenda cintoNegro = new Prenda("Cinto Negro", 1000, 5, TipoArticulo.MARROQUINERIA,Arrays.asList("S","M"),"ver");
+            prendaRepositorio.save(cintoNegro);
+
+            Prenda cintoMarronClaro = new Prenda("Cinto Marrón Claro", 110, 8, TipoArticulo.MARROQUINERIA,Arrays.asList("S","M"),"ver");
+            prendaRepositorio.save(cintoMarronClaro);
+
+            Prenda cintoBlanco = new Prenda("Cinto Blanco", 1500, 5, TipoArticulo.MARROQUINERIA,Arrays.asList("S","M"),"ver");
+            prendaRepositorio.save(cintoBlanco);
+
+            Prenda billeteraNegra = new Prenda("Billetera Negra", 2000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"ver");
+            prendaRepositorio.save(billeteraNegra);
+
+            Prenda billeteraMarron = new Prenda("Billetera Marron", 2500, 8, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"ver");
+            prendaRepositorio.save(billeteraMarron);
+
+            Prenda billeteraMarronClaro = new Prenda("Billetera Marron Claro", 2200, 9, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"ver");
+            prendaRepositorio.save(billeteraMarronClaro);
+
+            Prenda agendaNegra = new Prenda("Agenda Negra", 2500, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Personal","Reuniones"),"ver");
+            prendaRepositorio.save(agendaNegra);
+
+            Prenda agendaMarron = new Prenda("Agenda Marrón", 2900, 9, TipoArticulo.MARROQUINERIA,Arrays.asList("Personal"),"ver");
+            prendaRepositorio.save(agendaMarron);
+
+
+
+
+
+
+
+
             Prenda zapatoMarron = new Prenda("Zapato Marron", 3000, 14, TipoArticulo.ZAPATOS,Arrays.asList("8","9","10","11","12"),"ver" );
             prendaRepositorio.save(zapatoMarron);
 
@@ -60,6 +94,8 @@ public class TiendaDeRopaApplication {
 
             Prenda remeraNegra = new Prenda("Remera Negra", 4800,7,TipoArticulo.REMERAS,Arrays.asList("XS","S","M","L","XL"),"ver");
             prendaRepositorio.save(remeraNegra);
+
+
 
 
 
