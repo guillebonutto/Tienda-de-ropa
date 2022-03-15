@@ -10,6 +10,10 @@ import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @SpringBootApplication
 public class TiendaDeRopaApplication {
@@ -19,19 +23,23 @@ public class TiendaDeRopaApplication {
     }
 
     @Bean
-    public CommandLineRunner initData(ClienteRepositorio clienteRepositorio, InventarioRepositorio inventarioRepositorio, CompraRepositorio compraRepositorio, ArticuloRepositorio articuloRepositorio) {
+    public CommandLineRunner initData(ClienteRepositorio clienteRepositorio, PrendaRepositorio prendaRepositorio, CompraRepositorio compraRepositorio, PrendaClienteRepositorio prendaClienteRepositorio) {
         return (args) -> {
             Cliente cliente = new Cliente("Lara", "Soto", "lara@hotmail.com", "lara");
             clienteRepositorio.save(cliente);
 
-            Compra compra = new Compra(TipoCompra.TARJETA, LocalDateTime.now(), 1500, cliente);
+            Compra compra = new Compra(TipoCompra.TARJETA, LocalDateTime.now(), 1500);
             compraRepositorio.save(compra);
 
-            Inventario inventario = new Inventario("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "../images.jpg");
-            inventarioRepositorio.save(inventario);
+            Prenda prenda = new Prenda("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "bb");
+            prendaRepositorio.save(prenda);
 
-            Articulo articulo = new Articulo(inventario.getNombrePrenda(), inventario.getPrecio(), 2, inventario, compra);
-            articuloRepositorio.save(articulo);
+/*            Set<Prenda> prendas = new HashSet<>();
+            prendas.add(prenda);*/
+            PrendaCliente prendaCliente = new PrendaCliente(prenda,100, compra, cliente);
+            prendaClienteRepositorio.save(prendaCliente);
+
+            System.out.println(prenda);
         };
     }
 }

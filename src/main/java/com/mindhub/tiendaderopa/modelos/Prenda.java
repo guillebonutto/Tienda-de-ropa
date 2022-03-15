@@ -1,5 +1,6 @@
 package com.mindhub.tiendaderopa.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-public class Inventario {
+public class Prenda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -17,8 +18,9 @@ public class Inventario {
     private long id;
 
     private String nombrePrenda;
-    private double precio;
+    private String color;
     private int stock;
+    private double precio;
 
     @ElementCollection
     @Column(name = "talles")
@@ -28,23 +30,21 @@ public class Inventario {
 
     private String imagen;
 
-    @OneToMany(mappedBy="inventario", fetch=FetchType.EAGER)
-    Set<Articulo> articulos =  new HashSet<>();
+    @OneToMany(mappedBy = "prenda",fetch = FetchType.EAGER)
+    private Set <PrendaCliente> prendaClientes = new HashSet<>();
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="compra_id")
-    Cliente clientes;
 
-    public Inventario() {
+    public Prenda() {
     }
 
-    public Inventario(String nombrePrenda, double precio, int stock, TipoArticulo tipoArticulo, List<String> talles, String imagen) {
+    public Prenda(String nombrePrenda, double precio, int stock, TipoArticulo tipoArticulo, List<String> talles, String imagen) {
         this.nombrePrenda = nombrePrenda;
         this.precio = precio;
         this.stock = stock;
         this.tipoArticulo = tipoArticulo;
         this.talles = talles;
+        this.imagen = imagen;
     }
 
     public long getId() {
@@ -91,26 +91,21 @@ public class Inventario {
         this.tipoArticulo = tipoArticulo;
     }
 
-    public Set<Articulo> getArticulos() {
-        return articulos;
+    public String getImagen() {return imagen;}
+
+    public void setImagen(String imagen) {this.imagen = imagen;
     }
 
-    public void setArticulos(Set<Articulo> articulos) {
-        this.articulos = articulos;
+    public String getColor() {
+        return color;
     }
 
-    public Cliente getClientes() {
-        return clientes;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public void setClientes(Cliente clientes) {
-        this.clientes = clientes;
-    }
+@JsonIgnore
+    public Set<PrendaCliente> getPrendaCliente() {return prendaClientes;}
 
-    public String getImagen() {
-     return imagen;  }
-
-    public void setImagen(String imagen){
-    this.imagen = imagen; }
-
+    public void setPrendaCliente(Set<PrendaCliente> prendaCliente) {this.prendaClientes = prendaCliente;}
 }

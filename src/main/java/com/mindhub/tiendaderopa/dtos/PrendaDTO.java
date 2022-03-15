@@ -1,26 +1,33 @@
 package com.mindhub.tiendaderopa.dtos;
 
-import com.mindhub.tiendaderopa.modelos.Inventario;
+import com.mindhub.tiendaderopa.modelos.Prenda;
+import com.mindhub.tiendaderopa.modelos.PrendaCliente;
 import com.mindhub.tiendaderopa.modelos.TipoArticulo;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-public class InventarioDTO {
+public class PrendaDTO {
 
     private String nombrePrenda;
     private double precio;
     private int stock;
     private TipoArticulo tipoArticulo;
     private List<String> talles;
+    private String imagen;
+    private Set <PrendaClienteDTO> prendaClientesDTO = new HashSet<>();
 
 
-    public InventarioDTO(Inventario inventario) {
-        this.nombrePrenda = inventario.getNombrePrenda();
-        this.precio = inventario.getPrecio();
-        this.stock = inventario.getStock();
-        this.tipoArticulo = inventario.getTipoArticulo();
-        this.talles = inventario.getTalles();
-        //this.imagen = inventario.getImagen();
+    public PrendaDTO(Prenda prenda) {
+        this.nombrePrenda = prenda.getNombrePrenda();
+        this.precio = prenda.getPrecio();
+        this.stock = prenda.getStock();
+        this.tipoArticulo = prenda.getTipoArticulo();
+        this.talles = prenda.getTalles();
+        this.imagen = prenda.getImagen();
+       // this.prendaClientesDTO = prenda.getPrendaCliente().stream().map(PrendaClienteDTO::new).collect(Collectors.toSet());
     }
 
     public String getNombrePrenda() {
@@ -62,4 +69,8 @@ public class InventarioDTO {
     public void setTalles(List<String> talles) {
         this.talles = talles;
     }
+
+    public String getImagen() {return imagen;}
+
+    public void setImagen(String imagen) {this.imagen = imagen;}
 }
