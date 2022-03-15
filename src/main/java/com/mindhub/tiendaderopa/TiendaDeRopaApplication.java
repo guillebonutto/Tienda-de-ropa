@@ -28,11 +28,35 @@ public class TiendaDeRopaApplication {
             Cliente cliente = new Cliente("Lara", "Soto", "lara@hotmail.com", "lara");
             clienteRepositorio.save(cliente);
 
+            Cliente administrador = new Cliente("admin","admin","admin@admin.com","1234");
+            clienteRepositorio.save(administrador);
+
             Compra compra = new Compra(TipoCompra.TARJETA, LocalDateTime.now(), 1500);
             compraRepositorio.save(compra);
 
-            Prenda prenda = new Prenda("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "bb");
+            Prenda prenda = new Prenda("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "ver");
             prendaRepositorio.save(prenda);
+
+            Prenda carteraMarron = new Prenda("Cartera Marrón", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"ver");
+            prendaRepositorio.save(carteraMarron);
+
+            Prenda carteraNegra = new Prenda("Cartera Negra", 1200, 12,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"), "ver");
+            prendaRepositorio.save(carteraNegra);
+
+            Prenda zapatoMarron = new Prenda("Zapato Marron", 3000, 14, TipoArticulo.ZAPATOS,Arrays.asList("8","9","10","11","12"),"ver" );
+            prendaRepositorio.save(zapatoMarron);
+
+            Prenda zapatoNegro = new Prenda("Zapato Negro", 3500, 15, TipoArticulo.ZAPATOS, Arrays.asList("11","12"),"ver");
+            prendaRepositorio.save(zapatoNegro);
+
+            Prenda remeraBlanca = new Prenda("Remera Blanca",2000,5,TipoArticulo.REMERAS,Arrays.asList("S","M","L"),"ver");
+            prendaRepositorio.save(remeraBlanca);
+
+            Prenda remeraNegra = new Prenda("Remera Negra", 4800,7,TipoArticulo.REMERAS,Arrays.asList("XS","S","M","L","XL"),"ver");
+            prendaRepositorio.save(remeraNegra);
+
+
+
 
 /*            Set<Prenda> prendas = new HashSet<>();
             prendas.add(prenda);*/
