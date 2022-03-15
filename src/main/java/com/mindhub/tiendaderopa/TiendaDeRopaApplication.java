@@ -37,11 +37,17 @@ public class TiendaDeRopaApplication {
             Prenda prenda = new Prenda("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "ver");
             prendaRepositorio.save(prenda);
 
-            Prenda carteraMarron = new Prenda("Cartera Marrón", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"ver");
+            Prenda carteraMarron = new Prenda("Cartera Marrón", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://tommyargentina.vteximg.com.br/arquivos/ids/186630-500-667/AW0AW04636_902_2.jpg?v=637708674978200000");
             prendaRepositorio.save(carteraMarron);
 
             Prenda carteraNegra = new Prenda("Cartera Negra", 1200, 12,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"), "ver");
             prendaRepositorio.save(carteraNegra);
+
+            Prenda carteraMarronclaro = new Prenda("Cartera Marron Claro",5000,20,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"agregar URL");
+            prendaRepositorio.save(carteraMarronclaro);
+
+            Prenda carteraBlanca = new Prenda("Cartera Blanca", 4000,15,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"agregar Url");
+            prendaRepositorio.save(carteraBlanca);
 
             Prenda zapatoMarron = new Prenda("Zapato Marron", 3000, 14, TipoArticulo.ZAPATOS,Arrays.asList("8","9","10","11","12"),"ver" );
             prendaRepositorio.save(zapatoMarron);
