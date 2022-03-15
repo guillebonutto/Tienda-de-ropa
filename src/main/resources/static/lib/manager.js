@@ -41,7 +41,7 @@ var app = new Vue({
         },
         cargarPrendas() {
             axios
-                .get('/api/prenda')
+                .get('/api/prendas')
                 .then((response) => {
                     this.prendas = response.data
 
@@ -55,7 +55,7 @@ var app = new Vue({
         crearPrendas() {
             axios
 
-                .post('/api/prenda', `nombrePrenda=${this.nombrePrenda}&precio=${this.precio}&stock=${this.stock}&tipo=${this.tipo}&talles=${this.talles}&imagen=${this.imagen}`)
+                .post('/api/prendas', `nombrePrenda=${this.nombrePrenda}&precio=${this.precio}&stock=${this.stock}&tipo=${this.tipo}&talles=${this.talles}&imagen=${this.imagen}`)
                 .then((response) =>{
                     window.location.reload()
                 })
@@ -67,6 +67,8 @@ var app = new Vue({
         formulario(){
             return false
         },
+
+        eliminar
 
         // cargarTalles(){
         //     this.talles= 
