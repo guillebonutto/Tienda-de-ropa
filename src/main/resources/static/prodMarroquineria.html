@@ -2,10 +2,33 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Marroquineria</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marroquinería</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/grid.css">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/zapatos.css">
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+			crossorigin="anonymous"
+		/>
+		<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" />
 	<link
@@ -417,6 +440,418 @@
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>
 	<script src="./lib/marroquinería.js"></script>
+</body>
+
+                <div class="bg-main">
+                    <div class="mid-header container">
+                        <a href="#" class="logo">ROSIER</a>
+                        <div class="search">
+                            <input type="text" placeholder="Search"  v-model="buscador" >
+                            <i class='bx bx-search-alt'></i>
+                        </div>
+                        <ul class="user-menu">
+                            <li><a href="#"><i class='bx bx-bell'></i></a></li>
+                            <li><a href="#"><i class='bx bx-user-circle'></i></a></li>
+                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-second">
+                    <div class="bottom-header container">
+                        <ul class="main-menu">
+                            <li><a href="#">home</a></li>
+                            <!--  menu -->
+                            <li class="mega-dropdown">
+                                <a href="./products.html">Shop<i class='bx bxs-chevron-down'></i></a>
+                                <div class="mega-content">
+                                    <div class="row">
+                                        <div class="col-3 col-md-12">
+                                            <div class="box">
+                                                <h3>Categories</h3>
+                                                <ul>
+                                                    <li><a href="#">koza1</a></li>
+                                                    <li><a href="#">koza1</a></li>
+                                                    <li><a href="#">koza1</a></li>
+                                                    <li><a href="#">koza1</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <!-- end  menu -->
+                            <li><a href="#">contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <div class="bg-main">
+            <div class="container">
+                <div class="box">
+                    <div class="breadcumb">
+                        <a href="./index.html">home</a>
+                        <span><i class='bx bxs-chevrons-right'></i></span>
+                        <a href="#">Marroquineria</a>
+                    </div>
+                </div>
+                <section class="categories">
+                    <div class="container-fluid">
+                        <div class="row"> 
+                            <div class="col-lg-6 p-0">
+                                <div class="categories_item categories_large_item">
+                                    <img src="../zapatos3.jpg" class="img-fluid shadow" alt="">
+                                    <div class="categories_text">
+                                        <h1>
+                                            Moda Mujer
+                                        </h1>
+                                        <p>Lo mejor en tendencias 2022</p>
+                                        <a href="#">Compra ya!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 p-0">
+                                <div class="categories_item categories_large_item">
+                                    <img src="../zapatos2.jpg" class="img-fluid shadow" alt="">
+                                    <div class="categories_text">
+                                        <h1>
+                                            Equisde 
+                                        </h1>
+                                        <p>Lo mejor en tendencias 2022</p>
+                                        <a href="#">Compra ya!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-lg-6 ">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12 p-0">
+                                        <div class="categories_item">
+                                            <img src="../zapatos4.jpg" class="img-fluid shadow" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-12 p-0">
+                                        <div class="categories_item">
+                                            <img src="../zapatos2.jpg" class="img-fluid shadow" alt="">
+                                            <div class="categories_text">
+                                                <h4></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-12 p-0">
+                                        <div class="categories_item">
+                                            <img src="../zapatos5.jpg" class="img-fluid shadow" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-12 p-0">
+                                        <div class="categories_item">
+                                            <img src="../zapatos6.jpg" class="img-fluid shadow" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </section>
+                <div class="box">
+                    <div class="row">
+                        <div class="col-3 filter-col" id="filter-col">
+                            <div class="box filter-toggle-box">
+                                <button class="btn-flat btn-hover" id="filter-close">close</button>
+                            </div>
+                            <div class="box">
+                                <span class="filter-header">
+                                    Categorias
+                                </span>
+                                <!--   categorias para ropas que no se si ponerlo o no -->
+                                <ul class="filter-list">
+                                    <li><a href="#">dsfsdfds</a></li>
+                                    <li><a href="#">sdfdsfs</a></li>
+                                    <li><a href="#">ssfsf</a></li>
+                                    <li><a href="#">sfsfs</a></li>
+                                </ul>
+                            </div>
+                            <div class="box">
+                                <span class="filter-header">
+                                    Precio
+                                </span>
+                                <div class="price-range">
+                                    <input type="text">
+                                    <span>-</span>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="box">
+                                <ul class="filter-list">
+                                    <li>
+                                        <div class="group-checkbox">
+                                            <input type="checkbox" id="status1">
+                                            <label for="status1">
+                                                On sale
+                                                <i class='bx bx-check'></i>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="group-checkbox">
+                                            <input type="checkbox" id="status3">
+                                            <label for="status3">
+                                                ofertas
+                                                <i class='bx bx-check'></i>
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="box">
+                                <span class="filter-header">
+                                    Colores
+                                </span>
+                                <ul class="filter-list">
+                                    <li>
+                                        <div class="group-checkbox">
+                                            <input type="checkbox" id="remember1">
+                                            <label for="remember1">
+                                                rojo
+                                                <i class='bx bx-check'></i>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="group-checkbox">
+                                            <input type="checkbox" id="remember2">
+                                            <label for="remember2">
+                                                azuk
+                                                <i class='bx bx-check'></i>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="group-checkbox">
+                                            <input type="checkbox" id="remember3">
+                                            <label for="remember3">
+                                                blanco
+                                                <i class='bx bx-check'></i>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="group-checkbox">
+                                            <input type="checkbox" id="remember4">
+                                            <label for="remember4">
+                                                rojsa
+                                                <i class='bx bx-check'></i>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="group-checkbox">
+                                            <input type="checkbox" id="remember5">
+                                            <label for="remember5">
+                                                amarillo
+                                                <i class='bx bx-check'></i>
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- estrellitas que me dan error ptm -->
+                            <div class="box">
+                                <span class="filter-header">
+                                    rating
+                                </span>
+                                <ul class="filter-list">
+                                    <li>
+                                        <div class="group-checkbox">
+                                            <input type="checkbox" id="remember1">
+                                            <label for="remember1">
+                                                <span class="rating">
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                </span>
+                                                <i class='bx bx-check'></i>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="group-checkbox">
+                                            <input type="checkbox" id="remember1">
+                                            <label for="remember1">
+                                                <span class="rating">
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bx-star'></i>
+                                                </span>
+                                                <i class='bx bx-check'></i>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="group-checkbox">
+                                            <input type="checkbox" id="remember1">
+                                            <label for="remember1">
+                                                <span class="rating">
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bx-star'></i>
+                                                    <i class='bx bx-star'></i>
+                                                </span>
+                                                <i class='bx bx-check'></i>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="group-checkbox">
+                                            <input type="checkbox" id="remember1">
+                                            <label for="remember1">
+                                                <span class="rating">
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bx-star'></i>
+                                                    <i class='bx bx-star'></i>
+                                                    <i class='bx bx-star'></i>
+                                                </span>
+                                                <i class='bx bx-check'></i>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="group-checkbox">
+                                            <input type="checkbox" id="remember1">
+                                            <label for="remember1">
+                                                <span class="rating">
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bx-star'></i>
+                                                    <i class='bx bx-star'></i>
+                                                    <i class='bx bx-star'></i>
+                                                    <i class='bx bx-star'></i>
+                                                </span>
+                                                <i class='bx bx-check'></i>
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-9 col-md-12">
+                            <div class="box filter-toggle-box">
+                                <button class="btn-flat btn-hover" id="filter-toggle">filter</button>
+                            </div>
+                            <div class="box">
+                                <div class="row d-flex justify-content-evenly flex-grap" id="products">
+                                    <div class="card mb-3" style="width: 18rem;" v-for="prenda in filtrarPrendas" :keyup="prendasMarroquineria.nombrePrenda">
+                                        
+                                        <img :src="prenda.imagen"  class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            
+                                           
+                                          <h5 class="card-title">{{prenda.nombrePrenda}}</h5>
+                                          <p class="card-text">Precio: ${{prenda.precio}}</p>
+                                          <a href="#" class="btn btn-primary">Agregar al Carrito</a>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <ul class="pagination">
+                                    <li><a href="#"><i class='bx bxs-chevron-left'></i></a></li>
+                                    <li><a href="#" class="active">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#"><i class='bx bxs-chevron-right'></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer espectacular -->
+        <footer class="bg-second">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3 col-md-6">
+                        <h3 class="footer-head">Products</h3>
+                        <ul class="menu">
+                            <li><a href="#">Help center</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">product help</a></li>
+                            <li><a href="#">warranty</a></li>
+                            <li><a href="#">order status</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-3 col-md-6">
+                        <h3 class="footer-head">services</h3>
+                        <ul class="menu">
+                            <li><a href="#">Help center</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">product help</a></li>
+                            <li><a href="#">warranty</a></li>
+                            <li><a href="#">order status</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-3 col-md-6">
+                        <h3 class="footer-head">support</h3>
+                        <ul class="menu">
+                            <li><a href="#">Help center</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">product help</a></li>
+                            <li><a href="#">warranty</a></li>
+                            <li><a href="#">order status</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-3 col-md-6 col-sm-12">
+                        <div class="contact">
+                            <h3 class="contact-header">
+                                ROSIER
+                            </h3>
+                            <ul class="contact-socials">
+                                <li><a href="#">
+                                        <i class='bx bxl-facebook-circle'></i>
+                                    </a></li>
+                                <li><a href="#">
+                                        <i class='bx bxl-instagram-alt'></i>
+                                    </a></li>
+                                <li><a href="#">
+                                        <i class='bx bxl-youtube'></i>
+                                    </a></li>
+                                <li><a href="#">
+                                        <i class='bx bxl-twitter'></i>
+                                    </a></li>
+                            </ul>
+                        </div>
+                        <div class="subscribe">
+                            <input type="email" placeholder="ENTER YOUR EMAIL">
+                            <button>subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="./lib/marroquinería.js"></script>
 </body>
 
 </html>
