@@ -6,6 +6,7 @@ import com.mindhub.tiendaderopa.modelos.Compra;
 import com.mindhub.tiendaderopa.modelos.PrendaCliente;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ClienteDTO {
 
@@ -13,14 +14,14 @@ public class ClienteDTO {
     private String apellido;
     private String email;
     private String password;
-    Set<PrendaCliente> prendaClientes;
+    private Set<PrendaClienteDTO> prendaClienteDTOS;
 
     public ClienteDTO(Cliente cliente) {
         this.nombre = cliente.getNombre();
         this.apellido = cliente.getApellido();
         this.email = cliente.getEmail();
         this.password = cliente.getPassword();
-        this.prendaClientes = cliente.getPrendaClientes();
+        this.prendaClienteDTOS = cliente.getPrendaClientes().stream().map(PrendaClienteDTO::new).collect(Collectors.toSet());
     }
 
     public String getNombre() {
@@ -55,11 +56,11 @@ public class ClienteDTO {
         this.password = password;
     }
 
-    public Set<PrendaCliente> getPrendaClientes() {
-        return prendaClientes;
+    public Set<PrendaClienteDTO> getPrendaClienteDTOS() {
+        return prendaClienteDTOS;
     }
 
-    public void setPrendaClientes(Set<PrendaCliente> prendaClientes) {
-        this.prendaClientes = prendaClientes;
+    public void setPrendaClienteDTOS(Set<PrendaClienteDTO> prendaClienteDTOS) {
+        this.prendaClienteDTOS = prendaClienteDTOS;
     }
 }
