@@ -32,7 +32,6 @@ public class Compra {
         this.tipo = tipo;
         this.fechayHora = fechayHora;
         this.monto = monto;
-
     }
 
     public long getId() {
@@ -63,6 +62,7 @@ public class Compra {
         this.monto = monto;
     }
 
+    @JsonIgnore
     public Set<PrendaCliente> getPrendaCliente() {
         return prendaCliente;
     }

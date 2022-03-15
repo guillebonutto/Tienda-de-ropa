@@ -1,37 +1,24 @@
 package com.mindhub.tiendaderopa.dtos;
 
+import com.mindhub.tiendaderopa.modelos.Cliente;
+import com.mindhub.tiendaderopa.modelos.Prenda;
 import com.mindhub.tiendaderopa.modelos.PrendaCliente;
+
+import java.util.List;
+import java.util.Set;
 
 public class PrendaClienteDTO {
 
-
-    private long idCliente;
-    private long idPrenda;
     private int cant;
+    List<Prenda> prendas;
+
 
     public PrendaClienteDTO() {
     }
 
     public PrendaClienteDTO(PrendaCliente prendaCliente) {
-        this.idCliente = idCliente;
-        this.idPrenda = idPrenda;
-        this.cant = cant;
-    }
-
-    public long getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public long getIdPrenda() {
-        return idPrenda;
-    }
-
-    public void setIdPrenda(long idPrenda) {
-        this.idPrenda = idPrenda;
+        this.cant = prendaCliente.getCant();
+        this.prendas = prendaCliente.getPrendas();
     }
 
     public int getCant() {
@@ -40,5 +27,13 @@ public class PrendaClienteDTO {
 
     public void setCant(int cant) {
         this.cant = cant;
+    }
+
+    public List<Prenda> getPrendas() {
+        return prendas;
+    }
+
+    public void setPrendas(List<Prenda> prendas) {
+        this.prendas = prendas;
     }
 }

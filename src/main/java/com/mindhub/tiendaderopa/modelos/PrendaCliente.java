@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,47 +16,29 @@ public class PrendaCliente {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    private long idCliente;
-    private long idPrenda;
     private int cant;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="compra_id")
-    Compra compra;
+    private Compra compra;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="cliente_id")
-    Cliente cliente;
+    private Cliente cliente;
 
     @OneToMany(mappedBy = "prendaCliente", fetch = FetchType.EAGER)
-    Set<Prenda> prendas = new HashSet<>();
+    List<Prenda> prendas = new ArrayList<>();
 
 
 
     public PrendaCliente() {
     }
 
-    public PrendaCliente(long idCliente, long idPrenda, int cant, Compra compra) {
-        this.idCliente = idCliente;
-        this.idPrenda = idPrenda;
+    public PrendaCliente(List<Prenda> prendas, int cant, Compra compra, Cliente cliente) {
+        this.prendas = prendas;
         this.cant = cant;
         this.compra = compra;
-    }
-
-    public long getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public long getIdPrenda() {
-        return idPrenda;
-    }
-
-    public void setIdPrenda(long idPrenda) {
-        this.idPrenda = idPrenda;
+        this.cliente = cliente;
     }
 
     public int getCant() {
@@ -71,5 +55,22 @@ public class PrendaCliente {
 
     public void setCompra(Compra compra) {
         this.compra = compra;
+    }
+
+    @JsonIgnore
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<Prenda> getPrendas() {
+        return this.prendas;
+    }
+
+    public void setPrendas(List<Prenda> prendas) {
+        this.prendas = prendas;
     }
 }
