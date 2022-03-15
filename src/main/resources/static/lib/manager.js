@@ -68,7 +68,16 @@ var app = new Vue({
             return false
         },
 
-        eliminar
+        eliminarCuentas(){
+            axios
+                .delete('/api/prendas{Id}')
+                .then((response) => {
+                    window.location.reload()
+                })
+                .catch((error) => {
+                    console.log(error)
+                    })
+        },
 
         // cargarTalles(){
         //     this.talles= 
