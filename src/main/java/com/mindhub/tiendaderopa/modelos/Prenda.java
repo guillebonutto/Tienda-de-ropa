@@ -93,4 +93,20 @@ public class Prenda {
 
     public void setImagen(String imagen) {this.imagen = imagen;
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public PrendaCliente getPrendaCliente() {
+        return prendaCliente;
+    }
+
+    public void setPrendaCliente(PrendaCliente prendaCliente) {
+        this.prendaCliente = prendaCliente;
+    }
 }
