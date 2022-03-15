@@ -22,12 +22,12 @@ public class PrendaControlador {
     @Autowired //Inyección de dependencia
     PrendaRepositorio prendaRepositorio;
 
-    @RequestMapping("/prenda")
+    @RequestMapping("/prendas")
     public List<PrendaDTO> getPrendas(){
         return prendaRepositorio.findAll().stream().map(inv -> new PrendaDTO(inv)).collect(Collectors.toList());
     }
 
-    @PostMapping("/prenda")
+    @PostMapping("/prendas")
     public ResponseEntity<Object> crearArticulo(
             @RequestParam String nombrePrenda,
             @RequestParam int precio,

@@ -3,6 +3,7 @@ package com.mindhub.tiendaderopa.dtos;
 import com.mindhub.tiendaderopa.modelos.Prenda;
 import com.mindhub.tiendaderopa.modelos.Cliente;
 import com.mindhub.tiendaderopa.modelos.Compra;
+import com.mindhub.tiendaderopa.modelos.PrendaCliente;
 
 import java.util.Set;
 
@@ -12,15 +13,14 @@ public class ClienteDTO {
     private String apellido;
     private String email;
     private String password;
-    private Set<Compra> compras;
-    private Set<Prenda> inventarios;
+    Set<PrendaCliente> prendaClientes;
 
     public ClienteDTO(Cliente cliente) {
         this.nombre = cliente.getNombre();
         this.apellido = cliente.getApellido();
         this.email = cliente.getEmail();
         this.password = cliente.getPassword();
-
+        this.prendaClientes = cliente.getPrendaClientes();
     }
 
     public String getNombre() {
@@ -55,19 +55,11 @@ public class ClienteDTO {
         this.password = password;
     }
 
-    public Set<Compra> getCompras() {
-        return compras;
+    public Set<PrendaCliente> getPrendaClientes() {
+        return prendaClientes;
     }
 
-    public void setCompras(Set<Compra> compras) {
-        this.compras = compras;
-    }
-
-    public Set<Prenda> getInventario() {
-        return inventarios;
-    }
-
-    public void setInventario(Set<Prenda> inventarios) {
-        this.inventarios = inventarios;
+    public void setPrendaClientes(Set<PrendaCliente> prendaClientes) {
+        this.prendaClientes = prendaClientes;
     }
 }

@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,34 +26,20 @@ public class PrendaCliente {
     @JoinColumn(name="cliente_id")
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "prendaCliente", fetch = FetchType.EAGER)
-    Set<Prenda> prendas = new HashSet<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name="prenda_id")
+    private Prenda prenda;
 
 
 
     public PrendaCliente() {
     }
 
-    public PrendaCliente(int cant, Compra compra, Cliente cliente) {
+    public PrendaCliente(Prenda prenda, int cant, Compra compra, Cliente cliente) {
+        this.prenda = prenda;
         this.cant = cant;
         this.compra = compra;
         this.cliente = cliente;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Set<Prenda> getPrendas() {
-        return prendas;
-    }
-
-    public void setPrendas(Set<Prenda> prendas) {
-        this.prendas = prendas;
     }
 
     public int getCant() {
@@ -68,5 +56,22 @@ public class PrendaCliente {
 
     public void setCompra(Compra compra) {
         this.compra = compra;
+    }
+
+    @JsonIgnore
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Prenda getPrenda() {
+        return prenda;
+    }
+
+    public void setPrenda(Prenda prenda) {
+        this.prenda = prenda;
     }
 }

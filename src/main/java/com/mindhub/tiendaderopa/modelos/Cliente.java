@@ -68,7 +68,6 @@ public class Cliente {
         this.password = password;
     }
 
-
     public Set<PrendaCliente> getPrendaClientes() {
         return prendaClientes;
     }
@@ -76,4 +75,5 @@ public class Cliente {
     public void setPrendaClientes(Set<PrendaCliente> prendaClientes) {
         this.prendaClientes = prendaClientes;
     }
+
 }
