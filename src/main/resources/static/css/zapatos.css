@@ -101,6 +101,7 @@ ul{
 
 .categories .categories_large_item{
     height: 593px;
+    
 }
 
 .categories .categories_text{
@@ -146,4 +147,12 @@ ul{
     width: 100%;
     background-color: #ff7200;
     content: '';
+}
+
+.btn-primary{
+    background-color: #0F4C75;
+}
+
+.btn-primary:hover{
+    background-color: #FDCB9E;
 }
