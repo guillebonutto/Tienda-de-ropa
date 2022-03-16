@@ -103,6 +103,24 @@ public class TiendaDeRopaApplication {
             Prenda zapato9 = new Prenda("Sandalia Giselle de piel en relieve con cristales",13500,4,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647387001/zapatos9_iehenq.jpg");
             prendaRepositorio.save(zapato9);
 
+            //Joyeria
+            Prenda collar1 = new Prenda("Collar de plata de ley con chapado en oro rosa de 14 K y piedra",8000,6,TipoArticulo.JOYERIA, Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647398253/collar1_phain5.jpg");
+            prendaRepositorio.save(collar1);
+
+            Prenda collar2 = new Prenda("Set de collar con corazón y pendientes con cierre de tuerca de plata",10000,3,TipoArticulo.JOYERIA, Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647398597/collar2_azhkwz.jpg");
+            prendaRepositorio.save(collar2);
+
+            Prenda pulsera1 = new Prenda("Pulsera de plata de ley con cierre deslizante", 6000,7,TipoArticulo.JOYERIA, Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647398717/pulsera1_xvf33d.jpg");
+            prendaRepositorio.save(pulsera1);
+
+            Prenda pulsera2 = new Prenda("Pulsera rígida de plata", 4500,4,TipoArticulo.JOYERIA, Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647398796/pulsera2_wrbwxq.jpg");
+            prendaRepositorio.save(pulsera2);
+
+            Prenda aros1 = new Prenda("Pendientes de plata", 4500, 5, TipoArticulo.JOYERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647398970/aros1_dbvblr.jpg");
+            prendaRepositorio.save(aros1);
+
+            Prenda aros2 = new Prenda("Pendientes largos de plata", 4500, 5, TipoArticulo.JOYERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647399047/aros2_x36ozy.jpg");
+            prendaRepositorio.save(aros2);
 
 
 
