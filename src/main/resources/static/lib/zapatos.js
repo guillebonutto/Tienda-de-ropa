@@ -4,7 +4,8 @@ var app = new Vue({
         prendas: [],
         zapatos: [],
         buscador: '',
-        setTimeoutBuscador: ''
+        setTimeoutBuscador: '',
+        tildes: {'á':'a', 'é':'e', 'è':'e', 'í':'i','ó':'o','ú':'u','Á':'a', 'É':'e', 'è':'e', 'Í':'i','Ó':'o','Ú':'u'}
 
 
     },
@@ -32,7 +33,14 @@ var app = new Vue({
             this.zapatos = this.prendas.filter(element=> element.tipoArticulo == "ZAPATOS")}
 
         ,
-        
+        accent(s) {
+            if (!s) { return ''; }
+            var ret = '';
+            for (var i = 0; i < s.length; i++) {
+              ret += this.tildes[s.charAt(i)] || s.charAt(i);
+            }
+            return ret;
+          }
 
 
     },
