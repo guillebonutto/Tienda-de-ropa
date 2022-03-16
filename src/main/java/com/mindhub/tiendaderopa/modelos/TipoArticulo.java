@@ -5,5 +5,6 @@ public enum TipoArticulo {
     REMERAS,
     MARROQUINERIA,
     ZAPATOS,
+    INDUMENTARIA,
     SALE
 }
