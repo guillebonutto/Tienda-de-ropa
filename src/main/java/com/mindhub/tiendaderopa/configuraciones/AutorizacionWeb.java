@@ -21,7 +21,7 @@ public class AutorizacionWeb extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("h2-console").hasAuthority("ADMIN")
-                .antMatchers("/index.html", "/lib/**", "/styles/**", "/images/**").permitAll()
+                .antMatchers("/web/index.html", "/lib/**", "/styles/**", "/images/**","/api/login").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/clientes").permitAll()
                 .antMatchers("/**").permitAll();
 
