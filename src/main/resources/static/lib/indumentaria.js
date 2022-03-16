@@ -2,7 +2,7 @@ var app = new Vue({
     el:'#app',
     data: {
         prendas: [],
-        prendasIndumentaria: [],
+        prendasMarroquineria: [],
         buscar: '',
         setTimeoutBuscador: ''
     },      
@@ -17,7 +17,7 @@ var app = new Vue({
             .get('/api/prendas')
             .then((response)=>{
                 this.prendas = response.data
-                this.cargarprendasIndumentaria();
+                this.cargarPrendasMarroquineria();
 
             })
             .catch((error)=>{
@@ -26,24 +26,24 @@ var app = new Vue({
             
         },
 
-        cargarprendasIndumentaria() {
-            this.prendasIndumentaria = this.prendas.filter(element=> element.tipoArticulo == "MARROQUINERIA")
+        cargarPrendasMarroquineria() {
+            this.prendasMarroquineria = this.prendas.filter(element=> element.tipoArticulo == "INDUMENTARIA")
         },
-        		cargarprendasIndumentaria() {
-			this.prendasIndumentaria = this.prendas.filter(
-				(element) => element.tipoArticulo == "MARROQUINERIA"
+        		cargarPrendasMarroquineria() {
+			this.prendasMarroquineria = this.prendas.filter(
+				(element) => element.tipoArticulo == "INDUMENTARIA"
 			)
 		},
 		filtroCategorias(categoria) {
-			this.prendasIndumentaria = this.prendasIndumentaria.filter((element) =>
+			this.prendasMarroquineria = this.prendasMarroquineria.filter((element) =>
 				element.nombrePrenda.includes(categoria)
 			)
 		},
 		filtroPrecio(precioDesde, precioHasta) {
-			this.prendasIndumentaria.forEach((precio) => {
+			this.prendasMarroquineria.forEach((precio) => {
 				if (
-					this.prendasIndumentaria.precio >= precioDesde &&
-					this.prendasIndumentaria.precio <= precioHasta
+					this.prendasMarroquineria.precio >= precioDesde &&
+					this.prendasMarroquineria.precio <= precioHasta
 				) {
 					this.filterPrecio.push(precio)
 				} else {
@@ -52,17 +52,17 @@ var app = new Vue({
 			})
 		},
 		filtroColor(color) {
-			this.prendasIndumentaria = this.prendasIndumentaria.filter((element) =>
+			this.prendasMarroquineria = this.prendasMarroquineria.filter((element) =>
 				element.nombrePrenda.includes(color)
 			)
 		},
 		buscadorr() {
-			this.prendasIndumentaria.forEach((element) => {
+			this.prendasMarroquineria.forEach((element) => {
 				if (
 					element.nombrePrenda.toLowerCase().includes(element.nombrePrenda.toLowerCase()) ||
 					this.buscar == ""
 				) {
-					this.prendasIndumentaria = this.prendasIndumentaria.filter((elemento) =>
+					this.prendasMarroquineria = this.prendasMarroquineria.filter((elemento) =>
 						elemento.nombrePrenda.toLowerCase().includes(this.buscar.toLowerCase())
 					)
 				}
@@ -71,7 +71,7 @@ var app = new Vue({
 	},
     computed:{
         filtrarPrendas(){
-            return this.prendasIndumentaria.filter(prenda => prenda.nombrePrenda.toLowerCase().includes(this.buscar.toLowerCase()))
+            return this.prendasMarroquineria.filter(prenda => prenda.nombrePrenda.toLowerCase().includes(this.buscar.toLowerCase()))
             
         }
     }

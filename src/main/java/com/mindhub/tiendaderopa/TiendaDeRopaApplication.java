@@ -43,7 +43,7 @@ public class TiendaDeRopaApplication {
             prendaRepositorio.save(prenda);
 
 
-            //cartera
+
             Prenda carteraMarron = new Prenda("Cartera Adele de piel con compartimento para smartphone", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390548/cartera3marron_rcgmrp.jpg");
             prendaRepositorio.save(carteraMarron);
 
