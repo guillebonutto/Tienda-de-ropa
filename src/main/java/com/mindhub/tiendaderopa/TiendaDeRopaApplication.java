@@ -43,7 +43,7 @@ public class TiendaDeRopaApplication {
             prendaRepositorio.save(prenda);
 
 
-            //cartera
+
             Prenda carteraMarron = new Prenda("Cartera Adele de piel con compartimento para smartphone", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390548/cartera3marron_rcgmrp.jpg");
             prendaRepositorio.save(carteraMarron);
 
@@ -68,6 +68,31 @@ public class TiendaDeRopaApplication {
             prendaRepositorio.save(cintoBlanco);
 
 
+
+            //indumentaria
+            Prenda vestido1 = new Prenda("Vestido de encaje con estampado de palmeras",4000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M","L","XL"),"https://res.cloudinary.com/gohansox/image/upload/v1647399422/vestido1_rtxvpk.jpg");
+            prendaRepositorio.save(vestido1);
+
+            Prenda vestido2 = new Prenda("Vestido de tirantes acanalado",4500, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M","L"),"https://res.cloudinary.com/gohansox/image/upload/v1647399528/vestido2_oml5tt.jpg");
+            prendaRepositorio.save(vestido2);
+
+            Prenda joggers= new Prenda("Joggers",3500, 10,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S","M","L"),"https://res.cloudinary.com/gohansox/image/upload/v1647399700/vestido3_okl6k6.jpg");
+            prendaRepositorio.save(joggers);
+
+            Prenda joggers2= new Prenda("Joggers",3500, 10,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S","M","XL"),"https://res.cloudinary.com/gohansox/image/upload/v1647399785/joggers2_igxecl.jpg");
+            prendaRepositorio.save(joggers2);
+
+            Prenda vestido4= new Prenda("Vestido midi de georgette",4000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647400056/vestido4_q3365c.jpg");
+            prendaRepositorio.save(vestido4);
+
+            Prenda vestido5= new Prenda("Vestido midi de georgette",4000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647400056/vestido4_q3365c.jpg");
+            prendaRepositorio.save(vestido5);
+
+            Prenda camiseta = new Prenda("Camiseta de tirantes acanalada",3000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647401195/camiseta1_jesj7h.jpg");
+            prendaRepositorio.save(camiseta);
+
+            Prenda camiseta2 = new Prenda("Camiseta de tirantes acanalada",3000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S"),"https://res.cloudinary.com/gohansox/image/upload/v1647401308/camiseta2_tnz3yh.jpg");
+            prendaRepositorio.save(camiseta2);
 
 
 
@@ -141,7 +166,7 @@ public class TiendaDeRopaApplication {
 
 /*            Set<Prenda> prendas = new HashSet<>();
             prendas.add(prenda);*/
-            PrendaCliente prendaCliente = new PrendaCliente(prenda,100, compra, cliente);
+            PrendaCliente prendaCliente = new PrendaCliente(prenda,100,500, compra, cliente);
             prendaClienteRepositorio.save(prendaCliente);
 
             System.out.println(prenda);

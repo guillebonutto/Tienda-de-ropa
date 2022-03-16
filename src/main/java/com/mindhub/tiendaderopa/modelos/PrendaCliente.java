@@ -18,6 +18,8 @@ public class PrendaCliente {
 
     private int cant;
 
+    private double monto;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="compra_id")
     private Compra compra;
@@ -35,11 +37,12 @@ public class PrendaCliente {
     public PrendaCliente() {
     }
 
-    public PrendaCliente(Prenda prenda, int cant, Compra compra, Cliente cliente) {
+    public PrendaCliente(Prenda prenda, int cant, double monto,Compra compra, Cliente cliente) {
         this.prenda = prenda;
         this.cant = cant;
         this.compra = compra;
         this.cliente = cliente;
+        this.monto = monto;
     }
 
     public int getCant() {
@@ -58,7 +61,6 @@ public class PrendaCliente {
         this.compra = compra;
     }
 
-    @JsonIgnore
     public Cliente getCliente() {
         return cliente;
     }
@@ -73,5 +75,13 @@ public class PrendaCliente {
 
     public void setPrenda(Prenda prenda) {
         this.prenda = prenda;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
     }
 }

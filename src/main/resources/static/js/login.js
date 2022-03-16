@@ -18,12 +18,15 @@ var app = new Vue({
 			 }) 
         },
 		 register(){
-			 axios.post('/api/clientes', "nombre="+this.nombre+"&apellido="+this.apellido+"&email="+this.email+"&password="+this.contraseña)
-			 .then(response=>this.login())
-			 .catch((error)=>{
-				 console.log(error)
-			 })
-		 }
+		    /*axios.post('https://eco-banking.herokuapp.com/api/clients', "photo=../Client.png" + "firstName="+this.nombre+"&lastName="+this.apellido+"&email="+this.email+"&password="+this.contraseña, { headers: { "content-type": "application/x-www-form-urlencoded" } })
+		    .then(response=> {*/
+			    axios.post('/api/clientes', "nombre="+this.nombre+"&apellido="+this.apellido+"&email="+this.email+"&password="+this.contraseña, { headers: { "content-type": "application/x-www-form-urlencoded" } })
+			    .then(response=>this.login())
+			    .catch((error)=>{
+				     console.log(error)
+			        })
+//			    })
+		    }
 		 }
 		
 		
