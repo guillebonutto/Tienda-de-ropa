@@ -344,25 +344,14 @@
 								</div>
 								<div class="box">
 									<div class="row d-flex justify-content-evenly flex-grap" id="products">
-										<div
-											class="card mb-3"
-											style="width: 18rem"
-											v-for="prenda in filtrarPrendas"
-										>
-											<img :src="prenda.imagen" class="card-img-top" alt="..." />
+										<div class="card mb-3"style="width: 18rem" v-for="prenda in filtrarPrendas">
+											<img :src="prenda.imagen" class="card-img-top" alt="..."/>
 											<div class="card-body">
-												<h5 class="card-title">
-													{{prenda.nombrePrenda.substring(0, prenda.nombrePrenda.indexOf(' '))}}
-												</h5>
+												<h5 class="card-title">{{prenda.nombrePrenda.substring(0, prenda.nombrePrenda.indexOf(' '))}}</h5>
 												<p class="card-text">Precio: ${{prenda.precio}}</p>
 												<div class="d-flex">
-													<p class="card-text">
-														Color: {{prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf(' ')
-														+ 1)}}
-													</p>
-													<div
-														:class="'ms-3 ' + prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf(' ') + 1)"
-													></div>
+													<p class="card-text">Color: {{prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf(' ')+ 1)}}</p>
+													<div :class="'ms-3 ' + prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf(' ') + 1)"></div>
 												</div>
 											</div>
 											<a href="#" class="btn btn-primary">Agregar al Carrito</a>
