@@ -17,7 +17,7 @@ public class PrendaDTO {
     private TipoArticulo tipoArticulo;
     private List<String> talles;
     private String imagen;
-    private Set <PrendaClienteDTO> prendaClientesDTO = new HashSet<>();
+    private Set <PrendaClienteDTO> prendaClientes = new HashSet<>();
 
 
     public PrendaDTO(Prenda prenda) {
