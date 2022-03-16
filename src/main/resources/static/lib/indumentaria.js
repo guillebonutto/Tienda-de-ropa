@@ -54,6 +54,7 @@ var app = new Vue({
 		filtroColor(color) {
 			this.prendasMarroquineria = this.prendasMarroquineria.filter((element) =>
 				element.nombrePrenda.includes(color)
+				
 			)
 		},
 		buscadorr() {
