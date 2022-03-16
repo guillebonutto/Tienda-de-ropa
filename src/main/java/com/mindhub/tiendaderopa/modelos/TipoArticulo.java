@@ -1,7 +1,7 @@
 package com.mindhub.tiendaderopa.modelos;
 
 public enum TipoArticulo {
-    PANTALONES,
+    JOYERIA,
     REMERAS,
     MARROQUINERIA,
     ZAPATOS,

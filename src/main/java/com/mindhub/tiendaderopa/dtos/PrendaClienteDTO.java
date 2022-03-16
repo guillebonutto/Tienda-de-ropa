@@ -10,7 +10,7 @@ import java.util.Set;
 public class PrendaClienteDTO {
 
     private int cant;
-    private PrendaDTO prendaDTO;
+    private PrendaDTO prenda;
 
 
     public PrendaClienteDTO() {
@@ -18,7 +18,7 @@ public class PrendaClienteDTO {
 
     public PrendaClienteDTO(PrendaCliente prendaCliente) {
         this.cant = prendaCliente.getCant();
-        this.prendaDTO = new PrendaDTO(prendaCliente.getPrenda());
+        this.prenda = new PrendaDTO(prendaCliente.getPrenda());
     }
 
     public int getCant() {
@@ -29,11 +29,11 @@ public class PrendaClienteDTO {
         this.cant = cant;
     }
 
-    public PrendaDTO getPrendaDTO() {
-        return prendaDTO;
+    public PrendaDTO getPrenda() {
+        return prenda;
     }
 
-    public void setPrendaDTO(PrendaDTO prendaDTO) {
-        this.prendaDTO = prendaDTO;
+    public void setPrenda(PrendaDTO prenda) {
+        this.prenda = prenda;
     }
 }
