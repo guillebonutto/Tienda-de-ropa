@@ -73,30 +73,3 @@ var app = new Vue({
 		},
 	},
 })
-
-let prenda_foto = document.querySelector("#foto-prenda")
-app.imagen = prenda_foto.src
-
-const boton_foto = document.querySelector("#btn-foto")
-const imagen = document.querySelector("#foto-prenda")
-
-let widget_cloudinary = cloudinary.createUploadWidget(
-	{
-		cloudName: "dqt52hdyq",
-		uploadPreset: "ml_default",
-	},
-	(err, result) => {
-		if (!err && result & (result.event === "success")) {
-			console.log("Imágen subida con éxito", result.info)
-			imagen.src = result.info.secure_url
-		}
-	}
-)
-
-boton_foto.addEventListener(
-	"click",
-	() => {
-		widget_cloudinary.open()
-	},
-	false
-)
