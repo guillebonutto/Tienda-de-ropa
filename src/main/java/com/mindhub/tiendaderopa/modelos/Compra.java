@@ -62,7 +62,6 @@ public class Compra {
         this.monto = monto;
     }
 
-    @JsonIgnore
     public Set<PrendaCliente> getPrendaCliente() {
         return prendaCliente;
     }

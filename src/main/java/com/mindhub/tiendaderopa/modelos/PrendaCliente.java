@@ -58,7 +58,6 @@ public class PrendaCliente {
         this.compra = compra;
     }
 
-    @JsonIgnore
     public Cliente getCliente() {
         return cliente;
     }
