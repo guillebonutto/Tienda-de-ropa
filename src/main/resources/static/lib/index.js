@@ -15,22 +15,14 @@ var app = new Vue({
 				this.collap = "collapsed"
 			}
 		},
-		
-		login() {
-            axios
-                .post('/api/login', `email=${this.email}&password=${this.password}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
+		exit(){
+			axios.post('/api/logout')
+			.then(response => {
+				window.location.href ="/login.html"
+			})
+			.catch((error) => {
 
-                .then(response => {
-                    window.location.href = "web/index.html"
-
-                })
-                .catch(error => {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'El usuario ingresado no es correcto'
-                    })
-                })
-        },
+			  console.log(error)
+			})}
 	},
 })
