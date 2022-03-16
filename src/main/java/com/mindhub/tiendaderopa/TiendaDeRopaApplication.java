@@ -43,29 +43,17 @@ public class TiendaDeRopaApplication {
             prendaRepositorio.save(prenda);
 
 
-<<<<<<< HEAD
             //cartera
             Prenda carteraMarron = new Prenda("Cartera Adele de piel con compartimento para smartphone", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390548/cartera3marron_rcgmrp.jpg");
             prendaRepositorio.save(carteraMarron);
 
             Prenda carteraNegra = new Prenda("Bandolera Ginny de piel", 1200, 12,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"), "https://res.cloudinary.com/gohansox/image/upload/v1647390393/cartera2negra_sitlww.jpg");
-=======
-            Prenda carteraMarron = new Prenda("Cartera Color Marrón", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://tommyargentina.vteximg.com.br/arquivos/ids/186627-1035-1380/AW0AW04597_903_1.jpg?v=637708674898800000");
-            prendaRepositorio.save(carteraMarron);
-
-            Prenda carteraNegra = new Prenda("Cartera Color Negro", 1200, 12,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://tommyargentina.vteximg.com.br/arquivos/ids/186630-500-667/AW0AW04636_902_2.jpg?v=637708674978200000");
->>>>>>> 628235af617656577cb38465789e6dbd885ddd0e
             prendaRepositorio.save(carteraNegra);
 
             Prenda carteraMarronclaro = new Prenda("Cartera Marrón Claro",5000,20,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390207/cartera1_lkvp9g.jpg");
             prendaRepositorio.save(carteraMarronclaro);
 
-<<<<<<< HEAD
-            Prenda carteraBlanca = new Prenda("Libreta mediana con rayas ", 4000,12,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647392169/libreta_gnsb70.jpg");
-=======
-
             Prenda carteraBlanca = new Prenda("Cartera Blanco", 4000,15,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://i.pinimg.com/736x/44/07/ac/4407acc9613e82652500c857677d04ac.jpg");
->>>>>>> 628235af617656577cb38465789e6dbd885ddd0e
             prendaRepositorio.save(carteraBlanca);
 
             Prenda cintoMarron = new Prenda("Cinto Cuero Organico", 900, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647391905/cintoMarron_yrw8ly.jpg");
