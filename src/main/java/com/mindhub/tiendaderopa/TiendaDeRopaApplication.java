@@ -69,6 +69,31 @@ public class TiendaDeRopaApplication {
 
 
 
+            //indumentaria
+            Prenda vestido1 = new Prenda("Vestido de encaje con estampado de palmeras",4000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M","L","XL"),"https://res.cloudinary.com/gohansox/image/upload/v1647399422/vestido1_rtxvpk.jpg");
+            prendaRepositorio.save(vestido1);
+
+            Prenda vestido2 = new Prenda("Vestido de tirantes acanalado",4500, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M","L"),"https://res.cloudinary.com/gohansox/image/upload/v1647399528/vestido2_oml5tt.jpg");
+            prendaRepositorio.save(vestido2);
+
+            Prenda joggers= new Prenda("Joggers",3500, 10,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S","M","L"),"https://res.cloudinary.com/gohansox/image/upload/v1647399700/vestido3_okl6k6.jpg");
+            prendaRepositorio.save(joggers);
+
+            Prenda joggers2= new Prenda("Joggers",3500, 10,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S","M","XL"),"https://res.cloudinary.com/gohansox/image/upload/v1647399785/joggers2_igxecl.jpg");
+            prendaRepositorio.save(joggers2);
+
+            Prenda vestido4= new Prenda("Vestido midi de georgette",4000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647400056/vestido4_q3365c.jpg");
+            prendaRepositorio.save(vestido4);
+
+            Prenda vestido5= new Prenda("Vestido midi de georgette",4000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647400056/vestido4_q3365c.jpg");
+            prendaRepositorio.save(vestido5);
+
+            Prenda camiseta = new Prenda("Camiseta de tirantes acanalada",3000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647401195/camiseta1_jesj7h.jpg");
+            prendaRepositorio.save(camiseta);
+
+            Prenda camiseta2 = new Prenda("Camiseta de tirantes acanalada",3000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S"),"https://res.cloudinary.com/gohansox/image/upload/v1647401308/camiseta2_tnz3yh.jpg");
+            prendaRepositorio.save(camiseta2);
+
 
 
 
@@ -103,6 +128,24 @@ public class TiendaDeRopaApplication {
             Prenda zapato9 = new Prenda("Sandalia Giselle de piel en relieve con cristales",13500,4,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647387001/zapatos9_iehenq.jpg");
             prendaRepositorio.save(zapato9);
 
+            //Joyeria
+            Prenda collar1 = new Prenda("Collar de plata de ley con chapado en oro rosa de 14 K y piedra",8000,6,TipoArticulo.JOYERIA, Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647398253/collar1_phain5.jpg");
+            prendaRepositorio.save(collar1);
+
+            Prenda collar2 = new Prenda("Set de collar con corazón y pendientes con cierre de tuerca de plata",10000,3,TipoArticulo.JOYERIA, Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647398597/collar2_azhkwz.jpg");
+            prendaRepositorio.save(collar2);
+
+            Prenda pulsera1 = new Prenda("Pulsera de plata de ley con cierre deslizante", 6000,7,TipoArticulo.JOYERIA, Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647398717/pulsera1_xvf33d.jpg");
+            prendaRepositorio.save(pulsera1);
+
+            Prenda pulsera2 = new Prenda("Pulsera rígida de plata", 4500,4,TipoArticulo.JOYERIA, Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647398796/pulsera2_wrbwxq.jpg");
+            prendaRepositorio.save(pulsera2);
+
+            Prenda aros1 = new Prenda("Pendientes de plata", 4500, 5, TipoArticulo.JOYERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647398970/aros1_dbvblr.jpg");
+            prendaRepositorio.save(aros1);
+
+            Prenda aros2 = new Prenda("Pendientes largos de plata", 4500, 5, TipoArticulo.JOYERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647399047/aros2_x36ozy.jpg");
+            prendaRepositorio.save(aros2);
 
 
 
