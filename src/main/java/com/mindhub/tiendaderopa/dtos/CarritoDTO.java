@@ -4,16 +4,22 @@ import com.mindhub.tiendaderopa.modelos.Carrito;
 
 public class CarritoDTO {
 
+    private long id;
     private String nombrePrenda;
     private int cantidad;
     private double precio;
     private double montoTotal;
 
     public CarritoDTO(Carrito carrito) {
+        this.id = carrito.getId();
         this.nombrePrenda = carrito.getNombrePrenda();
         this.cantidad = carrito.getCantidad();
         this.precio = carrito.getPrecio();
         this.montoTotal = carrito.getMontoTotal();
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getNombrePrenda() {
