@@ -1,6 +1,6 @@
 package com.mindhub.tiendaderopa;
 
-import com.mercadopago.MercadoPago;
+
 import com.mindhub.tiendaderopa.modelos.*;
 import com.mindhub.tiendaderopa.repositorios.*;
 
