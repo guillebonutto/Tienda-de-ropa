@@ -63,7 +63,7 @@ public class CompraControlador {
 
 
         if(cliente == null){
-            return new ResponseEntity<>("Disculpe, debe iniciar sesión para continuar con la compra", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Disculpe, debe iniciar sesión poder para continuar con la compra", HttpStatus.FORBIDDEN);
         }
         if(compra == null){
             return new ResponseEntity<>("Disculpe, debe elegir un medio de pago habilitado",HttpStatus.FORBIDDEN);
@@ -83,7 +83,7 @@ public class CompraControlador {
 
 
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>("Compra realizada exitosamente", HttpStatus.CREATED);
     }
 
 

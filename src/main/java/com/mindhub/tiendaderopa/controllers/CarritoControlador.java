@@ -33,16 +33,15 @@ public class CarritoControlador {
                                                 @RequestParam double monto,
                                                 @RequestParam double montoTotal
     ){
-        Prenda prenda = prendaRepositorio.findByNombrePrenda(nombrePrenda);
 
 
-        if (prenda==null || cantidad==0 || monto==0 || montoTotal==0){
+        if (nombrePrenda==null || cantidad==0 || monto==0 || montoTotal==0){
             return new ResponseEntity<>("complete todos los campos", HttpStatus.FORBIDDEN);
         }
         Carrito carrito = new Carrito(nombrePrenda,cantidad,monto,montoTotal);
         carritoRepositorio.save(carrito);
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>("Item agregado correctamente al carrito", HttpStatus.CREATED);
 
     }
 }

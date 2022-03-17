@@ -42,7 +42,7 @@ public class ClienteControlador {
 
         Cliente cliente = new Cliente(nombre,apellido,email,passwordEncoder.encode(password));
         clienteRepositorio.save(cliente);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>("Cliente creado con éxito", HttpStatus.CREATED);
 
     }
 }
