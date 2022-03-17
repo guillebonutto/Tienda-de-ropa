@@ -33,7 +33,7 @@ public class CarritoControlador {
                                                 @RequestParam double monto,
                                                 @RequestParam double montoTotal
     ){
-        Prenda prenda = prendaRepositorio.findByName(nombrePrenda);
+        Prenda prenda = prendaRepositorio.findByName(nombrePrenda);//
 
 
         if (prenda==null || cantidad==0 || monto==0 || montoTotal==0){

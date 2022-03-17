@@ -1,5 +1,8 @@
 package com.mindhub.tiendaderopa;
 
+import com.mercadopago.MercadoPago;
+import com.mercadopago.resources.Preference;
+import com.mercadopago.resources.datastructures.preference.Item;
 import com.mindhub.tiendaderopa.modelos.*;
 import com.mindhub.tiendaderopa.repositorios.*;
 
@@ -27,9 +30,26 @@ public class TiendaDeRopaApplication {
         SpringApplication.run(TiendaDeRopaApplication.class, args);
     }
 
+    public void run (String... args) throws Exception{
+        MercadoPago.SDK.setAccessToken(System.getenv("MP_ACCESS_TOKEN"));
+    }
+
     @Bean
     public CommandLineRunner initData(ClienteRepositorio clienteRepositorio, PrendaRepositorio prendaRepositorio, CompraRepositorio compraRepositorio, PrendaClienteRepositorio prendaClienteRepositorio) {
         return (args) -> {
+
+
+// Crea un objeto de preferencia
+            Preference preference = new Preference();
+
+// Crea un ítem en la preferencia
+            Item item = new Item();
+            item.setTitle("Mi producto")
+                    .setQuantity(1)
+                    .setUnitPrice((float) 75.56);
+            preference.appendItem(item);
+            preference.save();
+
             Cliente cliente = new Cliente("Lara", "Soto", "lara@hotmail.com",passwordEncoder.encode("lara") );
             clienteRepositorio.save(cliente);
 
