@@ -45,7 +45,7 @@ public class CompraControlador {
 
     @PostMapping("/compras")
     public ResponseEntity<Object> realizarCompra(Authentication authentication,
-                                                 @RequestParam TipoCompra tipoCompra,
+                                                 @RequestParam String tipoCompra,
                                                  @RequestParam double monto,
                                                  @RequestParam String nombrePrenda,
                                                  @RequestParam int cantidad,
@@ -56,9 +56,9 @@ public class CompraControlador {
 
         Cliente cliente = clienteRepositorio.findByEmail(authentication.getName());
 
-        Compra compra = compraRepositorio.findByName(tipoCompra);
+        Compra compra = compraRepositorio.findByTipo(tipoCompra);
 
-        Prenda prenda = prendaRepositorio.findByName((nombrePrenda));
+        Prenda prenda = prendaRepositorio.findByNombrePrenda(nombrePrenda);
 
 
 
@@ -69,7 +69,7 @@ public class CompraControlador {
             return new ResponseEntity<>("Disculpe, debe elegir un medio de pago habilitado",HttpStatus.FORBIDDEN);
         }
 
-        Compra compra1 = new Compra(tipoCompra, LocalDateTime.now(),monto);
+        Compra compra1 = new Compra(compra.getTipo(), LocalDateTime.now(),monto);
         compraRepositorio.save(compra1);
 
         prenda.setStock(prenda.getStock() - cantidad);
