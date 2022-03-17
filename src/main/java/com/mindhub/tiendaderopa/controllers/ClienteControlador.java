@@ -7,6 +7,7 @@ import com.mindhub.tiendaderopa.repositorios.ClienteRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,9 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api")
 public class ClienteControlador {
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Autowired
     ClienteRepositorio clienteRepositorio;
@@ -36,11 +40,9 @@ public class ClienteControlador {
             return new ResponseEntity<>("datos invalidos", HttpStatus.FORBIDDEN);
         }
 
-        Cliente cliente = new Cliente(nombre,apellido,email,password);
+        Cliente cliente = new Cliente(nombre,apellido,email,passwordEncoder.encode(password));
         clienteRepositorio.save(cliente);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>("Cliente creado con éxito", HttpStatus.CREATED);
 
     }
-
-
 }

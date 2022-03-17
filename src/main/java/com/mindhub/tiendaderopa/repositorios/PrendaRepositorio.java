@@ -6,4 +6,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface PrendaRepositorio extends JpaRepository<Prenda, Long> {
+    Prenda findByNombrePrenda (String nombrePrenda);
 }

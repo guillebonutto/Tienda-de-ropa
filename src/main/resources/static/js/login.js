@@ -1,3 +1,38 @@
+
+var app = new Vue({
+    el: '#app',
+    data: {
+     nombre:"",
+	 apellido:"",
+	 email:"",
+	 contraseña:""
+    },
+	methods:{
+        login(){
+             axios.post('/api/login',"email="+this.email+"&password="+this.contraseña )
+			 .then((response) => {
+				window.location.href="web/index.html"
+		})  
+		.catch((error) => {
+		console.log(error)
+			 }) 
+        },
+		 register(){
+		    /*axios.post('https://eco-banking.herokuapp.com/api/clients', "photo=../Client.png" + "firstName="+this.nombre+"&lastName="+this.apellido+"&email="+this.email+"&password="+this.contraseña, { headers: { "content-type": "application/x-www-form-urlencoded" } })
+		    .then(response=> {*/
+			    axios.post('/api/clientes', "nombre="+this.nombre+"&apellido="+this.apellido+"&email="+this.email+"&password="+this.contraseña, { headers: { "content-type": "application/x-www-form-urlencoded" } })
+			    .then(response=>this.login())
+			    .catch((error)=>{
+				     console.log(error)
+			        })
+//			    })
+		    }
+		 }
+		
+		
+	})
+
+      
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');

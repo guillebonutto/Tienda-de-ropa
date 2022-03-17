@@ -11,6 +11,7 @@ public class PrendaClienteDTO {
 
     private int cant;
     private PrendaDTO prenda;
+    private double monto;
 
 
     public PrendaClienteDTO() {
@@ -19,6 +20,7 @@ public class PrendaClienteDTO {
     public PrendaClienteDTO(PrendaCliente prendaCliente) {
         this.cant = prendaCliente.getCant();
         this.prenda = new PrendaDTO(prendaCliente.getPrenda());
+        this.monto = prendaCliente.getMonto();
     }
 
     public int getCant() {
@@ -36,4 +38,8 @@ public class PrendaClienteDTO {
     public void setPrenda(PrendaDTO prenda) {
         this.prenda = prenda;
     }
+
+    public double getMonto() {return monto;}
+
+    public void setMonto(double monto) {this.monto = monto;}
 }

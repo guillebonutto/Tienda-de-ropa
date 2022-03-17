@@ -104,7 +104,6 @@ public class Prenda {
         this.color = color;
     }
 
-@JsonIgnore
     public Set<PrendaCliente> getPrendaCliente() {return prendaClientes;}
 
     public void setPrendaCliente(Set<PrendaCliente> prendaCliente) {this.prendaClientes = prendaCliente;}

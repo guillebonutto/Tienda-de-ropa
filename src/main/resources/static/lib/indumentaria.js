@@ -16,9 +16,7 @@ var app = new Vue({
             axios
             .get('/api/prendas')
             .then((response)=>{
-                this.prendas = 
-response.data
-
+                this.prendas = response.data
                 this.cargarPrendasMarroquineria();
 
             })
@@ -56,6 +54,7 @@ response.data
 		filtroColor(color) {
 			this.prendasMarroquineria = this.prendasMarroquineria.filter((element) =>
 				element.nombrePrenda.includes(color)
+				
 			)
 		},
 		buscadorr() {
@@ -79,4 +78,4 @@ response.data
     }
     
 
-}) 
+})
