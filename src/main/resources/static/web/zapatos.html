@@ -74,10 +74,6 @@
                 <div class="bg-main">
                     <div class="mid-header container">
                         <a href="#" class="logo">ROSIER</a>
-                        <!-- <div class="search">
-                            <input type="text" placeholder="Search"  v-model="buscador" >
-                            <i class='bx bx-search-alt'></i>
-                        </div> -->
                         <ul class="user-menu">
                             <li><a href="#"><i class='bx bx-bell'></i></a></li>
                             <li><a href="#"><i class='bx bx-user-circle'></i></a></li>
@@ -128,7 +124,7 @@
                     <div class="breadcumb">
                         <a href="../web/index.html">home</a>
                         <span><i class='bx bxs-chevrons-right'></i></span>
-                        <a href="#">Zapatos</a>
+                        <a href="#">Calzado</a>
                     </div>
                 </div>
                 <section class="categories border">
@@ -188,7 +184,7 @@
                         </div>
                     </div>
                 </section>
-                <h1 class="text-center mb-3">Zapatos</h1>
+                <h1 class="text-center mb-3">Calzado</h1>
                 <div class="container search d-flex">
                     <input type="text" placeholder="Search"  v-model="buscador" >
                     <i class='bx bx-search-alt'></i>
@@ -216,9 +212,10 @@
                                     Precio
                                 </span>
                                 <div class="price-range">
-                                    <input type="text">
+                                    <input type="number" v-model="minPrice">
                                     <span>-</span>
-                                    <input type="text">
+                                    <input type="number" v-model="maxPrice">
+                                    <button v-on:click="filtrarPrecio()">Filtrar</button>
                                 </div>
                             </div>
                             <div class="box">
@@ -394,22 +391,13 @@
                                            
                                           <h5 class="card-title">{{prenda.nombrePrenda}}</h5>
                                           <p class="card-text">Precio: ${{prenda.precio}}</p>
+                                          <p class="card-text">Stock: {{prenda.stock}}</p>
                                           <a href="#" class="btn btn-primary">Agregar al Carrito</a>
                                         </div>
                                       </div>
                                 </div>
                             </div>
-                            <div class="box">
-                                <ul class="pagination">
-                                    <li><a href="#"><i class='bx bxs-chevron-left'></i></a></li>
-                                    <li><a href="#" class="active">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#"><i class='bx bxs-chevron-right'></i></a></li>
-                                </ul>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

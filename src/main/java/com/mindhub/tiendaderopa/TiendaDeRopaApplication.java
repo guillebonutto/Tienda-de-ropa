@@ -1,5 +1,6 @@
 package com.mindhub.tiendaderopa;
 
+import com.mercadopago.MercadoPago;
 import com.mindhub.tiendaderopa.modelos.*;
 import com.mindhub.tiendaderopa.repositorios.*;
 
@@ -8,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
