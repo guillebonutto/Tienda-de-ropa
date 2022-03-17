@@ -18,7 +18,6 @@
 			crossorigin="anonymous"
 		/>
 		<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="../css/grid.css" />
 		<link rel="stylesheet" href="../css/app.css" />
 		<link rel="stylesheet" href="../css/zapatos.css" />
 	</head>
@@ -50,21 +49,15 @@
 							</ul>
 							<ul class="devided">
 								<li class="dropdown">
-									<a href="">USD</a>
-									<i class="bx bxs-chevron-down"></i>
-									<ul class="dropdown-content">
-										<li><a href="#">VND</a></li>
-										<li><a href="#">JPY</a></li>
-										<li><a href="#">EUR</a></li>
-									</ul>
+									<a href="#">ARs</a>
 								</li>
 								<li class="dropdown">
-									<a href="">ENGLISH</a>
+									<a href="">ESPAÑOL</a>
 									<i class="bx bxs-chevron-down"></i>
 									<ul class="dropdown-content">
-										<li><a href="#">INGLES</a></li>
-										<li><a href="#">FRANCES</a></li>
-										<li><a href="#">ESPAÑOL</a></li>
+										<li><a href="#">INGLÉS</a></li>
+										<li><a href="#">FRANCÉS</a></li>
+										<li><a href="#">ITALIANO</a></li>
 									</ul>
 								</li>
 								<li><a href="#">NOVEDADES</a></li>
@@ -74,15 +67,15 @@
 
 					<div class="bg-main">
 						<div class="mid-header container">
-							<a href="#" class="logo">ROSIER</a>
+							<a href="index.html" class="logo">ROSIER</a>
 							<!-- <div class="search">
                             <input type="text" placeholder="Search"  v-model="buscador" >
                             <i class='bx bx-search-alt'></i>
                         </div> -->
 							<ul class="user-menu">
-								<li>
+								<!-- <li>
 									<a href="#"><i class="bx bx-bell"></i></a>
-								</li>
+								</li> -->
 								<li>
 									<a href="#"><i class="bx bx-user-circle"></i></a>
 								</li>
@@ -96,20 +89,20 @@
 					<div class="bg-second">
 						<div class="bottom-header container">
 							<ul class="main-menu">
-								<li><a href="#">home</a></li>
+								<li><a href="index.html">home</a></li>
 								<!--  menu -->
 								<li class="mega-dropdown">
-									<a href="./products.html">Shop<i class="bx bxs-chevron-down"></i></a>
+									<a href="#">Shop<i class="bx bxs-chevron-down"></i></a>
 									<div class="mega-content">
 										<div class="row">
 											<div class="col-3 col-md-12">
 												<div class="box">
-													<h3>Categories</h3>
+													<h3>Categorias</h3>
 													<ul>
-														<li><a href="#">koza1</a></li>
-														<li><a href="#">koza1</a></li>
-														<li><a href="#">koza1</a></li>
-														<li><a href="#">koza1</a></li>
+														<li><a href="zapatos.html">Zapatos</a></li>
+														<li><a href="prodMarroquineria.html">Marroquineria</a></li>
+														<li><a href="indumentaria.html">Indumentaria</a></li>
+														<li><a href="joyeria.html">Joyería</a></li>
 													</ul>
 												</div>
 											</div>
@@ -117,7 +110,7 @@
 									</div>
 								</li>
 								<!-- end  menu -->
-								<li><a href="#">contacto</a></li>
+								<li><a href="contactoForm.html">contacto</a></li>
 							</ul>
 						</div>
 					</div>
@@ -130,7 +123,7 @@
 						<div class="breadcumb">
 							<a href="../web/index.html">home</a>
 							<span><i class="bx bxs-chevrons-right"></i></span>
-							<a href="#">Zapatos</a>
+							<a href="zapatos.html">Zapatos</a>
 						</div>
 					</div>
 					<section class="categories border">
@@ -140,9 +133,9 @@
 									<div class="categories_item categories_large_item">
 										<img src="../zapatos3.jpg" class="img-fluid shadow" alt="" />
 										<div class="categories_text">
-											<h1>Moda Mujer</h1>
+											<h1>Equisde Zapatos</h1>
 											<p>Lo mejor en tendencias 2022</p>
-											<a href="#">Compra ya!</a>
+											<a @click="filtro('zapatos')">Comprá ya!</a>
 										</div>
 									</div>
 								</div>
@@ -150,9 +143,9 @@
 									<div class="categories_item categories_large_item">
 										<img src="../zapatos2.jpg" class="img-fluid shadow" alt="" />
 										<div class="categories_text">
-											<h1>Equisde</h1>
+											<h1>Equisde Sandalias</h1>
 											<p>Lo mejor en tendencias 2022</p>
-											<a href="#">Compra ya!</a>
+											<a @click="filtro('sandalia')">Compra ya!</a>
 										</div>
 									</div>
 								</div>
@@ -201,10 +194,8 @@
 									<span class="filter-header"> Categorias </span>
 									<!--   categorias para ropas que no se si ponerlo o no -->
 									<ul class="filter-list">
-										<li><a href="#">dsfsdfds</a></li>
-										<li><a href="#">sdfdsfs</a></li>
-										<li><a href="#">ssfsf</a></li>
-										<li><a href="#">sfsfs</a></li>
+										<li><a>Zapatos</a></li>
+										<li><a>Sandalias</a></li>
 									</ul>
 								</div>
 								<div class="box">
@@ -375,7 +366,10 @@
 									<button class="btn-flat btn-hover" id="filter-toggle">filter</button>
 								</div>
 								<div class="box">
-									<div class="row d-flex justify-content-evenly flex-wrap" id="products">
+									<div
+										class="row d-flex justify-content-center justify-content-between flex-wrap"
+										id="products"
+									>
 										<div
 											class="card mb-3"
 											style="width: 18rem"
@@ -391,21 +385,6 @@
 										</div>
 									</div>
 								</div>
-								<div class="box">
-									<ul class="pagination">
-										<li>
-											<a href="#"><i class="bx bxs-chevron-left"></i></a>
-										</li>
-										<li><a href="#" class="active">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li>
-											<a href="#"><i class="bx bxs-chevron-right"></i></a>
-										</li>
-									</ul>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -414,38 +393,39 @@
 			<!-- footer espectacular -->
 			<footer class="bg-second">
 				<div class="container">
-					<div class="row">
-						<div class="col-3 col-md-6">
-							<h3 class="footer-head">Products</h3>
+					<div class="d-flex flex-column">
+						<div class="d-flex justify-content-around">
+							<div>
+								<h3 class="footer-head">Productos</h3>
+								<ul class="menu">
+									<li><a href="zapatos.html">Zapatos</a></li>
+									<li><a href="prodMarroquineria.html">Marroquineria</a></li>
+									<li><a href="indumentaria.html">Indumentaria</a></li>
+									<li><a href="joyeria.html">Joyería</a></li>
+								</ul>
+							</div>
+							<!-- <div class="col-3 col-md-6">
+							<h3 class="footer-head">Servicios</h3>
 							<ul class="menu">
-								<li><a href="#">Help center</a></li>
-								<li><a href="#">Contact us</a></li>
+								<li><a href="#">Centro de ayuda</a></li>
+								<li><a href="contactoForm.html">Contáctenos</a></li>
 								<li><a href="#">product help</a></li>
 								<li><a href="#">warranty</a></li>
 								<li><a href="#">order status</a></li>
 							</ul>
+						</div> -->
+							<div>
+								<h3 class="footer-head">Soporte</h3>
+								<ul class="menu">
+									<li><a href="#">Centro de ayuda</a></li>
+									<li><a href="#">Contáctenos</a></li>
+									<li><a href="#">product help</a></li>
+									<li><a href="#">warranty</a></li>
+									<li><a href="#">order status</a></li>
+								</ul>
+							</div>
 						</div>
-						<div class="col-3 col-md-6">
-							<h3 class="footer-head">services</h3>
-							<ul class="menu">
-								<li><a href="#">Help center</a></li>
-								<li><a href="#">Contact us</a></li>
-								<li><a href="#">product help</a></li>
-								<li><a href="#">warranty</a></li>
-								<li><a href="#">order status</a></li>
-							</ul>
-						</div>
-						<div class="col-3 col-md-6">
-							<h3 class="footer-head">support</h3>
-							<ul class="menu">
-								<li><a href="#">Help center</a></li>
-								<li><a href="#">Contact us</a></li>
-								<li><a href="#">product help</a></li>
-								<li><a href="#">warranty</a></li>
-								<li><a href="#">order status</a></li>
-							</ul>
-						</div>
-						<div class="col-3 col-md-6 col-sm-12">
+						<div>
 							<div class="contact">
 								<h3 class="contact-header">ROSIER</h3>
 								<ul class="contact-socials">

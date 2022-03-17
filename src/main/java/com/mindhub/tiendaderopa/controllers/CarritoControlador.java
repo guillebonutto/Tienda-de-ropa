@@ -1,5 +1,7 @@
 package com.mindhub.tiendaderopa.controllers;
 
+import com.mindhub.tiendaderopa.dtos.CarritoDTO;
+import com.mindhub.tiendaderopa.dtos.ClienteDTO;
 import com.mindhub.tiendaderopa.modelos.Carrito;
 import com.mindhub.tiendaderopa.modelos.Prenda;
 import com.mindhub.tiendaderopa.repositorios.CarritoRepositorio;
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -26,6 +31,10 @@ public class CarritoControlador {
     @Autowired
     CarritoRepositorio carritoRepositorio;
 
+    @RequestMapping("/carrito")
+    public List<CarritoDTO> getArticulos(){
+        return carritoRepositorio.findAll().stream().map(carrito -> new CarritoDTO(carrito)).collect(Collectors.toList());
+    }
 
     @PostMapping("/carrito")
     public ResponseEntity<Object> crearCarrito (@RequestParam String nombrePrenda,
