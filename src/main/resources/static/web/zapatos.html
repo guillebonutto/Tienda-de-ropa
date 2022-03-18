@@ -49,7 +49,7 @@
 							</ul>
 							<ul class="devided">
 								<li class="dropdown">
-									<a href="#">ARs</a>
+									<a href="#">USD</a>
 								</li>
 								<li class="dropdown">
 									<a href="">ESPAÑOL</a>
@@ -89,10 +89,10 @@
 					<div class="bg-second">
 						<div class="bottom-header container">
 							<ul class="main-menu">
-								<li><a href="index.html">home</a></li>
+								<li><a href="index.html">Inicio</a></li>
 								<!--  menu -->
 								<li class="mega-dropdown">
-									<a href="#">Shop<i class="bx bxs-chevron-down"></i></a>
+									<a href="../web/zapatos.html">Tienda<i class="bx bxs-chevron-down"></i></a>
 									<div class="mega-content">
 										<div class="row">
 											<div class="col-3 col-md-12">
@@ -184,12 +184,9 @@
 						<input type="text" placeholder="Search" v-model="buscador" />
 						<i class="bx bx-search-alt"></i>
 					</div>
-					<div class="box ">//div class box
-						<div class="row">
+					<div class="box">
+						<div class="d-flex">
 							<div class="col-3 filter-col" id="filter-col">
-								<div class="box filter-toggle-box">
-									<button class="btn-flat btn-hover" id="filter-close">close</button>
-								</div>
 								<div class="box">
 									<span class="filter-header"> Categorias </span>
 									<!--   categorias para ropas que no se si ponerlo o no -->
@@ -245,7 +242,7 @@
 											<div class="group-checkbox">
 												<input type="checkbox" id="remember2" />
 												<label for="remember2">
-													azuk
+													azul
 													<i class="bx bx-check"></i>
 												</label>
 											</div>
@@ -263,16 +260,7 @@
 											<div class="group-checkbox">
 												<input type="checkbox" id="remember4" />
 												<label for="remember4">
-													rojsa
-													<i class="bx bx-check"></i>
-												</label>
-											</div>
-										</li>
-										<li>
-											<div class="group-checkbox">
-												<input type="checkbox" id="remember5" />
-												<label for="remember5">
-													amarillo
+													rosa
 													<i class="bx bx-check"></i>
 												</label>
 											</div>
@@ -362,14 +350,13 @@
 								</div>
 							</div>
 							<div class="col-9 col-md-12">
-								<div class="box filter-toggle-box">
-									<button class="btn-flat btn-hover" id="filter-toggle">filter</button>
-								</div>
-								 //div class box
-									<div class="row" id="products">
-                                   
+								<div class="box">
+									<div
+										class="row d-flex justify-content-center justify-content-between flex-wrap"
+										id="products"
+									>
 										<div
-											class="card mb-3 col-4 mx-3"
+											class="card mb-3"
 											style="width: 18rem"
 											v-for="prenda in filtrarPrendas"
 											keyup="prendasMarroquineria.nombrePrenda"
@@ -378,16 +365,18 @@
 											<div class="card-body">
 												<h5 class="card-title">{{prenda.nombrePrenda}}</h5>
 												<p class="card-text">Precio: ${{prenda.precio}}</p>
-												<a href="#" class="btn btn-primary">Agregar al Carrito</a>
+												<a
+													@click="agregarCarrito(prenda.nombrePrenda.substring(0, prenda.nombrePrenda.indexOf(' ')), '1', prenda.precio, prenda.precio)"
+													class="btn btn-primary"
+													>Agregar al Carrito</a
+												>
 											</div>
 										</div>
-
-                                  
 									</div>
-								 //cierre div class box
+								</div>
 							</div>
 						</div>
-					</div>//cierre div class
+					</div>
 				</div>
 			</div>
 			<!-- footer espectacular -->
@@ -430,12 +419,12 @@
 								<h3 class="contact-header">ROSIER</h3>
 								<ul class="contact-socials">
 									<li>
-										<a href="#">
+										<a href="https://www.facebook.com/profile.php?id=100079552594834">
 											<i class="bx bxl-facebook-circle"></i>
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="https://www.instagram.com/rosier.fashon.design/">
 											<i class="bx bxl-instagram-alt"></i>
 										</a>
 									</li>
@@ -461,6 +450,7 @@
 			</footer>
 		</div>
 
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 		<script

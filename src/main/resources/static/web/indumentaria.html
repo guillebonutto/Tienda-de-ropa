@@ -122,9 +122,9 @@
 												<div class="box">
 													<h3>Categorias</h3>
 													<ul>
-														<li><a href="../prodMarroquineria.html">Marroquinería</a></li>
+														<li><a href="../web/prodMarroquineria.html">Marroquinería</a></li>
 														<li><a href="../web/zapatos.html">Zapatos</a></li>
-														<li><a href="#">Indumentaria</a></li>
+														<li><a href="../web/indumentaria.html">Indumentaria</a></li>
 														<li><a href="../web/joyeria.html">Joyeria</a></li>
 													</ul>
 												</div>
@@ -152,9 +152,6 @@
 					<div class="box">
 						<div class="d-flex">
 							<div class="col-3 filter-col" id="filter-col">
-								<div class="box filter-toggle-box">
-									<button class="btn-flat btn-hover" id="filter-close">close</button>
-								</div>
 								<div class="box">
 									<span class="filter-header"> Categorias </span>
 									
@@ -322,9 +319,6 @@
 								</div> -->
 							</div>
 							<div class="col-9 col-md-12">
-								<div class="box filter-toggle-box">
-									<button class="btn-flat btn-hover" id="filter-toggle">filter</button>
-								</div>
 								<div class="box">
 									<div class="row d-flex justify-content-center justify-content-between flex-wrap" id="products">
 										<div
@@ -347,13 +341,13 @@
 														:class="'ms-3 ' + prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf(' ') + 1)"
 													></div>
 												</div>
-												<a href="#" class="btn btn-primary">Agregar al Carrito</a>
+												<a @click="agregarCarrito(prenda.nombrePrenda.substring(0, prenda.nombrePrenda.indexOf(' ')), '1', prenda.precio, prenda.precio)" class="btn btn-primary">Agregar al Carrito</a>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="box">
-									<ul class="pagination">
+									<!-- <ul class="pagination">
 										<li>
 											<a href="#"><i class="bx bxs-chevron-left"></i></a>
 										</li>
@@ -365,7 +359,7 @@
 										<li>
 											<a href="#"><i class="bx bxs-chevron-right"></i></a>
 										</li>
-									</ul>
+									</ul> -->
 								</div>
 							</div>
 						</div>
@@ -380,10 +374,10 @@
 							<div>
 								<h3 class="footer-head">Productos</h3>
 								<ul class="menu">
-									<li><a href="zapatos.html">Zapatos</a></li>
-									<li><a href="prodMarroquineria.html">Marroquineria</a></li>
-									<li><a href="indumentaria.html">Indumentaria</a></li>
-									<li><a href="joyeria.html">Joyería</a></li>
+									<li><a href="../web/zapatos.html">Zapatos</a></li>
+									<li><a href="../web/prodMarroquineria.html">Marroquineria</a></li>
+									<li><a href="../web/indumentaria.html">Indumentaria</a></li>
+									<li><a href="../web/joyeria.html">Joyería</a></li>
 								</ul>
 							</div>
 							<!-- <div class="col-3 col-md-6">
@@ -412,12 +406,12 @@
 								<h3 class="contact-header">ROSIER</h3>
 								<ul class="contact-socials">
 									<li>
-										<a href="#">
+										<a href="https://www.facebook.com/profile.php?id=100079552594834">
 											<i class="bx bxl-facebook-circle"></i>
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="https://www.instagram.com/rosier.fashon.design/">
 											<i class="bx bxl-instagram-alt"></i>
 										</a>
 									</li>
@@ -457,6 +451,7 @@
 
     </div>
 
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

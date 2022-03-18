@@ -89,6 +89,20 @@ var app = new Vue({
 						timer: 1500,
 					})
 				})
+				.catch((error) => {
+					this.total -= montoTotal
+				})
+		},
+		vaciarCarrito() {
+			axios.delete(`/api/carrito`).then((response) => {
+				this.total = 0
+				this.carrito = response.data
+				Swal.fire({
+					icon: "info",
+					text: "Se eliminaron los artículos del carrito correctamente",
+					timer: 1500,
+				})
+			})
 		},
 	},
 	computed: {
