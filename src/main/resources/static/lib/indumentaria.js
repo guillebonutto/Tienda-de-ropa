@@ -119,14 +119,16 @@ var app = new Vue({
 			else this.mostrarCarro = true
 		},
 		comprar() {
-			this.total = 0
-			Swal.fire({
-				icon: "Success",
-				text: "Compra realizada con éxito!",
+			axios.delete(`/api/carrito`).then((response) => {
+				this.total = 0
+				Swal.fire({
+					icon: "Success",
+					text: "Compra realizada con éxito!",
+				})
+				setTimeout(() => {
+					window.location.reload()
+				}, 1500)
 			})
-			setTimeout(() => {
-				window.location.reload()
-			}, 1500)
 		},
 	},
 	computed: {
