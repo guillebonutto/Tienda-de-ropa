@@ -19,6 +19,9 @@ var app = new Vue({
 			Ó: "o",
 			Ú: "u",
 		},
+		carrito: [],
+		total: 0,
+		mostrarCarro: false,
 	},
 	created() {
 		this.cargarDatos()
@@ -35,21 +38,16 @@ var app = new Vue({
 				.catch((error) => {
 					console.log(error)
 				})
+			axios.get("/api/carrito").then((response) => {
+				this.carrito = response.data
+				this.carrito.forEach((element) => {
+					this.total += element.precio
+				})
+			})
 		},
 
 		cargarPrendasMarroquinería() {
 			this.zapatos = this.prendas.filter((element) => element.tipoArticulo == "ZAPATOS")
-		},
-
-		accent(s) {
-			if (!s) {
-				return ""
-			}
-			var ret = ""
-			for (var i = 0; i < s.length; i++) {
-				ret += this.tildes[s.charAt(i)] || s.charAt(i)
-			}
-			return ret
 		},
 		agregarCarrito(nombrePrenda, cant, monto, montoTotal) {
 			this.total += montoTotal
@@ -68,6 +66,57 @@ var app = new Vue({
 						timer: 1500,
 					})
 				})
+		},
+		agregarCarrito(nombrePrenda, cant, monto, montoTotal) {
+			axios.get("/api/carrito").then((response) => {
+				this.carrito = response.data
+				this.carrito.forEach((element) => {
+					this.total += element.precio
+				})
+			})
+			axios
+				.post(
+					"/api/carrito",
+					`nombrePrenda=${nombrePrenda}&cantidad=${cant}&monto=${monto}&montoTotal=${this.total}`
+				)
+				.then((response) => {
+					Swal.fire({
+						icon: "success",
+						text: "Artículo agregado al carrito correctamente",
+					})
+					setTimeout(() => {
+						window.location.reload()
+					}, 1500)
+				})
+				.catch((error) => {
+					this.total -= montoTotal
+				})
+		},
+		vaciarCarrito() {
+			axios.delete(`/api/carrito`).then((response) => {
+				this.total = 0
+				Swal.fire({
+					icon: "info",
+					text: "Se eliminaron los artículos del carrito correctamente",
+				})
+				setTimeout(() => {
+					window.location.reload()
+				}, 1500)
+			})
+		},
+		mostrarCarrito() {
+			if (this.mostrarCarro) this.mostrarCarro = false
+			else this.mostrarCarro = true
+		},
+		comprar() {
+			this.total = 0
+			Swal.fire({
+				icon: "Success",
+				text: "Compra realizada con éxito!",
+			})
+			setTimeout(() => {
+				window.location.reload()
+			}, 1500)
 		},
 	},
 	computed: {

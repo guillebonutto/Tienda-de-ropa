@@ -28,6 +28,7 @@ public class CarritoControlador {
     @Autowired
     CarritoRepositorio carritoRepositorio;
 
+
     @RequestMapping("/carrito")
     public List<CarritoDTO> getArticulos(){
         return carritoRepositorio.findAll().stream().map(carrito -> new CarritoDTO(carrito)).collect(Collectors.toList());
@@ -52,8 +53,15 @@ public class CarritoControlador {
     }
 
     @DeleteMapping("/carrito")
-    public ResponseEntity<Object> crearCarrito (){
+    public ResponseEntity<Object> EliminarCarrito (){
         carritoRepositorio.deleteAll();
         return new ResponseEntity<>("se ha eliminado los artículos del carrito con éxito", HttpStatus.OK);
     }
+
+/*    @DeleteMapping("/carrito/{id}")
+    public ResponseEntity<Object> EliminarCarritoPorId (@PathVariable Long id, @RequestParam String mantener){
+        carritoControlador.;
+        carritoRepositorio.deleteById(id);
+        return new ResponseEntity<>("se ha eliminado los artículos del carrito con éxito", HttpStatus.OK);
+    }*/
 }

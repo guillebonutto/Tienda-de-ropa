@@ -42,50 +42,50 @@ public class TiendaDeRopaApplication {
             Prenda prenda = new Prenda("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "ver");
             prendaRepositorio.save(prenda);
 
-            Prenda carteraMarron = new Prenda("Cartera Adele de piel con compartimento para smartphone", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390548/cartera3marron_rcgmrp.jpg");
+            Prenda carteraMarron = new Prenda("Cartera Adele de piel con compartimento para smartphone Color Marrón Claro", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390548/cartera3marron_rcgmrp.jpg");
             prendaRepositorio.save(carteraMarron);
 
-            Prenda carteraNegra = new Prenda("Bandolera Ginny de piel", 1200, 12,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"), "https://res.cloudinary.com/gohansox/image/upload/v1647390393/cartera2negra_sitlww.jpg");
+            Prenda carteraNegra = new Prenda("Bandolera Ginny de piel Color Negro", 1200, 12,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"), "https://res.cloudinary.com/gohansox/image/upload/v1647390393/cartera2negra_sitlww.jpg");
             prendaRepositorio.save(carteraNegra);
 
-            Prenda carteraMarronclaro = new Prenda("Cartera Marrón Claro",5000,20,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390207/cartera1_lkvp9g.jpg");
+            Prenda carteraMarronclaro = new Prenda("Cartera Color Marrón Claro",5000,20,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390207/cartera1_lkvp9g.jpg");
             prendaRepositorio.save(carteraMarronclaro);
 
-            Prenda carteraBlanca = new Prenda("Cartera Blanco", 4000,15,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://i.pinimg.com/736x/44/07/ac/4407acc9613e82652500c857677d04ac.jpg");
+            Prenda carteraBlanca = new Prenda("Bandolera Ginny Color Blanco", 4000,15,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647565247/carterablanca_auw9df.jpg");
             prendaRepositorio.save(carteraBlanca);
 
-            Prenda cintoMarron = new Prenda("Cinto Cuero Organico", 900, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647391905/cintoMarron_yrw8ly.jpg");
+            Prenda cintoMarron = new Prenda("Cinto Cuero Organico Color Marrón", 900, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647391905/cintoMarron_yrw8ly.jpg");
             prendaRepositorio.save(cintoMarron);
 
-            Prenda tarjeteroPiel = new Prenda("Tarjetero de piel granulada", 5000, 5, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390710/cartera4negra_lpnf1a.jpg");
+            Prenda tarjeteroPiel = new Prenda("Tarjetero de piel granulada Color Negro", 5000, 5, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390710/cartera4negra_lpnf1a.jpg");
             prendaRepositorio.save(tarjeteroPiel);
 
-            Prenda cintoBlanco = new Prenda("Cinto Square Buckle", 1500, 5, TipoArticulo.MARROQUINERIA,Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647391628/cintoBlanco_f3vdsp.jpg");
+            Prenda cintoBlanco = new Prenda("Cinto Square Buckle Color Blanco", 1500, 5, TipoArticulo.MARROQUINERIA,Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647391628/cintoBlanco_f3vdsp.jpg");
             prendaRepositorio.save(cintoBlanco);
 
             //indumentaria
-            Prenda vestido1 = new Prenda("Vestido de encaje con estampado de palmeras",4000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M","L","XL"),"https://res.cloudinary.com/gohansox/image/upload/v1647399422/vestido1_rtxvpk.jpg");
+            Prenda vestido1 = new Prenda("Vestido de encaje con estampado de palmeras Color Blanco",4000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M","L","XL"),"https://res.cloudinary.com/gohansox/image/upload/v1647399422/vestido1_rtxvpk.jpg");
             prendaRepositorio.save(vestido1);
 
-            Prenda vestido2 = new Prenda("Vestido de tirantes acanalado",4500, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M","L"),"https://res.cloudinary.com/gohansox/image/upload/v1647399528/vestido2_oml5tt.jpg");
+            Prenda vestido2 = new Prenda("Vestido de tirantes acanalado Color Negro",4500, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M","L"),"https://res.cloudinary.com/gohansox/image/upload/v1647399528/vestido2_oml5tt.jpg");
             prendaRepositorio.save(vestido2);
 
-            Prenda joggers= new Prenda("Joggers",3500, 10,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S","M","L"),"https://res.cloudinary.com/gohansox/image/upload/v1647399700/vestido3_okl6k6.jpg");
+            Prenda joggers= new Prenda("Joggers Color Celeste Claro",3500, 10,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S","M","L"),"https://res.cloudinary.com/gohansox/image/upload/v1647399700/vestido3_okl6k6.jpg");
             prendaRepositorio.save(joggers);
 
-            Prenda joggers2= new Prenda("Joggers",3500, 10,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S","M","XL"),"https://res.cloudinary.com/gohansox/image/upload/v1647399785/joggers2_igxecl.jpg");
+            Prenda joggers2= new Prenda("Joggers Color Blanco",4000, 30,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S","M","XL"),"https://res.cloudinary.com/gohansox/image/upload/v1647399785/joggers2_igxecl.jpg");
             prendaRepositorio.save(joggers2);
 
-            Prenda vestido4= new Prenda("Vestido midi de georgette",4000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647400056/vestido4_q3365c.jpg");
+            Prenda vestido4= new Prenda("Vestido midi de georgette Color Negro",4000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647400056/vestido4_q3365c.jpg");
             prendaRepositorio.save(vestido4);
 
-            Prenda vestido5= new Prenda("Vestido midi de georgette",4000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647400056/vestido4_q3365c.jpg");
+            Prenda vestido5= new Prenda("Vestido acanalado Color Negro",3250, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M","L","XXL"),"https://res.cloudinary.com/gohansox/image/upload/v1647570179/niggawhaaaat_ygrtiq.jpg");
             prendaRepositorio.save(vestido5);
 
-            Prenda camiseta = new Prenda("Camiseta de tirantes acanalada",3000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647401195/camiseta1_jesj7h.jpg");
+            Prenda camiseta = new Prenda("Camiseta de tirantes acanalada Color Beige",3000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647401195/camiseta1_jesj7h.jpg");
             prendaRepositorio.save(camiseta);
 
-            Prenda camiseta2 = new Prenda("Camiseta de tirantes acanalada",3000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S"),"https://res.cloudinary.com/gohansox/image/upload/v1647401308/camiseta2_tnz3yh.jpg");
+            Prenda camiseta2 = new Prenda("Camiseta de tirantes acanalada Color Morado",3000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S"),"https://res.cloudinary.com/gohansox/image/upload/v1647401308/camiseta2_tnz3yh.jpg");
             prendaRepositorio.save(camiseta2);
 
             //zapatos!

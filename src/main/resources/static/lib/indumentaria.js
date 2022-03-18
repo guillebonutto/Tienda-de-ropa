@@ -5,6 +5,9 @@ var app = new Vue({
 		prendasMarroquineria: [],
 		buscar: "",
 		setTimeoutBuscador: "",
+		carrito: [],
+		total: 0,
+		mostrarCarro: false,
 	},
 	created() {
 		this.cargarDatos()
@@ -21,6 +24,12 @@ var app = new Vue({
 				.catch((error) => {
 					console.log(error)
 				})
+			axios.get("/api/carrito").then((response) => {
+				this.carrito = response.data
+				this.carrito.forEach((element) => {
+					this.total += element.precio
+				})
+			})
 		},
 
 		cargarPrendasMarroquineria() {
@@ -68,9 +77,12 @@ var app = new Vue({
 			})
 		},
 		agregarCarrito(nombrePrenda, cant, monto, montoTotal) {
-			this.total += montoTotal
 			axios.get("/api/carrito").then((response) => {
 				this.carrito = response.data
+				this.carrito.forEach((element) => {
+					this.total += element.precio
+				})
+				// this.total += montoTotal
 			})
 			axios
 				.post(
@@ -81,9 +93,40 @@ var app = new Vue({
 					Swal.fire({
 						icon: "success",
 						text: "Artículo agregado al carrito correctamente",
-						timer: 1500,
 					})
+					setTimeout(() => {
+						window.location.reload()
+					}, 1500)
 				})
+				.catch((error) => {
+					this.total -= montoTotal
+				})
+		},
+		vaciarCarrito() {
+			axios.delete(`/api/carrito`).then((response) => {
+				this.total = 0
+				Swal.fire({
+					icon: "info",
+					text: "Se eliminaron los artículos del carrito correctamente",
+				})
+				setTimeout(() => {
+					window.location.reload()
+				}, 1500)
+			})
+		},
+		mostrarCarrito() {
+			if (this.mostrarCarro) this.mostrarCarro = false
+			else this.mostrarCarro = true
+		},
+		comprar() {
+			this.total = 0
+			Swal.fire({
+				icon: "Success",
+				text: "Compra realizada con éxito!",
+			})
+			setTimeout(() => {
+				window.location.reload()
+			}, 1500)
 		},
 	},
 	computed: {

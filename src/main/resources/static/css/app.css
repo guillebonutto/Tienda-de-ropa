@@ -1173,7 +1173,7 @@ footer ul li {
 }
 
 .Marrón {
-	background-color: rgb(163, 83, 83);
+	background-color: rgb(161, 65, 65);
 	border: 1px solid black;
 	margin-top: -4px;
 	width: 20px;
@@ -1190,6 +1190,30 @@ footer ul li {
 
 .Blanco {
 	background-color: white;
+	border: 1px solid black;
+	margin-top: -4px;
+	width: 20px;
+	height: 30px;
+}
+
+.Celeste.Claro {
+	background-color: rgb(159, 210, 226);
+	border: 1px solid black;
+	margin-top: -4px;
+	width: 20px;
+	height: 30px;
+}
+
+.Color.Beige {
+	background-color: #f5f5dc;
+	border: 1px solid black;
+	margin-top: -4px;
+	width: 20px;
+	height: 30px;
+}
+
+.Color.Morado {
+	background-color: #572364;
 	border: 1px solid black;
 	margin-top: -4px;
 	width: 20px;
