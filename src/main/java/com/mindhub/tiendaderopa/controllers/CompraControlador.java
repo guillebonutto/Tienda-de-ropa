@@ -7,6 +7,9 @@ import com.mindhub.tiendaderopa.repositorios.ClienteRepositorio;
 import com.mindhub.tiendaderopa.repositorios.CompraRepositorio;
 import com.mindhub.tiendaderopa.repositorios.PrendaClienteRepositorio;
 import com.mindhub.tiendaderopa.repositorios.PrendaRepositorio;
+import com.mindhub.tiendaderopa.servicios.ClienteServicio;
+import com.mindhub.tiendaderopa.servicios.CompraServicio;
+import com.mindhub.tiendaderopa.servicios.PrendaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,20 +30,20 @@ import java.util.stream.Collectors;
 public class CompraControlador {
 
     @Autowired
-    CompraRepositorio compraRepositorio;
+    CompraServicio compraServicio;
 
     @Autowired
-    ClienteRepositorio clienteRepositorio;
+    ClienteServicio clienteServicio;
 
     @Autowired
-    PrendaRepositorio prendaRepositorio;
+    PrendaServicio prendaServicio;
 
     @Autowired
     PrendaClienteRepositorio prendaClienteRepositorio;
 
     @RequestMapping("/compras")
     public List<CompraDTO> getCompras(){
-        return compraRepositorio.findAll().stream().map(pago -> new CompraDTO(pago)).collect(Collectors.toList());
+        return compraServicio.getCompras();
     }
 
     @PostMapping("/compras")
@@ -54,11 +57,11 @@ public class CompraControlador {
                                                  @RequestParam String imagen
                                                  ){
 
-        Cliente cliente = clienteRepositorio.findByEmail(authentication.getName());
+        Cliente cliente = clienteServicio.findByEmail(authentication.getName());
 
-        Compra compra = compraRepositorio.findByTipo(tipoCompra);
+        Compra compra = compraServicio.findByTipo(tipoCompra);
 
-        Prenda prenda = prendaRepositorio.findByNombrePrenda(nombrePrenda);
+        Prenda prenda = prendaServicio.findByNombrePrenda(nombrePrenda);
 
 
 
@@ -70,10 +73,10 @@ public class CompraControlador {
         }
 
         Compra compra1 = new Compra(compra.getTipo(), LocalDateTime.now(),monto);
-        compraRepositorio.save(compra1);
+        compraServicio.saveCompra(compra1);
 
         prenda.setStock(prenda.getStock() - cantidad);
-        prendaRepositorio.save(prenda);
+        prendaServicio.savePrenda(prenda);
 
        // Prenda prenda = new Prenda(nombrePrenda,monto, tipoArticulo,talles,imagen);
 

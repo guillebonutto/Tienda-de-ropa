@@ -7,6 +7,7 @@ var app = new Vue({
 		setTimeoutBuscador: "",
 		carrito: [],
 		total: 0,
+		mostrarCarro: false,
 	},
 	created() {
 		this.cargarDatos()
@@ -16,6 +17,20 @@ var app = new Vue({
 		cargarDatos() {
 			axios.get("/api/carrito").then((response) => {
 				this.carrito = response.data
+				this.carrito.forEach((element) => {
+					this.total += element.precio
+					// if(this.carrito.nombrePrenda && this.carrito.precio)
+				})
+				// for (var i = 0; i < this.carrito.length; i++) {
+				// 	for (var j = 0; j < this.carrito.length - 1; i++) {
+				// 		if (this.carrito[i].nombrePrenda == this.carrito[j].nombrePrenda) {
+				// 			axios.delete(`/api/carrito/${j}`)
+				// 			.then(function (response) {
+				// 				this.carr
+				// 			})
+				// 		}
+				// 	}
+				// }
 			})
 			axios
 				.get("/api/prendas")
@@ -73,9 +88,12 @@ var app = new Vue({
 			})
 		},
 		agregarCarrito(nombrePrenda, cant, monto, montoTotal) {
-			this.total += montoTotal
 			axios.get("/api/carrito").then((response) => {
 				this.carrito = response.data
+				this.carrito.forEach((element) => {
+					this.total += element.precio
+				})
+				// this.total += montoTotal
 			})
 			axios
 				.post(
@@ -86,8 +104,10 @@ var app = new Vue({
 					Swal.fire({
 						icon: "success",
 						text: "Artículo agregado al carrito correctamente",
-						timer: 1500,
 					})
+					setTimeout(() => {
+						window.location.reload()
+					}, 1500)
 				})
 				.catch((error) => {
 					this.total -= montoTotal
@@ -96,13 +116,28 @@ var app = new Vue({
 		vaciarCarrito() {
 			axios.delete(`/api/carrito`).then((response) => {
 				this.total = 0
-				this.carrito = response.data
 				Swal.fire({
 					icon: "info",
 					text: "Se eliminaron los artículos del carrito correctamente",
-					timer: 1500,
 				})
+				setTimeout(() => {
+					window.location.reload()
+				}, 1500)
 			})
+		},
+		mostrarCarrito() {
+			if (this.mostrarCarro) this.mostrarCarro = false
+			else this.mostrarCarro = true
+		},
+		comprar() {
+			this.total = 0
+			Swal.fire({
+				icon: "Success",
+				text: "Compra realizada con éxito!",
+			})
+			setTimeout(() => {
+				window.location.reload()
+			}, 1500)
 		},
 	},
 	computed: {

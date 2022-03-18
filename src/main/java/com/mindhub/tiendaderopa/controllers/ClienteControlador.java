@@ -4,6 +4,7 @@ package com.mindhub.tiendaderopa.controllers;
 import com.mindhub.tiendaderopa.dtos.ClienteDTO;
 import com.mindhub.tiendaderopa.modelos.Cliente;
 import com.mindhub.tiendaderopa.repositorios.ClienteRepositorio;
+import com.mindhub.tiendaderopa.servicios.ClienteServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,11 +25,11 @@ public class ClienteControlador {
     PasswordEncoder passwordEncoder;
 
     @Autowired
-    ClienteRepositorio clienteRepositorio;
+    ClienteServicio clienteServicio;
 
     @RequestMapping("/clientes")
     public List<ClienteDTO> getArticulos(){
-        return clienteRepositorio.findAll().stream().map(cliente -> new ClienteDTO(cliente)).collect(Collectors.toList());
+        return clienteServicio.getArticulos();
     }
 
     @PostMapping("/clientes")
@@ -41,7 +42,7 @@ public class ClienteControlador {
         }
 
         Cliente cliente = new Cliente(nombre,apellido,email,passwordEncoder.encode(password));
-        clienteRepositorio.save(cliente);
+        clienteServicio.saveCliente(cliente);
         return new ResponseEntity<>("Cliente creado con éxito", HttpStatus.CREATED);
 
     }

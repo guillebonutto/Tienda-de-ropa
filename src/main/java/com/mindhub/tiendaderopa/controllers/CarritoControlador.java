@@ -7,6 +7,8 @@ import com.mindhub.tiendaderopa.modelos.Prenda;
 import com.mindhub.tiendaderopa.repositorios.CarritoRepositorio;
 import com.mindhub.tiendaderopa.repositorios.ClienteRepositorio;
 import com.mindhub.tiendaderopa.repositorios.PrendaRepositorio;
+import com.mindhub.tiendaderopa.servicios.CarritoServicio;
+import com.mindhub.tiendaderopa.servicios.ClienteServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,17 +22,15 @@ import java.util.stream.Collectors;
 public class CarritoControlador {
 
     @Autowired
-    ClienteRepositorio clienteRepositorio;
-
-    @Autowired
-    PrendaRepositorio prendaRepositorio;
-
-    @Autowired
     CarritoRepositorio carritoRepositorio;
+
+    @Autowired
+    CarritoServicio carritoServicio;
+
 
     @RequestMapping("/carrito")
     public List<CarritoDTO> getArticulos(){
-        return carritoRepositorio.findAll().stream().map(carrito -> new CarritoDTO(carrito)).collect(Collectors.toList());
+        return carritoServicio.getArticulos();
     }
 
     @PostMapping("/carrito")
@@ -45,15 +45,22 @@ public class CarritoControlador {
             return new ResponseEntity<>("complete todos los campos", HttpStatus.FORBIDDEN);
         }
         Carrito carrito = new Carrito(nombrePrenda,cantidad,monto,montoTotal);
-        carritoRepositorio.save(carrito);
+        carritoServicio.saveCarrito(carrito);
 
         return new ResponseEntity<>("Item agregado correctamente al carrito", HttpStatus.CREATED);
 
     }
 
     @DeleteMapping("/carrito")
-    public ResponseEntity<Object> crearCarrito (){
+    public ResponseEntity<Object> EliminarCarrito (){
         carritoRepositorio.deleteAll();
         return new ResponseEntity<>("se ha eliminado los artículos del carrito con éxito", HttpStatus.OK);
     }
+
+/*    @DeleteMapping("/carrito/{id}")
+    public ResponseEntity<Object> EliminarCarritoPorId (@PathVariable Long id, @RequestParam String mantener){
+        carritoControlador.;
+        carritoRepositorio.deleteById(id);
+        return new ResponseEntity<>("se ha eliminado los artículos del carrito con éxito", HttpStatus.OK);
+    }*/
 }
