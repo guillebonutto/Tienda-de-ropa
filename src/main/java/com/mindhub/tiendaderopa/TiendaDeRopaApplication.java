@@ -44,8 +44,6 @@ public class TiendaDeRopaApplication {
             Prenda prenda = new Prenda("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "ver");
             prendaRepositorio.save(prenda);
 
-
-
             Prenda carteraMarron = new Prenda("Cartera Adele de piel con compartimento para smartphone", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390548/cartera3marron_rcgmrp.jpg");
             prendaRepositorio.save(carteraMarron);
 
@@ -64,12 +62,8 @@ public class TiendaDeRopaApplication {
             Prenda tarjeteroPiel = new Prenda("Tarjetero de piel granulada", 5000, 5, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390710/cartera4negra_lpnf1a.jpg");
             prendaRepositorio.save(tarjeteroPiel);
 
-
-
             Prenda cintoBlanco = new Prenda("Cinto Square Buckle", 1500, 5, TipoArticulo.MARROQUINERIA,Arrays.asList("S","M"),"https://res.cloudinary.com/gohansox/image/upload/v1647391628/cintoBlanco_f3vdsp.jpg");
             prendaRepositorio.save(cintoBlanco);
-
-
 
             //indumentaria
             Prenda vestido1 = new Prenda("Vestido de encaje con estampado de palmeras",4000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("S","M","L","XL"),"https://res.cloudinary.com/gohansox/image/upload/v1647399422/vestido1_rtxvpk.jpg");
@@ -95,12 +89,6 @@ public class TiendaDeRopaApplication {
 
             Prenda camiseta2 = new Prenda("Camiseta de tirantes acanalada",3000, 6,TipoArticulo.INDUMENTARIA, Arrays.asList("XS","S"),"https://res.cloudinary.com/gohansox/image/upload/v1647401308/camiseta2_tnz3yh.jpg");
             prendaRepositorio.save(camiseta2);
-
-
-
-
-
-
 
             //zapatos!
             Prenda zapatoMarron = new Prenda("Sandalia Kelli con adornos y logotipo", 12000, 14, TipoArticulo.ZAPATOS,Arrays.asList("8","9","10","11","12"),"https://res.cloudinary.com/gohansox/image/upload/v1647385330/zapatos3_k2zlct.jpg" );
@@ -149,11 +137,6 @@ public class TiendaDeRopaApplication {
             Prenda aros2 = new Prenda("Pendientes largos de plata", 4500, 5, TipoArticulo.JOYERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647399047/aros2_x36ozy.jpg");
             prendaRepositorio.save(aros2);
 
-
-
-
-
-
             //remeras
             Prenda remeraBlanca = new Prenda("Remera Blanca",2000,5,TipoArticulo.REMERAS,Arrays.asList("S","M","L"),"ver");
             prendaRepositorio.save(remeraBlanca);
@@ -162,16 +145,10 @@ public class TiendaDeRopaApplication {
             prendaRepositorio.save(remeraNegra);
 
 
-
-
-
-
 /*            Set<Prenda> prendas = new HashSet<>();
             prendas.add(prenda);*/
             PrendaCliente prendaCliente = new PrendaCliente(prenda,100,500, compra, cliente);
             prendaClienteRepositorio.save(prendaCliente);
-
-            System.out.println(prenda);
         };
     }
 }

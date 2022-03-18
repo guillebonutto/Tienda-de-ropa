@@ -1,35 +1,39 @@
 var app = new Vue({
-    el:'#app',
-    data: {
-        prendas: [],
-        prendasMarroquineria: [],
-        buscar: '',
-        setTimeoutBuscador: ''
-    },      
-    created() {
-        this.cargarDatos();
-       
-    },
+	el: "#app",
+	data: {
+		prendas: [],
+		prendasMarroquineria: [],
+		buscar: "",
+		setTimeoutBuscador: "",
+		carrito: [],
+		total: 0,
+	},
+	created() {
+		this.cargarDatos()
+	},
 
-    methods: {
-        cargarDatos(){
-            axios
-            .get('/api/prendas')
-            .then((response)=>{
-                this.prendas = response.data
-                this.cargarPrendasMarroquineria();
+	methods: {
+		cargarDatos() {
+			axios.get("/api/carrito").then((response) => {
+				this.carrito = response.data
+			})
+			axios
+				.get("/api/prendas")
+				.then((response) => {
+					this.prendas = response.data
+					this.cargarPrendasMarroquineria()
+				})
+				.catch((error) => {
+					console.log(error)
+				})
+		},
 
-            })
-            .catch((error)=>{
-                console.log(error)
-            })
-            
-        },
-
-        cargarPrendasMarroquineria() {
-            this.prendasMarroquineria = this.prendas.filter(element=> element.tipoArticulo == "MARROQUINERIA")
-        },
-        		cargarPrendasMarroquineria() {
+		cargarPrendasMarroquineria() {
+			this.prendasMarroquineria = this.prendas.filter(
+				(element) => element.tipoArticulo == "MARROQUINERIA"
+			)
+		},
+		cargarPrendasMarroquineria() {
 			this.prendasMarroquineria = this.prendas.filter(
 				(element) => element.tipoArticulo == "MARROQUINERIA"
 			)
@@ -68,13 +72,30 @@ var app = new Vue({
 				}
 			})
 		},
+		agregarCarrito(nombrePrenda, cant, monto, montoTotal) {
+			this.total += montoTotal
+			axios.get("/api/carrito").then((response) => {
+				this.carrito = response.data
+			})
+			axios
+				.post(
+					"/api/carrito",
+					`nombrePrenda=${nombrePrenda}&cantidad=${cant}&monto=${monto}&montoTotal=${this.total}`
+				)
+				.then((response) => {
+					Swal.fire({
+						icon: "success",
+						text: "Artículo agregado al carrito correctamente",
+						timer: 1500,
+					})
+				})
+		},
 	},
-    computed:{
-        filtrarPrendas(){
-            return this.prendasMarroquineria.filter(prenda => prenda.nombrePrenda.toLowerCase().includes(this.buscar.toLowerCase()))
-            
-        }
-    }
-    
-
+	computed: {
+		filtrarPrendas() {
+			return this.prendasMarroquineria.filter((prenda) =>
+				prenda.nombrePrenda.toLowerCase().includes(this.buscar.toLowerCase())
+			)
+		},
+	},
 })
