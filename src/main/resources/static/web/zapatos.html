@@ -184,8 +184,8 @@
 						<input type="text" placeholder="Search" v-model="buscador" />
 						<i class="bx bx-search-alt"></i>
 					</div>
-					<div class="box">
-						<div class="d-flex">
+					<div class="box ">//div class box
+						<div class="row">
 							<div class="col-3 filter-col" id="filter-col">
 								<div class="box filter-toggle-box">
 									<button class="btn-flat btn-hover" id="filter-close">close</button>
@@ -365,13 +365,11 @@
 								<div class="box filter-toggle-box">
 									<button class="btn-flat btn-hover" id="filter-toggle">filter</button>
 								</div>
-								<div class="box">
-									<div
-										class="row d-flex justify-content-center justify-content-between flex-wrap"
-										id="products"
-									>
+								 //div class box
+									<div class="row" id="products">
+                                   
 										<div
-											class="card mb-3"
+											class="card mb-3 col-4 mx-3"
 											style="width: 18rem"
 											v-for="prenda in filtrarPrendas"
 											keyup="prendasMarroquineria.nombrePrenda"
@@ -383,11 +381,13 @@
 												<a href="#" class="btn btn-primary">Agregar al Carrito</a>
 											</div>
 										</div>
+
+                                  
 									</div>
-								</div>
+								 //cierre div class box
 							</div>
 						</div>
-					</div>
+					</div>//cierre div class
 				</div>
 			</div>
 			<!-- footer espectacular -->
