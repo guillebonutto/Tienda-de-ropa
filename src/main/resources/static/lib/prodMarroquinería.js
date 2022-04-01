@@ -3,7 +3,10 @@ var app = new Vue({
 	data: {
 		prendas: [],
 		prendasMarroquineria: [],
+		check: [],
 		buscar: "",
+		precioDesde: 0,
+		precioHasta: 0,
 		setTimeoutBuscador: "",
 		carrito: [],
 		total: 0,
@@ -47,45 +50,6 @@ var app = new Vue({
 			this.prendasMarroquineria = this.prendas.filter(
 				(element) => element.tipoArticulo == "MARROQUINERIA"
 			)
-		},
-		cargarPrendasMarroquineria() {
-			this.prendasMarroquineria = this.prendas.filter(
-				(element) => element.tipoArticulo == "MARROQUINERIA"
-			)
-		},
-		filtroCategorias(categoria) {
-			this.prendasMarroquineria = this.prendasMarroquineria.filter((element) =>
-				element.nombrePrenda.includes(categoria)
-			)
-		},
-		filtroPrecio(precioDesde, precioHasta) {
-			this.prendasMarroquineria.forEach((precio) => {
-				if (
-					this.prendasMarroquineria.precio >= precioDesde &&
-					this.prendasMarroquineria.precio <= precioHasta
-				) {
-					this.filterPrecio.push(precio)
-				} else {
-					this.filterPrecio = []
-				}
-			})
-		},
-		filtroColor(color) {
-			this.prendasMarroquineria = this.prendasMarroquineria.filter((element) =>
-				element.nombrePrenda.includes(color)
-			)
-		},
-		buscadorr() {
-			this.prendasMarroquineria.forEach((element) => {
-				if (
-					element.nombrePrenda.toLowerCase().includes(element.nombrePrenda.toLowerCase()) ||
-					this.buscar == ""
-				) {
-					this.prendasMarroquineria = this.prendasMarroquineria.filter((elemento) =>
-						elemento.nombrePrenda.toLowerCase().includes(this.buscar.toLowerCase())
-					)
-				}
-			})
 		},
 		agregarCarrito(nombrePrenda, cant, monto, montoTotal) {
 			axios.get("/api/carrito").then((response) => {
@@ -144,9 +108,17 @@ var app = new Vue({
 	},
 	computed: {
 		filtrarPrendas() {
-			return this.prendasMarroquineria.filter((prenda) =>
-				prenda.nombrePrenda.toLowerCase().includes(this.buscar.toLowerCase())
-			)
+			return this.prendasMarroquineria.filter((prenda) => {
+				let color = prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf("Color")+6)
+				if (prenda.nombrePrenda.toLowerCase().includes(this.buscar.toLowerCase()) || this.buscar == "") {
+					if (color == this.check || this.check.length < 1) {
+						if (prenda.precio >= this.precioDesde && prenda.precio <= this.precioHasta || prenda.precio >= this.precioDesde && this.precioHasta == 0 || this.precioDesde == 0 && prenda.precio <= this.precioHasta) {
+							return prenda
+						}
+					}
+				}
+				// prenda.nombrePrenda.toLowerCase().includes(this.buscar.toLowerCase())
+			})
 		},
 	},
 })

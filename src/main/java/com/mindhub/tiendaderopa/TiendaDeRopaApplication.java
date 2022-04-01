@@ -42,7 +42,7 @@ public class TiendaDeRopaApplication {
             Prenda prenda = new Prenda("Remera loli", 200, 20, TipoArticulo.REMERAS, Arrays.asList("S", "M", "L", "XL", "XXL"), "ver");
             prendaRepositorio.save(prenda);
 
-            Prenda carteraMarron = new Prenda("Cartera Adele de piel con compartimento para smartphone Color Marrón Claro", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390548/cartera3marron_rcgmrp.jpg");
+            Prenda carteraMarron = new Prenda("Cartera Adele de piel con compartimento para smartphone Color Marrón", 1000, 10, TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390548/cartera3marron_rcgmrp.jpg");
             prendaRepositorio.save(carteraMarron);
 
             Prenda carteraNegra = new Prenda("Bandolera Ginny de piel Color Negro", 1200, 12,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"), "https://res.cloudinary.com/gohansox/image/upload/v1647390393/cartera2negra_sitlww.jpg");

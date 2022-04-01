@@ -83,7 +83,7 @@
 						<div class="mid-header container">
 							<a href="index.html" class="logo">ROSIER</a>
 							<div class="search">
-								<input type="text" placeholder="Buscador" v-model="buscar" @keyup="buscar" />
+								<input type="text" placeholder="Buscador" v-model="buscar" />
 								<i class="bx bx-search-alt"></i>
 							</div>
 							<ul class="user-menu">
@@ -236,9 +236,9 @@
 								<div class="box">
 									<span class="filter-header"> Precio </span>
 									<div class="price-range">
-										<input type="text" id="precioDesde" />
+										<input type="text" v-model="precioDesde" />
 										<span>-</span>
-										<input type="text" id="precioHasta" @keyup="filtroPrecio()" />
+										<input type="text" v-model="precioHasta"S />
 									</div>
 								</div>
 								<div class="box">
@@ -269,41 +269,33 @@
 									<ul class="filter-list">
 										<li>
 											<div class="group-checkbox">
-												<input type="checkbox" id="remember1" @change="filtroColor('Negro')" />
+												<input type="checkbox" id="remember1" value="Negro" v-model="check" />
 												<label for="remember1">
 													Negro
-													<i class="bx bx-check"></i>
 												</label>
 											</div>
 										</li>
 										<li>
 											<div class="group-checkbox">
-												<input type="checkbox" id="remember2" @change="filtroColor('Marrón')" />
+												<input type="checkbox" id="remember2" value="Marrón" v-model="check" />
 												<label for="remember2">
 													Marrón
-													<i class="bx bx-check"></i>
 												</label>
 											</div>
 										</li>
 										<li>
 											<div class="group-checkbox">
-												<input
-													type="checkbox"
-													id="remember3"
-													@change="filtroColor('Marrón Claro')"
-												/>
+												<input type="checkbox" id="remember3" value="Marrón claro" v-model="check"	/>
 												<label for="remember3">
 													Marrón claro
-													<i class="bx bx-check"></i>
 												</label>
 											</div>
 										</li>
 										<li>
 											<div class="group-checkbox">
-												<input type="checkbox" id="remember4" @change="filtroColor('Blanco')" />
+												<input type="checkbox" id="remember4" value="Blanco" v-model="check" />
 												<label for="remember4">
 													Blanco
-													<i class="bx bx-check"></i>
 												</label>
 											</div>
 										</li>
