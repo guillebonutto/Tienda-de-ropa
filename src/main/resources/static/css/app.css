@@ -1173,15 +1173,15 @@ footer ul li {
 }
 
 .Marrón {
-	background-color: rgb(161, 65, 65);
+	background-color: rgb(99, 80, 74);
 	border: 1px solid black;
 	margin-top: -4px;
 	width: 20px;
 	height: 30px;
 }
 
-.Marrón.Claro {
-	background-color: rgb(182, 136, 136);
+.Marrón.claro {
+	background-color: #b68888;
 	border: 1px solid black;
 	margin-top: -4px;
 	width: 20px;
@@ -1196,15 +1196,15 @@ footer ul li {
 	height: 30px;
 }
 
-.Celeste.Claro {
-	background-color: rgb(159, 210, 226);
+.Celeste.claro {
+	background-color: #b0deec;
 	border: 1px solid black;
 	margin-top: -4px;
 	width: 20px;
 	height: 30px;
 }
 
-.Color.Beige {
+Beige {
 	background-color: #f5f5dc;
 	border: 1px solid black;
 	margin-top: -4px;
@@ -1212,8 +1212,16 @@ footer ul li {
 	height: 30px;
 }
 
-.Color.Morado {
+Morado {
 	background-color: #572364;
+	border: 1px solid black;
+	margin-top: -4px;
+	width: 20px;
+	height: 30px;
+}
+
+.Dorado {
+	background-color: #d6b490;
 	border: 1px solid black;
 	margin-top: -4px;
 	width: 20px;

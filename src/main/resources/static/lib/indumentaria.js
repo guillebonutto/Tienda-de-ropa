@@ -98,10 +98,20 @@ var app = new Vue({
 	computed: {
 		filtrarPrendas() {
 			return this.prendasMarroquineria.filter((prenda) => {
-				let color = prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf("Color")+6)
-				if (prenda.nombrePrenda.toLowerCase().includes(this.buscar.toLowerCase()) || this.buscar == "") {
-					if (color == this.check || this.check.length < 1) {
-						if (prenda.precio >= this.precioDesde && prenda.precio <= this.precioHasta || prenda.precio >= this.precioDesde && this.precioHasta == 0 || this.precioDesde == 0 && prenda.precio <= this.precioHasta) {
+				let color = prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf("Color") + 6)
+				if (
+					prenda.nombrePrenda.toLowerCase().includes(this.buscar.toLowerCase()) ||
+					this.buscar == ""
+				) {
+					if (
+						this.check.find((element) => element == color) != undefined ||
+						this.check.length < 1
+					) {
+						if (
+							(prenda.precio >= this.precioDesde && prenda.precio <= this.precioHasta) ||
+							(prenda.precio >= this.precioDesde && this.precioHasta == 0) ||
+							(this.precioDesde == 0 && prenda.precio <= this.precioHasta)
+						) {
 							return prenda
 						}
 					}

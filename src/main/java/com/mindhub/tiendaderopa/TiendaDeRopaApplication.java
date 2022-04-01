@@ -48,7 +48,7 @@ public class TiendaDeRopaApplication {
             Prenda carteraNegra = new Prenda("Bandolera Ginny de piel Color Negro", 1200, 12,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"), "https://res.cloudinary.com/gohansox/image/upload/v1647390393/cartera2negra_sitlww.jpg");
             prendaRepositorio.save(carteraNegra);
 
-            Prenda carteraMarronclaro = new Prenda("Cartera Color Marrón Claro",5000,20,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390207/cartera1_lkvp9g.jpg");
+            Prenda carteraMarronclaro = new Prenda("Cartera Color Marrón claro",5000,20,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647390207/cartera1_lkvp9g.jpg");
             prendaRepositorio.save(carteraMarronclaro);
 
             Prenda carteraBlanca = new Prenda("Bandolera Ginny Color Blanco", 4000,15,TipoArticulo.MARROQUINERIA,Arrays.asList("Standard"),"https://res.cloudinary.com/gohansox/image/upload/v1647565247/carterablanca_auw9df.jpg");
@@ -89,28 +89,28 @@ public class TiendaDeRopaApplication {
             prendaRepositorio.save(camiseta2);
 
             //zapatos!
-            Prenda zapatoMarron = new Prenda("Sandalia Kelli con adornos y logotipo", 12000, 14, TipoArticulo.ZAPATOS,Arrays.asList("8","9","10","11","12"),"https://res.cloudinary.com/gohansox/image/upload/v1647385330/zapatos3_k2zlct.jpg" );
+            Prenda zapatoMarron = new Prenda("Sandalia Kelli con adornos y logotipo Color Marrón", 12000, 14, TipoArticulo.ZAPATOS,Arrays.asList("8","9","10","11","12"),"https://res.cloudinary.com/gohansox/image/upload/v1647385330/zapatos3_k2zlct.jpg" );
             prendaRepositorio.save(zapatoMarron);
 
-            Prenda zapatoNegro = new Prenda("Zapato de salón Keke de piel con tachuelas", 13500, 15, TipoArticulo.ZAPATOS, Arrays.asList("11","12"),"https://res.cloudinary.com/gohansox/image/upload/v1647385158/zapatos2_dpuzvr.jpg");
+            Prenda zapatoNegro = new Prenda("Zapato de salón Keke de piel con tachuelas Color Negro", 13500, 15, TipoArticulo.ZAPATOS, Arrays.asList("11","12"),"https://res.cloudinary.com/gohansox/image/upload/v1647385158/zapatos2_dpuzvr.jpg");
             prendaRepositorio.save(zapatoNegro);
 
-            Prenda zapatoCamel = new Prenda("Zapato de salón Kadence",15000,5,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647384607/zapatos1_jaqaxv.jpg");
+            Prenda zapatoCamel = new Prenda("Zapato de salón Kadence Color Dorado",15000,5,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647384607/zapatos1_jaqaxv.jpg");
             prendaRepositorio.save(zapatoCamel);
 
             Prenda zapato4 = new Prenda("Zapato de salón Keke de piel con tachuelas",17000,3,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647385534/zapatos4_wr95ea.jpg");
             prendaRepositorio.save(zapato4);
 
-            Prenda zapato5 = new Prenda("Zapato de salón Dorothy de piel",11540,6,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647385699/zapatos5_xukqg3.jpg");
+            Prenda zapato5 = new Prenda("Zapato de salón Dorothy de piel Color Celeste claro",11540,6,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647385699/zapatos5_xukqg3.jpg");
             prendaRepositorio.save(zapato5);
 
-            Prenda zapato6 = new Prenda("Sandalia tipo alpargata Laney de piel saffiano con cuña",10000,8,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647386258/zapatos6_bidfqz.jpg");
+            Prenda zapato6 = new Prenda("Sandalia tipo alpargata Laney de piel saffiano con cuña Color Marrón claro",10000,8,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647386258/zapatos6_bidfqz.jpg");
             prendaRepositorio.save(zapato6);
 
-            Prenda zapato7 = new Prenda("Zapatos de salón abiertos de satén la medusa",13000,2,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647386547/zapatos7_cwfhty.jpg");
+            Prenda zapato7 = new Prenda("Zapatos de salón abiertos de satén la medusa Color Morado",13000,2,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647386547/zapatos7_cwfhty.jpg");
             prendaRepositorio.save(zapato7);
 
-            Prenda zapato8 = new Prenda("Sandalia Wren de piel en relieve metalizada con motivo de serpiente y tachuelas",14000,4,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647386845/zapatos8_bc18fs.jpg");
+            Prenda zapato8 = new Prenda("Sandalia Wren de piel en relieve metalizada con motivo de serpiente y tachuelas Color Dorado",14000,4,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647386845/zapatos8_bc18fs.jpg");
             prendaRepositorio.save(zapato8);
 
             Prenda zapato9 = new Prenda("Sandalia Giselle de piel en relieve con cristales",13500,4,TipoArticulo.ZAPATOS, Arrays.asList("8","9","10","11"),"https://res.cloudinary.com/gohansox/image/upload/v1647387001/zapatos9_iehenq.jpg");
